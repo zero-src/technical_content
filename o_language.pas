@@ -25,12 +25,12 @@
 --------------------------------------------------------------------------------
 -- Lesson #002 | useful functions
 --------------------------------------------------------------------------------
-1. arctan(x) = arctg(x)                       9. odd(x)    = false/true | even/odd                  
+1. arctan(x) = arctg(x)                       9. pred(x)   = x - 1 ( x == 0.11 | pred(x) == 0.10 )                
 2. sqrt(x)   = √x                            10. succ(x)   = x + 1 ( x == 0.11 | succ(x) == 0.12 )
-3. sin(x)    = sin(x)                        11. pred(x)   = x - 1 ( x == 0.11 | pred(x) == 0.10 )
-4. cos(x)    = cos(x)                        12. dec(x, i) = x := x - i
-5. exp(x)    = e^x                           13. inc(x, i) = x := x + i
-6. abs(x)    = |x|                           14. trunc(x)  = x := 1.023 ( trunc(x) := 1 )
-7. sqr(x)    = x²                            15. round(x)  = rounds "x" to closest number
+3. sin(x)    = sin(x)                        11. trunc(x)  = x := 1.023 ( trunc(x) := 1 )   
+4. cos(x)    = cos(x)                        12. round(x)  = rounds "x" to closest number 
+5. exp(x)    = e^x                           13. odd(x)    = false/true | even/odd  
+6. abs(x)    = |x|                           14. inc(x, i) = x := x + i
+7. sqr(x)    = x²                            15. dec(x, i) = x := x - i
 8. ln(x)     = ln(x)
 
