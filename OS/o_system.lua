@@ -35,3 +35,9 @@
      • mv file.txt /home/folder ["moves your file to selected directory"]
      • mv old_name.txt new_name.txt ["renames selected file"]
 
+--------------------------------------------------------------------------------
+-- Useless links 
+--------------------------------------------------------------------------------
+1) qemu.org ["test your knolage of cmd"]
+2) 9front.org ["useless shit"]
+3) cat-v.org ["probably useful"]
