@@ -17,7 +17,13 @@
 
 -- Linux console commands
 1) pwd ["returns current directory"]
-2) cd 
+2) cd:
      • cd .. ["goes up to next directory"]
      • cd  ["returns home catalog"]
      • cd- ["goes to the previous catalog"]
+3) ls: ["used for viewing content of selected directory"]
+     • ls /home/Document
+     • ls -R  ["reads content of the file"]
+     • ls -a  ["shows hidden files of sub-directory"]
+     • ls -al ["shows all information related to file"]
+
