@@ -21,7 +21,7 @@
      • cd .. ["goes up to next directory"]
      • cd  ["returns home catalog"]
      • cd- ["goes to the previous catalog"]
-3) ls: ["used for viewing content of selected directory"]
+3) ls: ["use for viewing content of selected directory"]
      • ls /home/Document
      • ls -R  ["reads content of the file"]
      • ls -a  ["shows hidden files of sub-directory"]
