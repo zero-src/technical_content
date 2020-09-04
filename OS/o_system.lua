@@ -30,4 +30,8 @@
      • cat > file ["creates new file"]
      • cat fl_1 fl_2 > fl_3 ["injects information from fl_1 and fl_2 into fl_3"]
      • cat filename | tr a-z A-Z >output.txt ["replaces all small letters with big one"]
+5) cp image.jpg /home/gallery ["copies your image to the directory"]
+6) mv: ["move"]
+     • mv file.txt /home/folder ["moves your file to selected directory"]
+     • mv old_name.txt new_name.txt ["renames selected file"]
 
