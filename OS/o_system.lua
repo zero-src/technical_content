@@ -7,3 +7,7 @@
 4) sfc /scannow ["scan system files for problems w/o antivirus"]
 5) ipconfig /flushdns ["fix issues with DNS resolver cache"]
 
+-- Interfaces types
+• GUI - graphic user interface 
+• CLI - client interface
+
