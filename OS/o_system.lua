@@ -41,3 +41,4 @@
 1) qemu.org ["test your knolage of cmd"]
 2) 9front.org ["useless shit"]
 3) cat-v.org ["probably useful"]
+4) https://cocalc.com/doc/terminal.html ["Linux terminal online"]
