@@ -17,7 +17,7 @@
 
 -- Linux console commands
 1) pwd ["returns current directory"]
-2) cd:
+2) cd: ["used for transfer"]
      • cd .. ["goes up to next directory"]
      • cd  ["returns home catalog"]
      • cd- ["goes to the previous catalog"]
@@ -26,4 +26,8 @@
      • ls -R  ["reads content of the file"]
      • ls -a  ["shows hidden files of sub-directory"]
      • ls -al ["shows all information related to file"]
+4) cat: ["short of concatenate"]
+     • cat > file ["creates new file"]
+     • cat fl_1 fl_2 > fl_3 ["injects information from fl_1 and fl_2 into fl_3"]
+     • cat filename | tr a-z A-Z >output.txt ["replaces all small letters with big one"]
 
