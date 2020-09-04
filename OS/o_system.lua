@@ -14,3 +14,10 @@
 --------------------------------------------------------------------------------
 -- https://opennet.ru/ | exploit documentation 
 --------------------------------------------------------------------------------
+
+-- Linux console commands
+1) pwd ["returns current directory"]
+2) cd 
+     • cd .. ["goes up to next directory"]
+     • cd  ["returns home catalog"]
+     • cd- ["goes to the previous catalog"]
