@@ -40,5 +40,6 @@
 --------------------------------------------------------------------------------
 1) qemu.org ["test your knolage of cmd"]
 2) 9front.org ["useless shit"]
-3) cat-v.org ["probably useful"]
-4) cocalc.com/doc/terminal.html ["Linux terminal online"]
+3) snow.org ["catalog of everything"]
+4) cat-v.org ["probably useful"]
+5) cocalc.com/doc/terminal.html ["Linux terminal online"]
