@@ -9,7 +9,7 @@
 
 -- Interfaces types
 • GUI - graphic user interface 
-• CLI - client interface
+• CLI - command-line interface
 
 --------------------------------------------------------------------------------
 -- https://opennet.ru/ | exploit documentation 
