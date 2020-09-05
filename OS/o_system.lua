@@ -34,7 +34,16 @@
 6) mv: ["move"]
      • mv file.txt /home/folder ["moves your file to selected directory"]
      • mv old_name.txt new_name.txt ["renames selected file"]
-
+7) mkdir: ["creates new directory"]
+     • mkdir music/new_file ["generates new directory inside another directory"]
+     • mkdir -p music/global/new_file ["creates directory between two existing directories"] ["new folder was named <global>"]
+8) rmdir: ["deletes directory"]
+9) rm: ["deletes directory and contents within them"] ["NOTE: This will delete everything and there is no undo"]
+     • rm -r ["similar to rmdir"]
+10) touch ["creates new blank file"]
+     • touch /home/www/site/index.html ["creates an HTML file entitled index"]
+11) locate: ["use it for searching files"]
+     • locate -i useless*link ["-i indicates that user doesn't know full name of the file"] [" '*' concatenates two parts of the filename"]
 --------------------------------------------------------------------------------
 -- Useless links 
 --------------------------------------------------------------------------------
