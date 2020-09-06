@@ -8,7 +8,7 @@
     #define con_4 [ −9 223 372 036 854 775 808 til +9 223 372 036 854 775 807 ]
     #define con_5 [ 0 til 18 446 744 073 709 551 615 ]
     
-    | Type    |         Byte          |                Variable range                 |
+    | Type    |         Byte       |                 Variable range                   |
     -----------------------------------------------------------------------------------
     |  bool   |         1          |   true or false                                  |
     |  char   |         1          |   [ -128 til 127 ] or [ 0 til 255 ]              | // 1st range relates to signed char | 2nd range relates to unsigned char 
