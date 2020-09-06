@@ -1,6 +1,7 @@
     //--------------------------------------------------------------------------------------------------------------------\\
                                                        VARIABLE TYPES
     //--------------------------------------------------------------------------------------------------------------------\\
+    
     #define con_1 [ 0 til 65 535 ]
     #define con_2 [ 0 til 4 294 967 295 ]
     #define con_3 [ −2 147 483 648 til 2 147 483 647 ]
@@ -10,7 +11,7 @@
     | Type |         Byte          |                Variable range                  |
     ---------------------------------------------------------------------------------
     |  bool   |         1          | true or false                                  |
-    |  char   |         1          | [ -128 til 127 ] or [ 0 til 255 ]              | // 1st range relates to signed char | 2nd range relates to unsigned char \\
+    |  char   |         1          | [ -128 til 127 ] or [ 0 til 255 ]              | // 1st range relates to signed char | 2nd range relates to unsigned char 
     | wchar_t | win: 1 | linux: 4  | byte == 1 ? con_1 : con_2                      |
     |  short  |         2          |              [" –32768 til 32767 "]            | // unsigned short [ 0 til 65535 ]
     |   int   |       2 or 4       | if bytes == 2 ? [" –32768 til 32767 "] : con_3 | // signed int, signed int or unsigned int
