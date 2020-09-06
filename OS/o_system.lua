@@ -37,13 +37,26 @@
 7) mkdir: ["creates new directory"]
      • mkdir music/new_file ["generates new directory inside another directory"]
      • mkdir -p music/global/new_file ["creates directory between two existing directories"] ["new folder was named <global>"]
-8) rmdir: ["deletes directory"]
+8) rmdir ["deletes directory"]
 9) rm: ["deletes directory and contents within them"] ["NOTE: This will delete everything and there is no undo"]
      • rm -r ["similar to rmdir"]
-10) touch ["creates new blank file"]
+10) touch: ["creates new blank file"]
      • touch /home/www/site/index.html ["creates an HTML file entitled index"]
 11) locate: ["use it for searching files"]
      • locate -i useless*link ["-i indicates that user doesn't know full name of the file"] [" '*' concatenates two parts of the filename"]
+12) find: ["using find also searches for files and directories"]
+     • find /home/ -name notes.txt ["command will search for a file called notes.txt"]
+     • find . -name notes.txt ["finds files in the current directory"]
+     • / -type d -name notes. txt ["looks up for directions"]
+13) grep ["it lets you search through all the text in a given file"] "grep blue notepad.txt"
+14) sudo ["run as administrator"]
+15) df: ["Use this command to get a report on the system’s disk space usage, shown in percentage and KBs"] 
+     • df -m ["[-m] flag is used for converting KBs to MBs"]
+16) du: ["Disk usage"]
+     • du -h ["shows info in bytes, kilobytes, and megabytes"]
+17) head: ["used to view the first lines of any text file"]
+     • head -n x filename.txt ["if you only want to show the first x lines of file"]
+
 --------------------------------------------------------------------------------
 -- Useless links 
 --------------------------------------------------------------------------------
