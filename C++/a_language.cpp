@@ -29,3 +29,4 @@
 
 1) https://ravesli.com/uroki-cpp/                  // крутые занятия
 2) https://code-live.ru/tag/cpp-manual/            // тут они тоже на уровне
+3) https://youtu.be/HcESuwmlHEY                    // cool channel
