@@ -58,7 +58,21 @@
      • head -n x filename.txt ["if you only want to show the first x lines of file"]
 18) tail: ["used to view the last ten lines of any text file"]
      • tail -n filename.ext ["if you only want to show the last x lines of file"]
-
+19) diff: ["compares the contents of two files line by line"]
+     • diff file1.ext file2.ext ["After analyzing the files, it will output the lines that do not match"]
+20) tar: ["archives selected file"]
+     • tarball ["file similar to zip format with compression"]
+21) chmod: ["used to change the read, write, and execute permissions of files and directories"]
+     - Syntax:
+          • chmod [OPTION]... MODE[,MODE]... FILE...
+          • chmod [OPTION]... OCTAL-MODE FILE...
+          • chmod [OPTION]... --reference=RFILE FILE...
+     - Options:
+          • -c ["Like --verbose, but gives verbose output only when a change is actually made"]
+          • -f ["Quiet mode; suppress most error messages"]
+          • -R ["Change files and directories recursively"]
+22) chown: ["enables you to change or transfer the ownership of a file to the specified username"]
+     • chown linuxuser2 file.ext ["will make linuxuser2 as the owner of the file.ext"]
 --------------------------------------------------------------------------------
 -- Useless links 
 --------------------------------------------------------------------------------
