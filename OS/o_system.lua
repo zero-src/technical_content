@@ -56,12 +56,14 @@
      • du -h ["shows info in bytes, kilobytes, and megabytes"]
 17) head: ["used to view the first lines of any text file"]
      • head -n x filename.txt ["if you only want to show the first x lines of file"]
+18) tail: ["used to view the last ten lines of any text file"]
+     • tail -n filename.ext ["if you only want to show the last x lines of file"]
 
 --------------------------------------------------------------------------------
 -- Useless links 
 --------------------------------------------------------------------------------
-1) qemu.org ["test your knolage of cmd"]
-2) 9front.org ["useless shit"]
-3) snow.org ["catalog of everything"]
-4) cat-v.org ["probably useful"]
+1) qemu.org                     ["test your knolage of cmd"]
+2) 9front.org                   ["useless shit"]
+3) snow.org                     ["catalog of everything"]
+4) cat-v.org                    ["probably useful"]
 5) cocalc.com/doc/terminal.html ["Linux terminal online"]
