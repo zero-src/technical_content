@@ -6,7 +6,7 @@
 Записать на языке Pascal в дробной части до 4х цифр: 
 1) 5!           ["equals to"]   1 * 2 * 3 * 4 * 5
 2) 6,38         ["equals to"]   6.38
-3) -0,7         ["equals to"]   -0.7
+3) -0,7         ["equals to"]   -7E-5
 4) 11⁄4         ["equals to"]   11/4
 5) -(1⁄6)       ["equals to"]   -(1/6)
 6) √2           ["equals to"]   sqrt(2)
