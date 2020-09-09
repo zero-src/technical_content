@@ -31,6 +31,7 @@
      • cat fl_1 fl_2 > fl_3 ["injects information from fl_1 and fl_2 into fl_3"]
      • cat filename | tr a-z A-Z >output.txt ["replaces all small letters with big one"]
 5) cp image.jpg /home/gallery ["copies your image to the directory"]
+--------------------------------------------------------------------------------
 6) mv: ["move"]
      • mv file.txt /home/folder ["moves your file to selected directory"]
      • mv old_name.txt new_name.txt ["renames selected file"]
@@ -42,6 +43,7 @@
      • rm -r ["similar to rmdir"]
 10) touch: ["creates new blank file"]
      • touch /home/www/site/index.html ["creates an HTML file entitled index"]
+--------------------------------------------------------------------------------
 11) locate: ["use it for searching files"]
      • locate -i useless*link ["-i indicates that user doesn't know full name of the file"] [" '*' concatenates two parts of the filename"]
 12) find: ["using find also searches for files and directories"]
@@ -52,6 +54,7 @@
 14) sudo ["run as administrator"]
 15) df: ["Use this command to get a report on the system’s disk space usage, shown in percentage and KBs"] 
      • df -m ["[-m] flag is used for converting KBs to MBs"]
+--------------------------------------------------------------------------------
 16) du: ["Disk usage"]
      • du -h ["shows info in bytes, kilobytes, and megabytes"]
 17) head: ["used to view the first lines of any text file"]
@@ -62,6 +65,7 @@
      • diff file1.ext file2.ext ["After analyzing the files, it will output the lines that do not match"]
 20) tar: ["archives selected file"]
      • tarball ["file similar to zip format with compression"]
+--------------------------------------------------------------------------------
 21) chmod: ["used to change the read, write, and execute permissions of files and directories"]
      - Syntax:
           • chmod [OPTION]... MODE[,MODE]... FILE...
@@ -73,6 +77,7 @@
           • -R ["Change files and directories recursively"]
 22) chown: ["enables you to change or transfer the ownership of a file to the specified username"]
      • chown linuxuser2 file.ext ["will make linuxuser2 as the owner of the file.ext"]
+
 --------------------------------------------------------------------------------
 -- Useless links 
 --------------------------------------------------------------------------------
