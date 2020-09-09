@@ -1,6 +1,7 @@
 --------------------------------------------------------------------------------
 -- Lesson #002 | Home task | 03.09.2020 
 --------------------------------------------------------------------------------
+--[[ https://unicode-table.com/ru/sets/superscript-and-subscript-numbers/]]--
 
 -- Part #1
 Записать на языке Pascal в дробной части до 4х цифр: 
@@ -21,4 +22,4 @@
 2) trunc(6.2) = 6  | round(6.2) = 6
 3) round(0.5) = 1
 
---[[https://unicode-table.com/ru/sets/superscript-and-subscript-numbers/]]--
+
