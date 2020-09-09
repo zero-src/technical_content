@@ -28,8 +28,8 @@
 
 -- Part #1
 1. 0 < x < 1         ["equals to"]   (0 < x) and (x < 1)
-2. x = max(x, y, z)  ["equals to"]
-3. x ≠ max(x, y, z)  ["equals to"]
+2. x = max(x, y, z)  ["equals to"]   (x > y) and (x > z)
+3. x ≠ max(x, y, z)  ["equals to"]   ( (x > y) and (x < z) ) or ( (x < y) and (x > z) )
 4. .. a или b ..     ["equals to"]   a or b
 5. .. a и b ..       ["equals to"]   a and b
 
