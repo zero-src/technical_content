@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------------
 -- Lesson #005 | Home task | 11.09.2020 
 --------------------------------------------------------------------------------
-// Task #1
+// Task #1 | a and b are real (use '+', '-', '*' operators)
 program s_counter;
 
 var a, b:real;
@@ -14,7 +14,7 @@ begin
     writeln('a + b = ', a + b, #13#10, 'a - b = ', a - b, #13#10, 'a * b = ', a * b);
 end
 --------------------------------------------------------------------------------
-// Task #2
+// Task #2 | x and y are integer. Find ( |x| - |y| ) / ( 1 + |x * y| )
 program s_equation;
 
 var x, y:integer; res:real;
@@ -29,7 +29,7 @@ begin
     writeln('Result: ', res);
 end.
 --------------------------------------------------------------------------------
-//Task #3
+//Task #3 | l has known length. Find S and V of coub
 program s_V;
 
 var l, S, V:integer;
@@ -45,7 +45,7 @@ begin
     writeln('S: ', S, #13#10, 'V: ', V);
 end.
 --------------------------------------------------------------------------------
-//Task #4
+//Task #4 | Legs a and b are known. Find hypotenuse and S
 program s_V;
 
 var a, b, c, S:real; 
@@ -61,7 +61,7 @@ begin
     writeln('Hypotenuse: ', c, #13#10, 'S: ', S);
 end.
 --------------------------------------------------------------------------------
-//Task #5
+//Task #5 | Leg a is known. Find S of equilateral triangle
 program s_triangle;
 
 var a, S:real; 
