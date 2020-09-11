@@ -6,6 +6,7 @@
 3) ipconfig | clip [" "| clip" allows you to save command's output to your clipboard"]
 4) sfc /scannow ["scan system files for problems w/o antivirus"]
 5) ipconfig /flushdns ["fix issues with DNS resolver cache"]
+6) help ["helps you with commands"]
 
 -- Interfaces types
 • GUI - graphic user interface 
