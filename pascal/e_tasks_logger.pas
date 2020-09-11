@@ -1,4 +1,36 @@
 --[[https://unicode-table.com/ru/sets/superscript-and-subscript-numbers/]]--
+--------------------------------------------------------------------------------
+-- Lesson #005 | Home task | 11.09.2020 
+--------------------------------------------------------------------------------
+
+// Task #1
+program s_counter;
+
+var a, b:real;
+begin
+    // input 
+    read(a, b);
+    
+    // ourput
+    writeln('a + b = ', a + b, #13#10, 'a - b = ', a - b, #13#10, 'a * b = ', a * b);
+end
+
+--------------------------------------------------------------------------------
+
+// Task #2
+program s_equation;
+
+var x, y:integer; res:real;
+begin
+    // input 
+    read(x, y);
+    
+    // main part 
+    res := ( abs(x) - abs(y) ) / ( 1 + abs(x*y) );
+    
+    // ourput
+    writeln('Result: ', res);
+end.
 
 --------------------------------------------------------------------------------
 -- Lesson #003 | Home task | 09.09.2020 
