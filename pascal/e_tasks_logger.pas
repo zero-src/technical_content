@@ -12,7 +12,7 @@ begin
     
     // output
     writeln('a + b = ', a + b, #13#10, 'a - b = ', a - b, #13#10, 'a * b = ', a * b);
-end
+end.
 --------------------------------------------------------------------------------
 // Task #2 | x and y are integer. Find ( |x| - |y| ) / ( 1 + |x * y| )
 program s_equation;
