@@ -8,13 +8,13 @@ end;
 
 var ui:lib; num:shortint;
    
-procedure _math(var dig : longint; num : shortint); begin
+procedure _math(var g_num : longint; num : shortint); begin
 ui.i := 1;
     repeat
-        if (ui.i = num) then write(' ', dig mod 10);
-            dig := dig div 10;
+        if (ui.i = num) then write(' ', g_num mod 10);
+            g_num := g_num div 10;
         inc(ui.i, 1);
-    until dig = 0;
+    until g_num = 0;
 end;
 
 begin
