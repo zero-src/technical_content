@@ -1,5 +1,29 @@
 --------------------------------------------------------------------------------
--- Best of three
+-- Выводит x с конца цифру
+--------------------------------------------------------------------------------
+type lib = record
+    k : longint;
+    i : shortint;
+end;
+
+var ui:lib; num:shortint;
+   
+procedure _math(var dig : longint; num : shortint); begin
+ui.i := 1;
+    repeat
+        if (ui.i = num) then write(' ', dig mod 10);
+            dig := dig div 10;
+        inc(ui.i, 1);
+    until dig = 0;
+end;
+
+begin
+    readln(ui.k, num);
+    _math(ui.k, num);   
+end.
+
+--------------------------------------------------------------------------------
+-- Большее из трёх
 --------------------------------------------------------------------------------
 program g_machine;
 
