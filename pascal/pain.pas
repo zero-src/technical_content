@@ -18,7 +18,10 @@ ui.i := 1;
 end;
 
 begin
+    // input
     readln(ui.k, num);
+    
+    // main function
     _math(ui.k, num);   
 end.
 
