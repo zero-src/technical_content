@@ -46,7 +46,7 @@ begin
 end.
 --------------------------------------------------------------------------------
 //Task #4 | Legs a and b are known. Find hypotenuse and S
-program s_V;
+program o_triangle;
 
 var a, b, c, S:real; 
 begin
