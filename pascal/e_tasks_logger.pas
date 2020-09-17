@@ -53,7 +53,7 @@ type hour = 0..23;
         m: min;
         s: sec;
     end;
-var p: lib; ch: char;
+var p: lib;
 
 begin
     // input
