@@ -10,7 +10,7 @@ var ui:lib; num:shortint;
    
 procedure _math(var g_num : longint; num : shortint); begin
 ui.i := 1;
-if (g_num < 100) then write('num is lower then 100', #13#10); exit;
+if (g_num < 100) then write('num is lower than 100', #13#10); exit;
     repeat
         if (ui.i = num) then write(' ', g_num mod 10);
             g_num := g_num div 10;
