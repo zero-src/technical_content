@@ -11,7 +11,34 @@ begin
     writeln('D: ', x - trunc(x));
 end.
 --------------------------------------------------------------------------------
-// Task #2
+// Task #4
+var k, i, sum:longint;
+
+begin
+    // input
+    readln(k);
+    
+    // vars
+    sum := 0;
+    i := 1;
+    
+    // check for valid number
+    if (k < 100) then begin
+        write('num is lower than 100', #13#10); 
+        exit;
+    end;
+    
+    // addition function
+    repeat
+    sum := sum + k mod 10;
+        writeln(' ', k mod 10, ' | ', sum);
+            k := k div 10;
+        inc(i, 1);
+    until k = 0;
+    
+    // output
+    writeln(#13#10, 'sum: ', sum);
+end.
 
 --------------------------------------------------------------------------------
 -- Lesson #005 | Home task | 11.09.2020 
