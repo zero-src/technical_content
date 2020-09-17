@@ -23,14 +23,12 @@ begin
     i := 1;
     
     // check for valid number
-    if (k < 100) then begin
-        write('num is lower than 100', #13#10); 
-        exit;
-    end;
-    
+    if (k < 0) then begin
+        k := abs(k);
+        
     // addition function
     repeat
-    sum := sum + k mod 10;
+    inc(sum, k mod 10);
         writeln(' ', k mod 10, ' | ', sum);
             k := k div 10;
         inc(i, 1);
