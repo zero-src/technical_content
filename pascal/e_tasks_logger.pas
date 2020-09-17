@@ -39,6 +39,37 @@ begin
     // output
     writeln(#13#10, 'sum: ', sum);
 end.
+--------------------------------------------------------------------------------
+// Task #5
+program s_counter;
+
+type hour = 0..23;
+     min  = 0..59;
+     sec  = 0..86400;
+
+    // time manip
+    lib = record
+        h:hour;
+        m:min;
+        s:sec;
+    end;
+    
+var p:lib;
+
+begin
+    // input
+    readln(p.s);
+    
+    // main chunk
+    p.h := p.s div sqr(60);
+        p.s := p.s mod sqr(60);
+    
+    p.m := p.s div 60;
+        p.s := p.s mod 60;
+    
+    // output
+    writeln('Your time: ', p.h, ':', p.m, ':', p.s, ';');
+end.
 
 --------------------------------------------------------------------------------
 -- Lesson #005 | Home task | 11.09.2020 
