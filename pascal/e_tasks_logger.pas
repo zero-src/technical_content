@@ -49,12 +49,11 @@ type hour = 0..23;
 
     // time manip
     lib = record
-        h:hour;
-        m:min;
-        s:sec;
+        h: hour;
+        m: min;
+        s: sec;
     end;
-    
-var p:lib;
+var p: lib; ch: char;
 
 begin
     // input
@@ -68,7 +67,11 @@ begin
         p.s := p.s mod 60;
     
     // output
-    writeln('Your time: ', p.h, ':', p.m, ':', p.s, ';');
+    write('Your time: ');
+        if ( p.h < 10 ) then write('0', p.h, ':') else write(p.h, ':');
+        if ( p.m < 10 ) then write('0', p.m, ':') else write(p.m, ':');
+        if ( p.s < 10 ) then write('0', p.s, ':') else write(p.s, ' ');
+    write(#13#10, '-------------------');
 end.
 
 --------------------------------------------------------------------------------
