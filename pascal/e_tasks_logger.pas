@@ -11,6 +11,32 @@ begin
     writeln('D: ', x - trunc(x));
 end.
 --------------------------------------------------------------------------------
+// Task #2
+type lib = record
+    k : longint;
+    i : shortint;
+end;
+
+var ui:lib; num:shortint;
+   
+procedure _math(var g_num : longint; num : shortint); begin
+ui.i := 1;
+if (g_num < 100) then write('num is lower than 100', #13#10); exit;
+    repeat
+        if (ui.i = num) then write(' ', g_num mod 10);
+            g_num := g_num div 10;
+        inc(ui.i, 1);
+    until g_num = 0;
+end;
+
+begin
+    // input
+    readln(ui.k, num);
+    
+    // main function
+    _math(ui.k, num);   
+end.
+--------------------------------------------------------------------------------
 // Task #4
 var k, i, sum:longint;
 
