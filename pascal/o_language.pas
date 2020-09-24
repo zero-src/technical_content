@@ -16,7 +16,7 @@
 5. exp(x)    = e^x                           13. odd(x)    = false/true | even/odd  
 6. abs(x)    = |x|                           14. inc(x, i) = x := x + i
 7. sqr(x)    = x²                            15. dec(x, i) = x := x - i
-8. ln(x)     = ln(x)                         16. frac(x)   = x := 1.023 ( frac(x) := 1 ) 
+8. ln(x)     = ln(x)                         16. frac(x)   = x := 1.023 ( frac(x) := 0.023 ) 
 
 --------------------------------------------------------------------------------
 -- Lesson #001 | cool translation | 02.09.2020
