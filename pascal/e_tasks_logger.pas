@@ -1,5 +1,21 @@
 --[[https://unicode-table.com/ru/sets/superscript-and-subscript-numbers/]]--
 --------------------------------------------------------------------------------
+-- Lesson #00X | Home task | 17.09.2020 
+--------------------------------------------------------------------------------
+// Task #1
+begin
+    // input 
+    var year := readinteger('Year:');
+    
+    // math part 
+    var o_cent := year mod 10 > 0;
+    var cent := o_cent ? (year div 100) + 1 : year div 100;
+    
+    // output
+    print('Сentury:', cent);
+end.
+
+--------------------------------------------------------------------------------
 -- Lesson #007 | Home task | 17.09.2020 
 --------------------------------------------------------------------------------
 // Task #1
