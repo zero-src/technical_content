@@ -90,77 +90,62 @@ type api = ^memory;
 -- Lesson #005 | Home task | 11.09.2020 
 --------------------------------------------------------------------------------
 // Task #1 | a and b are real (use '+', '-', '*' operators)
-program s_counter;
-
-var a, b:real;
 begin
     // input 
-    read(a, b);
+    var (a, b) := readreal2;
     
     // output
-    writeln('a + b = ', a + b, #13#10, 'a - b = ', a - b, #13#10, 'a * b = ', a * b);
+    println(' a + b = ', a + b, #13#10, 'a - b = ', a - b, #13#10, 'a * b = ', a * b);
 end.
 --------------------------------------------------------------------------------
 // Task #2 | x and y are integer. Find ( |x| - |y| ) / ( 1 + |x * y| )
-program s_equation;
-
-var x, y:integer; res:real;
 begin
     // input 
-    read(x, y);
+    var (x, y) := readinteger2;
     
     // math part 
-    res := ( abs(x) - abs(y) ) / ( 1 + abs(x*y) );
+    var res := ( abs(x) - abs(y) ) / ( 1 + abs(x*y) );
     
     // output
-    writeln('Result: ', res);
+    print('Result: ', res);
 end.
 --------------------------------------------------------------------------------
 //Task #3 | l has known length. Find S and V of coub
-program s_V;
-
-var l, S, V:integer;
 begin
     // input 
-    read(l);
+    var l := readinteger;
     
     // math part 
-    S := 4 * sqr(l);
-    V := sqr(l) * l;
+    var S := 4 * sqr(l);
+    var V := sqr(l) * l;
     
     // output
-    writeln('S: ', S, #13#10, 'V: ', V);
+    print(' S: ', S, #13#10, 'V: ', V);
 end.
 --------------------------------------------------------------------------------
 //Task #4 | Legs a and b are known. Find hypotenuse and S
-program o_triangle;
-
-var a, b, c, S:real; 
 begin
     // input 
-    read(a, b);
+    var (a, b) := readreal2;
     
     // math part 
-    S := (a*b)/2;
-    c := sqrt(a*a + b*b); 
+    var S := (a*b)/2;
+    var c := sqrt(a*a + b*b); 
     
     // output
-    writeln('Hypotenuse: ', c, #13#10, 'S: ', S);
+    write('Hypotenuse: ', c, #13#10, 'S: ', S);
 end.
 --------------------------------------------------------------------------------
 //Task #5 | Leg a is known. Find S of equilateral triangle
-program s_triangle;
-
-var a, S:real; 
 begin
     // input 
-    read(a);
+    var a := readreal;
     
     // math part 
-    S := ( sqrt(3) / 4 )*sqr(a);
+    var S := ( sqrt(3) / 4 )*sqr(a);
     
     // output
-    writeln('S: ', S);
+    print('S: ', S);
 end.
 
 --------------------------------------------------------------------------------
