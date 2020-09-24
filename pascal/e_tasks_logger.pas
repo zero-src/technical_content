@@ -59,38 +59,32 @@ begin
 end.
 --------------------------------------------------------------------------------
 // Task #5
-program s_counter;
-
-type hour = 0..23;
-     min  = 0..59;
-     sec  = 0..86400;
-
-    // time manip
-    lib = record
-        h: hour;
-        m: min;
-        s: sec;
-    end;
-var p: lib;
-
-begin
+type api = ^memory;
+     memory = record
+       h: 0..23;
+       m: 0..59;
+       s: 0..86400;
+     end;
+  
+  begin
+    // memory api
+    var p: api;
+    new(p);
+    
     // input
-    readln(p.s);
+    readln(p^.s); 
     
     // main chunk
-    p.h := p.s div sqr(60);
-        p.s := p.s mod sqr(60);
+    p^.h := p^.s div sqr(60);
+        p^.s := p^.s mod sqr(60);
     
-    p.m := p.s div 60;
-        p.s := p.s mod 60;
+    p^.m := p^.s div 60;
+        p^.s := p^.s mod 60;
     
     // output
-    write('Your time: ');
-        if ( p.h < 10 ) then write('0', p.h, ':') else write(p.h, ':');
-        if ( p.m < 10 ) then write('0', p.m, ':') else write(p.m, ':');
-        if ( p.s < 10 ) then write('0', p.s, ':') else write(p.s, ' ');
-    write(#13#10, '-------------------');
-end.
+    println('Your time:', p^);
+      print('--------------------');
+  end.
 
 --------------------------------------------------------------------------------
 -- Lesson #005 | Home task | 11.09.2020 
