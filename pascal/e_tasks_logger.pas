@@ -35,30 +35,27 @@ begin
 end.
 --------------------------------------------------------------------------------
 // Task #4
-var k, i, sum:longint;
-
 begin
     // input
-    readln(k);
+    var k := readInteger('Input:');
     
     // vars
-    sum := 0;
-    i := 1;
+    var (sum, i) := (0, 1);
     
     // check for valid number
-    if (k < 0) then begin
+    if (k < 0) then
         k := abs(k);
         
     // addition function
     repeat
     inc(sum, k mod 10);
-        writeln(' ', k mod 10, ' | ', sum);
+        println(k mod 10, ' | ', sum);
             k := k div 10;
         inc(i, 1);
     until k = 0;
     
     // output
-    writeln(#13#10, 'sum: ', sum);
+    print('sum:', sum);
 end.
 --------------------------------------------------------------------------------
 // Task #5
