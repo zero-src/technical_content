@@ -4,7 +4,7 @@
 --------------------------------------------------------------------------------
 // Task #1
 begin
-  var (a, b, c) := (0, 0, 0);
+  var (a, b, c) := (0.0, 0.0, 0);
   
   while not ( ( tryread(a) and tryread(b) and tryread(c) ) and ( c > 0 ) and ( c < 4 ) ) do
     println('Try again');
