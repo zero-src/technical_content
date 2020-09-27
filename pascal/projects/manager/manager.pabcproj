@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project FileVersion="2" Name="manager" MainFile="manager.pas" OutputFileName="manager.exe" OutputDirectory="" ProjectType="ConsoleApp" IncludeDebugInfo="False" GenerateXMLDoc="False" CommandLineArguments="" AppIcon="" DeleteEXE="True" DeletePDB="True" Product="" Company="" Trademark="" Copyright="" Title="" Description="" MajorVersion="0" MinorVersion="0" BuildVersion="0" RevisionVersion="0">
+  <Items>
+    <Item Type="SourceFile" Name="manager.pas" Path="manager.pas" />
+    <Item Type="SourceFile" Name="o_users.pas" Path="o_users.pas" />
+    <Item Type="SourceFile" Name="o_access.pas" Path="o_access.pas" />
+    <Item Type="Reference" AssemblyName="System" FullAssemblyName="System.dll" />
+  </Items>
+</Project>
