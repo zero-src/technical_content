@@ -1,4 +1,3 @@
-﻿{ Any unauthorised broadcasting, public performance, copying or re-recording will constitute an infringement of copyright. }
 unit o_access;
 
 interface
@@ -16,7 +15,7 @@ implementation uses o_users, crt;
 procedure o_database(); label 1, 2, 3; begin
   
   /// Scanning for ban
-  if ( b.ban or b.verify ) then begin
+  if ( b.ban ) or ( not b.verify ) then begin
     print('Access denied.');
     
     var a := readkey;
@@ -43,6 +42,8 @@ procedure o_database(); label 1, 2, 3; begin
     
     /// Adding new accounts
   3: var n := readlninteger('Accounts to add:');
+     if not(n in 0..100) then goto 3;
+     
     for var i := 1 to n do begin
       println($'[{i} account]'); 
       
@@ -93,4 +94,3 @@ procedure o_database(); label 1, 2, 3; begin
      until readkey <> 'Y';
   end;
 end.
-{ Copyright (c) 2018-2020 Death#4932 }
