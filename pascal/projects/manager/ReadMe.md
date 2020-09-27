@@ -11,5 +11,5 @@ Account manager
 
 ### Program features
 - _ans(self, ...) function which is able to work with undefined count of arguments
-- Ignores letter register **while searching** for categories
+- Ignores letters register **while searching** for categories
 - Returns to main menu after wrong input
