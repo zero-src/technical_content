@@ -1,4 +1,3 @@
-﻿{ Any unauthorised broadcasting, public performance, copying or re-recording will constitute an infringement of copyright. }
 unit o_users;
 
 interface
@@ -160,4 +159,3 @@ function o_verify(self: string): boolean; var bool := b.verify; begin
     b.verify := self = 'DeathRoot';
 end;
 end.
-{ Copyright (c) 2018-2020 Death#4932 }
