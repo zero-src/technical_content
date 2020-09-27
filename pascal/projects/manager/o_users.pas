@@ -56,7 +56,7 @@ procedure try_again(); begin
   if ( b.verify = false ) then begin
     clrscr;
     
-    println('Try again.', #13#10);
+    println('Try again.', #13);
     u_login();
   end;
 end;
