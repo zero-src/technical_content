@@ -1,6 +1,5 @@
 Paranoia
 =====================
-> Paranoia helps with detecting all connected devices.
 
 ### Programm abilities:
 - [Simple menu](https://media.discordapp.net/attachments/530064283409580042/770577904572170260/unknown.png)
