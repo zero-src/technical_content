@@ -7,7 +7,7 @@
   
   for var i := 0 to 9 do
     if arr[i] mod 2 = 0 then
-       arr[i] := trunc(arr[i] / 2);
+       arr[i] := arr[i] div 2;
   
   arr.Print;
 end.
