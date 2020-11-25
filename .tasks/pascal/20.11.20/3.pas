@@ -10,7 +10,8 @@ begin
   for i := 1 to n do
     for j := 1 to m do
       read(arr[i, j]);
-    
+      
+  max := arr[1, 1]; 
   for i := 1 to n do
     for j := 1 to m do
       if (i = 1) or (i = n) then
