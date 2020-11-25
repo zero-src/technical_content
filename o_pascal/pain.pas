@@ -1,4 +1,4 @@
---------------------------------------------------------------------------------
+﻿--------------------------------------------------------------------------------
 -- Выводит x с конца цифру
 --------------------------------------------------------------------------------
 type lib = record
@@ -10,7 +10,7 @@ var ui:lib; num:shortint;
    
 procedure _math(var g_num : longint; num: shortint); begin
 ui.i := 1;
-if (g_num < 100) then begin print('num is lower than 100', #13#10); exit; end;
+if (g_num < 100) then begin print('num is lower than 100', #13); exit; end;
     repeat
         if (ui.i = num) then print(g_num mod 10);
             g_num := g_num div 10;
@@ -36,8 +36,8 @@ var a, b, c, m_num:integer;
 
 // процедура поиска максимального числа
 procedure max(var count : integer; a, b, c : integer ); begin
-    if ( a > b ) then count := a else count := b;
-    if ( c > count ) then count := c;
+    count := a > b ? a : b;
+    count := c > count ? c : count;
 end;
 
 begin

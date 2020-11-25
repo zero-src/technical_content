@@ -1,4 +1,9 @@
---[[https://unicode-table.com/ru/sets/superscript-and-subscript-numbers/]]--
+﻿--[[https://unicode-table.com/ru/sets/superscript-and-subscript-numbers/]]--
+--------------------------------------------------------------------------------
+-- New tasks will be located at [ technical_content/.tasks/pascal ]
+--------------------------------------------------------------------------------
+{ o_o }
+
 --------------------------------------------------------------------------------
 -- Lesson #0XX | Home task | xx.09.2020 
 --------------------------------------------------------------------------------
