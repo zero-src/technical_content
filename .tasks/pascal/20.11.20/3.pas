@@ -1,6 +1,6 @@
 ﻿const o_n = 20;
       o_m = 20;
-   
+      
 var arr: array [1..o_n, 1..o_m] of integer;
     max, i, j, n, m: integer;
     
