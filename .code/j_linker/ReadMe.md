@@ -9,4 +9,4 @@ Desktop sites
 - [Then write "npm i electron" in console](https://media.discordapp.net/attachments/546238807838687242/781570356355268678/unknown.png?width=578&height=331)
 - [Write "npm start" and enjoy](https://media.discordapp.net/attachments/546238807838687242/781571254670458890/unknown.png?width=1400&height=683)
 
-**P.s** Before opening this program, change 7th line in "package.json" to "start": "cls && electron ."
+**P.s** Before opening this program, change 7th line in *"package.json" to "start": "cls && electron ."*
