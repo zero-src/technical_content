@@ -6,4 +6,3 @@ Names' meanings
 
 > j_ - means that program was written on java
 
-- Create a path. For example ["D:\Programs\vk"] 
