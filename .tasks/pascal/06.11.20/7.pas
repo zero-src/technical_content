@@ -1,6 +1,6 @@
-﻿const LAST = 3;
+﻿const LAST = 10;
 var arr: array [1..LAST] of integer; 
-    i, cnt: integer;
+    i, cnt, idx: integer;
     res: string[31];
    
 begin
@@ -9,9 +9,10 @@ begin
     read(arr[i]);
   
   for i := 1 to LAST do
-    if arr[i] = 100 then
-    cnt += 1; 
+    if arr[i] = 100 then begin
+    cnt += 1; idx := i;
+    end;
       
-  res := cnt = 1 ? 'Yes' : 'More/Less than one number = 100';
+  res := cnt = 1 ? 'Yes | index: ' + idx : 'More/Less than one number = 100';
   write(res);
 end.

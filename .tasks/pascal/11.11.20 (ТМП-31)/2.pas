@@ -4,7 +4,7 @@
 begin
    str := 'he he  abhe';
    w_ans := 'ab';
-   c_ans := 'cb';
+   c_ans := 'cd';
    
    m := length(w_ans);
    while pos(w_ans, str) <> 0 do begin

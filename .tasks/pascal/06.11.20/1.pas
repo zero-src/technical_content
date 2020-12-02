@@ -1,13 +1,12 @@
-﻿const LAST = 10;
-var arr: array [1..LAST] of real;
-    i: integer;
+﻿var arr: array [1..10] of real;
+    i, n: integer;
     a, b: real;
     
 begin
-  write('(a, b): '); 
-  read(a, b);
+  write('(n, a, b): '); 
+  read(n, a, b);
   
-  for i := 1 to LAST do
+  for i := 1 to n do
     arr[i] := a * i + b;
   
   write(arr);
