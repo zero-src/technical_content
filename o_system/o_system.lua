@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Lesson #001 | cmd usage | 04.09.2020
+-- Lesson #001 | cmd usage | 04.09.2020 []
 --------------------------------------------------------------------------------
 1) doskey /history ["command history"]
 2) ipconfig && mspaint ["multiply commands with using "&&" like in c++"]
