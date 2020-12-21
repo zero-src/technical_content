@@ -1,5 +1,5 @@
-﻿var x1,x2,x3,y1,y2,y3, maxx, maxy: integer;
-    r: real;
+﻿var x1,x2,x3,y1,y2,y3: integer;
+    r1, r2, r3, min: real;
     
 begin
   write('x1, x2, x3: ');
@@ -7,20 +7,16 @@ begin
   
   write('y1, y2, y3: ');
   read(y1, y2, y3);
-  
-  maxx := x1;
-  if x2 > maxx then 
-    maxx:=x2;
-  if x2 > maxx then 
-    maxx:=x3;
 
-  maxy := y1;
-  if y2 > maxy then 
-    maxy:=y2;
-  if y3 > maxy then 
-    maxy:=y3;
+  r1:= sqrt(sqr(x1) + sqr(y1));
+  r2:= sqrt(sqr(x1) + sqr(y1));
+  r3:= sqrt(sqr(x1) + sqr(y1));
   
-  r:= sqrt(sqr(maxx) + sqr(maxy));
+  min := r1;
+  if r2 < min then 
+    min:=r2;
+  if r3 < min then 
+    min:=r3;
   
-  writeln('радиус наименьшего круга равен ', r:8:6);
+  writeln('радиус наименьшего круга равен ', min:8:6);
 end.
