@@ -9,8 +9,8 @@ begin
   read(y1, y2, y3);
 
   r1:= sqrt(sqr(x1) + sqr(y1));
-  r2:= sqrt(sqr(x1) + sqr(y1));
-  r3:= sqrt(sqr(x1) + sqr(y1));
+  r2:= sqrt(sqr(x2) + sqr(y2));
+  r3:= sqrt(sqr(x3) + sqr(y3));
   
   min := r1;
   if r2 < min then 
