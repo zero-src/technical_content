@@ -10,13 +10,13 @@ begin
   
   maxx := x1;
   if x2 > maxx then 
-    maxx:=x2
+    maxx:=x2;
   if x2 > maxx then 
     maxx:=x3;
 
   maxy := y1;
   if y2 > maxy then 
-    maxy:=y2 
+    maxy:=y2;
   if y3 > maxy then 
     maxy:=y3;
   
