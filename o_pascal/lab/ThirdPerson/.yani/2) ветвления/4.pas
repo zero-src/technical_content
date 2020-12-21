@@ -1,4 +1,4 @@
-﻿var x1,x2,x3,y1,y2,y3, maxx, maxy:integer;
+﻿var x1,x2,x3,y1,y2,y3, maxx, maxy: integer;
     r: real;
     
 begin
@@ -11,13 +11,13 @@ begin
   maxx := x1;
   if x2 > maxx then 
     maxx:=x2
-  else 
+  if x2 > maxx then 
     maxx:=x3;
 
   maxy := y1;
   if y2 > maxy then 
     maxy:=y2 
-  else
+  if y3 > maxy then 
     maxy:=y3;
   
   r:= sqrt(sqr(maxx) + sqr(maxy));

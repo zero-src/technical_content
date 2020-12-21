@@ -1,4 +1,4 @@
-﻿var n:integer;
+﻿var n: integer;
 
 begin
   Write('Введите номер месяца: ');
