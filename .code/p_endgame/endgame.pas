@@ -7,5 +7,5 @@ begin
   world_renderer := world_render.create;
   
   window_setup;
-  world_renderer.flat(4); //value in blocks
+  world_renderer.o_flat(15); //value in blocks
 end.

@@ -11,4 +11,4 @@ interface
 implementation 
   uses GraphABC, ABCSprites, ABCObjects, Events;
 
-end. //END
+end.

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project FileVersion="2" Name="endgame" MainFile="endgame.pas" OutputFileName="endgame.exe" OutputDirectory="" ProjectType="ConsoleApp" IncludeDebugInfo="True" GenerateXMLDoc="False" CommandLineArguments="" AppIcon="" DeleteEXE="True" DeletePDB="True" Product="" Company="" Trademark="" Copyright="" Title="" Description="" MajorVersion="0" MinorVersion="0" BuildVersion="0" RevisionVersion="0">
+<Project FileVersion="2" Name="endgame" MainFile="endgame.pas" OutputFileName="endgame.exe" OutputDirectory="" ProjectType="ConsoleApp" IncludeDebugInfo="False" GenerateXMLDoc="False" CommandLineArguments="" AppIcon="" DeleteEXE="True" DeletePDB="True" Product="" Company="" Trademark="" Copyright="" Title="" Description="" MajorVersion="0" MinorVersion="0" BuildVersion="0" RevisionVersion="0">
   <Items>
     <Item Type="SourceFile" Name="endgame.pas" Path="endgame.pas" />
     <Item Type="SourceFile" Name="o_params.pas" Path="o_params.pas" />
