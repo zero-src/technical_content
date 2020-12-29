@@ -90,7 +90,7 @@ procedure init; begin
   size(350, 209);
   centred;
 
-  ///Menu initializationg
+  ///Menu initialization
   menu();
   
   ///Functions
