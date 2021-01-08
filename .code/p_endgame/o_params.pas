@@ -6,7 +6,8 @@
   implementation 
   uses GraphABC, ABCSprites, ABCObjects, Events;
   
-    procedure window_setup; begin
+    procedure window_setup;
+    begin
       window.title := 'Endgame';
       window.maximize;
     end;

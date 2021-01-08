@@ -8,9 +8,10 @@
   end;
   
   implementation
-  uses world_textures, unit_renderer in 'E:\endgame\textures\unit_renderer.pas';
+  uses world_textures, unit_renderer in 'E:\endgame\textures\object_renderer.pas';
 
-  procedure world_render.o_flat(y: integer); begin
+  procedure world_render.o_flat(y: integer);
+  begin
     var x_loop := trunc((global_width + 5) / size_x);
     var y_loop := trunc((global_height - size_y * y) / size_y);
     
@@ -29,7 +30,8 @@
   end;
   
   
-  procedure world_render.n_flat(y: integer); begin
+  procedure world_render.n_flat(y: integer);
+  begin
 
   end;
 end.
