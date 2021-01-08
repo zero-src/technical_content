@@ -1,5 +1,5 @@
 ﻿uses local_animations in 'E:\endgame\animlayers\local_animations.pas';
-uses unit_renderer   in 'E:\endgame\textures\unit_renderer.pas';
+uses unit_renderer     in 'E:\endgame\textures\unit_renderer.pas';
 uses core, o_params;
 
 begin
