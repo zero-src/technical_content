@@ -3,10 +3,16 @@
 
 ## Update log
 
-### 09.01.21
+### 09.01.21 #4
+- Added animation base
+- Added collision consept
+- Fixed bug with optimisation
+- Improved static_texture rendering
+
+### 09.01.21 #3
 - Improved local player controller
 
-### 09.01.21
+### 09.01.21 #2
 - Silent update
 
 ### 09.01.21

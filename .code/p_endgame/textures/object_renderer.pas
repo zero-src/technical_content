@@ -6,7 +6,7 @@
         size_y = 32; 
   
   type render = auto class
-      texture_static : picture;
+      texture_static : pictureabc;
   end;
 
   var renderer := new render;
@@ -20,11 +20,7 @@
   procedure static_texture(x, y: integer; image: string);
   
   implementation
-  ///Static texture rendering
-  procedure static_texture(x, y: integer; image: string);
-  begin
-    renderer.texture_static := picture.create(size_x, size_y);
-    renderer.texture_static.load(image);
-    renderer.texture_static.draw(x, y);
-  end;
+  ///Static texture rendering    
+  procedure static_texture(x, y: integer; image: string) := 
+    renderer.texture_static := PictureABC.Create(x, y, image);
  end.
