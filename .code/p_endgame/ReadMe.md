@@ -4,6 +4,9 @@
 ## Update log
 
 ### 09.01.21
+- Improved local player controller
+
+### 09.01.21
 - Silent update
 
 ### 09.01.21

@@ -11,8 +11,6 @@ const link: array of string = (
         'E:\endgame\'
       );
 
-var lp: SpriteABC;
-
 begin
   ///World renderer class
   var world_renderer: world_render;  
@@ -23,8 +21,7 @@ begin
   local_movement := movement.create;
   
   window_setup;
-  lp := new SpriteABC(150, 199, link[0] + 'spr.spinf');
   
   world_renderer.o_flat(9);
-  local_movement.ground(lp, 68);
+  local_movement.controls(true);
 end.
