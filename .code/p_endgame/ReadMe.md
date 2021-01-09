@@ -27,4 +27,4 @@
 - Updated world generation method
 
 #### Screenshot
-![killme](https://media.discordapp.net/attachments/546238807838687242/797232131843424276/unknown.png?width=800&height=387)
+![killme](https://sun9-71.userapi.com/impf/R7DtVPZ_nI0X0XHIdV1g-Y9PbYCNOhYA7Lqy9g/wjDD3T7JEQE.jpg?size=745x386&quality=96&proxy=1&sign=f15925407aacf048d158ce647be7a7df&type=album)
