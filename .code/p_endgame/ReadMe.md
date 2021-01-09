@@ -4,6 +4,9 @@
 ## Update log
 
 ### 09.01.21
+- Silent update
+
+### 09.01.21
 - Added test animation for local player model
 - Added test local player model
 - Added basic control function
