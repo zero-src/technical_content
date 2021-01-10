@@ -3,6 +3,10 @@
 
 ## Update log
 
+### 10.01.21
+- Added borders of the playing field
+- Improved local player controller
+
 ### 09.01.21 #4
 - Added animation base
 - Added collision consept
