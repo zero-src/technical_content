@@ -16,15 +16,17 @@
     var y_loop := trunc((global_height - size_y * y) / size_y);
     
     var x_pos := 0;
-    
-    loop x_loop do begin
+    loop x_loop do
+    begin
       var y_pos := y * size_y + size_y;
       static_texture(x_pos, y * size_y, png_grass);
       
-      loop y_loop do begin
+      loop y_loop do
+      begin
         static_texture(x_pos, y_pos, png_stone);
         inc(y_pos, size_y);
       end;
+      
       inc(x_pos, size_x);
     end;
   end;

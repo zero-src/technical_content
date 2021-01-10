@@ -23,5 +23,5 @@ begin
   window_setup;
   
   world_renderer.o_flat(8);
-  local_movement.controls(true);
+  local_movement.player_controls;
 end.
