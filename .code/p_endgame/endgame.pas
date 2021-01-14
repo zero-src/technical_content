@@ -23,5 +23,7 @@ begin
   window_setup;
   
   world_renderer.o_flat(8);
+  world_renderer.clouds;
+  
   local_movement.player_controls;
 end.

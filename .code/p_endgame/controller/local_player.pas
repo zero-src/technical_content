@@ -24,7 +24,7 @@
   
   ///Allowded coordinats
   var ald_x: sequence of integer := range(SPEED, global_width  - 64); 
-  var ald_y: sequence of integer := range(SPEED, global_height - 128);
+  var ald_y: sequence of integer := range(SPEED, global_height - 130);
   
   ///Debug text
   var t1 := new TextABC(55,  30, 10, 'local_player.state: ' + lp.StateName, clRed);
@@ -47,10 +47,10 @@
     
     ///Clamped angles
     if not (lp.position.x in ald_x) then
-      e_key_x := lp.position.x <= ald_x.min - SPEED ? 65 : 68;
+      e_key_x := lp.position.x <= ald_x.min ? 65 : 68;
     
     if not (lp.position.y in ald_y) then
-      e_key_y := lp.position.y <= ald_y.min - SPEED ? 87 : 83;
+      e_key_y := lp.position.y <= ald_y.min ? 87 : 83;
       
     ///Default movement
     case key of

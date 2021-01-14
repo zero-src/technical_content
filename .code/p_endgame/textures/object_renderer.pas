@@ -2,8 +2,10 @@
 
   interface
   uses GraphABC, ABCSprites, ABCObjects, Events;
-  const size_x = 32;
-        size_y = 32; 
+  const size_block_x = 32;
+        size_block_y = 32;
+        size_cloud_x = 96;
+        size_cloud_y = 64;
   
   type render = auto class
       texture_static : pictureabc;

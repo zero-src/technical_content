@@ -3,13 +3,16 @@
 
 ## Update log
 
+### 14.01.21
+- Added basic clouds
+
 ### 10.01.21
 - Added borders of the playing field
 - Improved local player controller
 
 ### 09.01.21 #4
 - Added animation base
-- Added collision consept
+- Added collision conсept
 - Fixed bug with optimisation
 - Improved static_texture rendering
 
