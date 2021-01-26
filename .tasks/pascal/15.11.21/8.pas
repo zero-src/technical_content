@@ -10,7 +10,7 @@ begin
   repeat
     c := readlnchar('Введите букву:');
     
-    if c <> 'z' then
+    if c.tolower <> 'z' then
     begin
       if c.tolower in rus then
          println('Она русская')
