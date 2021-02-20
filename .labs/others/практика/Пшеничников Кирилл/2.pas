@@ -41,7 +41,7 @@ begin
   a[4].year  := 2002;
   a[4].album := 'The Eminem Show';
   
-  a[5].fio   := 'Aminem';
+  a[5].fio   := 'Eminem';
   a[5].year  := 2004;
   a[5].album := 'Encore';
   
@@ -57,15 +57,11 @@ begin
   a[8].year  := 2013;
   a[8].album := 'Marshall Mathers2';
   
-  a[8].fio   := 'Eminem';
-  a[8].year  := 2017;
-  a[8].album := 'Revival';
-  
   a[9].fio   := 'Eminem';
   a[9].year  := 2018;
   a[9].album := 'Kamikaze';
   
-  a[10].fio   := 'Eminem';
+  a[10].fio   := 'Aminem';
   a[10].year  := 2020;
   a[10].album := 'to be murdered';
   
@@ -92,12 +88,6 @@ begin
     writeln('  +---------------------------------+----------------------+-----------------------+');
   end; writeln; writeln; writeln;
   
-  for i := 1 to n do
-    if a[i].year > 1999 then
-      elder += 1
-    else
-      older += 1;
-  
   writeln('+------------------------------+-------------------------------+'); {30,15, 1, 15}
   writeln('|                              |      Количество альбомов      |');
   writeln('|        ФИО исполнителя       |-------------------------------|');
@@ -109,6 +99,7 @@ begin
   begin
     for j := 1 to n do
       if a[i].FIO = a[j].FIO then
+        
         if not (a[j].FIO in used) then
         begin  
           a_count += 1;
@@ -124,5 +115,6 @@ begin
     t_count := 0;
     used += [a[i].FIO];
   end; 
+  
   writeln('+------------------------------+---------------+---------------+');
 end.

@@ -1,5 +1,5 @@
 ﻿const max_n = 20;
-      n = 10;
+      n = 5;
 
 type 
   ticket = record
@@ -31,7 +31,7 @@ begin
   average := 0;
   used := [];
   
-  for i := 1 to list_size do
+  {for i := 1 to list_size do
   begin
     readln;
     write(i, '. Название кинотеатра: ');
@@ -47,10 +47,10 @@ begin
     read(list[i].tickets.min);
     
     writeln('--------------');
-  end;
+  end;}
   
   {$region debug_input}
-  {
+  
   list[1].c_name       := 'Каро';
   list[1].film         := 'Человек Паук';
   list[1].tickets.max  := 20;
@@ -75,7 +75,7 @@ begin
   list[5].film         := 'Пираньи 3D';
   list[5].tickets.max  := 24;
   list[5].tickets.min  := 22;
-  }
+  
   {$endregion}
   
   writeln('                         Первая таблица');
