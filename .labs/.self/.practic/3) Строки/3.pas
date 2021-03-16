@@ -1,5 +1,5 @@
-﻿var cnt, idx: integer;
-    s: string;
+﻿var len, idx: integer;
+    s, c_string: string;
 
 begin
   /// Ввод строки и удаление первых и последних пробелов
@@ -10,37 +10,30 @@ begin
   while pos(' '*2, s) > 0 do
     delete(s, pos(' '*2, s), 1);
   
-  /// Счётчик
-  idx := s.Length;
-  cnt := 0;
+  /// Начальное значение
+  c_string := '';
   
   /// Удаление лишних цифр
-  for var i := s.Length-1 downto 1 do
-    if i <= idx then
-      if s[i] = '.' then
-      begin
-        idx := i;
-        while (s[idx+1] in '0'..'9') do
-        begin
-          if s[idx+1] in '0'..'9' then
-             cnt += 1;
-          
-          if cnt > 2 then begin
-             cnt -= idx = s.Length ? cnt : 1;
-             
-             delete(s, idx+1, 1);
-             idx -= 1;
-          end;
-          
-          if s[idx+1] in '0'..'9' then
-             idx += idx < s.Length-1 ? 1 : -3;
-          
-          if idx < i then
-             cnt := 0;
-        end;
-      end;    
-        
-  print('Ответ:', s);
+  while pos('.', s) <> 0 do
+  begin
+    /// Удаление символов до точки (включительно)    
+    c_string += copy(s, 1, pos('.', s));
+    delete(s, 1, pos('.', s));
+    
+    /// Обновление переменных
+    idx := 1;
+    len := 0;
+    
+    /// Количество цифр в числе
+    while (idx <= s.Length) and ((s[idx] >= '0') and (s[idx] <= '9')) do
+      (len, idx) := (len + 1, idx + 1);
+    
+    /// Удаление лишнего
+    if len > 2 then
+       delete(s, 3, len - 2);
+  end;
+  
+  c_string += s;
+  println('Ответ:', c_string);
 end.
-
 /// ab+0.1937-1.1
