@@ -6,6 +6,8 @@ begin
   assign(o_f, 'o_file_4');
   
   rewrite(i_f);
+  c := '1';
+  
   while c <> 'z' do
   begin
     read(c);

@@ -1,4 +1,4 @@
-﻿var dec, x: integer;
+﻿var sum, x: integer;
     f: text;
 
 begin
@@ -14,13 +14,13 @@ begin
   end;
   reset(f);
   
-  dec := 0;
+  sum := 0;
   while not SeekEof(f) do
   begin
     read(f, x);
-    dec -= x;
+    sum += x;
   end;
   close(f);
  
-  print('Ответ:', dec);
+  print('Ответ:', sum);
 end.
