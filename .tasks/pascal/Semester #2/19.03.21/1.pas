@@ -18,7 +18,7 @@ begin
   while not SeekEof(f) do
   begin
     read(f, x);
-    dec -= x;
+    dec += x;
   end;
   close(f);
  
