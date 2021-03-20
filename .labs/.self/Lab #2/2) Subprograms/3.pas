@@ -1,19 +1,19 @@
-﻿type vec = array of integer; 
+﻿const c_n = 20;
+type vec = array [0..c_n] of integer; 
 
 var n1, n2: integer;
     arr1, arr2: vec;
 
-function vec.avr: real;
-begin 
+function avr(var self: vec; n: integer): real;
+begin  
   var n_max := self[0];
-  var n_min := self[0];
-  
-  result := self[0];
-  var min_cnt := 1;
   var max_cnt := 1;
-  var cnt := 1;
   
-  for var i := 1 to self.length-1 do
+  var n_min := self[0];
+  var min_cnt := 1;  
+
+  result := self[0];
+  for var i := 1 to n-1 do
   begin
     result += self[i];
     
@@ -36,12 +36,15 @@ begin
     end;
   end;
   
-  cnt := self.length - (min_cnt + max_cnt);
-  result := cnt <> 0 ? (result - (n_min * min_cnt + n_max * max_cnt)) / cnt : 0;;
+  var cnt := n - (min_cnt + max_cnt);
+  
+  result := ((cnt <> 0) and (n_max <> n_min)) ? (result - (n_min * min_cnt + n_max * max_cnt)) / cnt : 0;;
 end;
 
-procedure input(var arr: vec; n: integer);
+procedure input(var arr: vec; var n: integer);
 begin
+  n := readinteger('n:');
+
   print('Введите массив:');
   for var i := 0 to n-1 do
     arr[i] := readinteger;
@@ -49,15 +52,11 @@ end;
 
 begin
   /// First array
-  n1 := readinteger('n:');
-  arr1 := new integer[n1];  
   input(arr1, n1);
   
-  /// Second array
-  n2 := readinteger('n:');
-  arr2 := new integer[n2];  
+  /// Second array 
   input(arr2, n2);
   
-  println($'arr1 : {arr1.avr}');
-  println($'arr2 : {arr2.avr}');
+  println($'arr1 : {avr(arr1, n1)}');
+  println($'arr2 : {avr(arr2, n2)}');
 end.

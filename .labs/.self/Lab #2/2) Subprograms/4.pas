@@ -10,9 +10,9 @@ begin
     arr[i] := readreal;
 end;
 
-procedure create(var c: vec; a, b: vec);
+procedure create(var c: vec; a, b: vec; n: integer);
 begin
-  for var i := 0 to c.Length-1 do
+  for var i := 0 to n-1 do
     c[i] := a[i] / b[i];
 end;
 
@@ -26,9 +26,9 @@ begin
   input(a, n);  
   input(b, n);
   
-  create(c, a, b);
+  create(c, a, b, n);
   
   print('Ответ:');
-  for var i := 0 to c.Length-1 do
+  for var i := 0 to n-1 do
     print(c[i]);
 end.
