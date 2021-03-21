@@ -1,5 +1,4 @@
-﻿/// This code is awful. I'll try to refactor it soon. 
-const ARRAYS_COUNT = 3;
+﻿const ARRAYS_COUNT = 3;
       FATAL = 0;
 
 type bool = boolean;
