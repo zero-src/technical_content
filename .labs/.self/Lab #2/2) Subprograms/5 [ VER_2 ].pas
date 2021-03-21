@@ -1,5 +1,4 @@
-﻿/// Better version of my code
-const ARRAYS = 3;
+﻿const ARRAYS = 3;
       FAIL = 0;
 
 /// New simplified types 
@@ -32,14 +31,14 @@ end;
 function matrix.get_max(var maximumn: int): bool;
 begin
   var n_index, m_index: int;
-  var res := not maximumn;
+  var res := FAIL;
   
   (result, n_index, m_index) := pos(self);
   
   if not result then
      exit;
   
-  foreach var x in self[n_index:, m_index] do
+  foreach var x in self[n_index:, m_index:] do
     if x.IsOdd and (x > res) then
        res := x;
   
@@ -51,7 +50,8 @@ procedure data_input(var data: database);
 begin
   for var i := 1 to ARRAYS do
   begin
-    data[i] := new int[readinteger($'Array{i} [n]:'), readinteger($'Array{i} [m]:')];
+    data[i] := new int[readinteger($'Matrix{i} [n]:'), readinteger($'Matrix{i} [m]:')];
+    println('Your matrix:');
     data[i].Fill((n, m) -> readinteger);
     
     if any_odd_numbers then
@@ -64,7 +64,7 @@ end;
 /// Outputs required matrix
 procedure matrix_output(var data: database; idx: int; text: string := '');
 begin
-  println('-'*10 + #13 + text + ':');
+  println('-'*12 + #13 + text + ':');
   for var i := 0 to data[idx].RowCount - 1 do
     println(data[idx][i, :]);
 end;
@@ -96,5 +96,5 @@ begin
   end;
   
   /// Matrix output
-  matrix_output(data, 1, 'Final matrix');
+  matrix_output(data, id, 'Final matrix');
 end.
