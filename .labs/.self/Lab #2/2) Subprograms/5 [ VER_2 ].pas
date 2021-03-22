@@ -89,7 +89,10 @@ begin
       continue;
     
     if max_odd = FAIL then
+    brgin
        max_odd := max_matrix;
+       continue;
+    end;
     
     if max_matrix > max_odd then
       (max_odd, id) := (max_matrix, i);
