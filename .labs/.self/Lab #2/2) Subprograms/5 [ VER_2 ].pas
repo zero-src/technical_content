@@ -8,13 +8,9 @@ type bool     = boolean;
      database = array [1..ARRAYS] of matrix;
 
 /// Defining global variables
-var max_matrix, max_odd, num, id: int; 
+var max_matrix, max_odd, num, id, __: int; 
     any_odd_numbers: bool = false;
     data: database;
-    __: int;
-
-/// Overloaded operator **not**
-function operator not (variable: int): int; extensionmethod := 0;
 
 /// Element position in matrix
 function pos(mat: matrix): (bool, int, int); begin
@@ -39,8 +35,8 @@ begin
      exit;
   
   foreach var x in self[n_index:, m_index:] do
-    if x.IsOdd and (x > res) then
-       res := x;
+    if x.IsOdd then
+       res := res = 0 ? x : ((x > res) or ((not x) > res)) ? x : res;
   
   maximumn := res;
 end;
@@ -51,6 +47,7 @@ begin
   for var i := 1 to ARRAYS do
   begin
     data[i] := new int[readinteger($'Matrix{i} [n]:'), readinteger($'Matrix{i} [m]:')];
+    
     println('Your matrix:');
     data[i].Fill((n, m) -> readinteger);
     
@@ -90,6 +87,9 @@ begin
        max_matrix := num
     else
       continue;
+    
+    if max_odd = FAIL then
+       max_odd := max_matrix;
     
     if max_matrix > max_odd then
       (max_odd, id) := (max_matrix, i);
