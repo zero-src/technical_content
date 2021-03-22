@@ -34,7 +34,6 @@ begin
   if not result then
      exit;
     
-  /// Option #2
   foreach var x in self[n_index:, m_index:] do
     if x.IsOdd then
        res := ((res = 0) or (x > res)) ? x : res; 
