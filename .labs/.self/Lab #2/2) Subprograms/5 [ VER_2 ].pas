@@ -89,7 +89,7 @@ begin
       continue;
     
     if max_odd = FAIL then
-    brgin
+    begin
        max_odd := max_matrix;
        continue;
     end;
