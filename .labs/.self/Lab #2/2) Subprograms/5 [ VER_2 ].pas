@@ -13,12 +13,19 @@ var max_matrix, max_odd, num, id, __: int;
     data: database;
 
 /// Element position in matrix
-function pos(mat: matrix): (bool, int, int); begin
-  result := (false, 0, 0);
+function pos(mat: matrix; var maximum, n_idx, m_idx: int): bool; 
+begin
+  result := false;
   for var n := 0 to mat.RowCount - 1 do
     for var m := 0 to mat.ColCount - 1 do
-      if mat[n, m].IsOdd then begin
-        result := (true, n, m);
+      if mat[n, m].IsOdd then 
+      begin
+        result := true;
+        
+        n_idx := n;
+        m_idx := m;
+
+        maximum := mat[n, m];
         exit;
       end;
 end;
@@ -29,14 +36,14 @@ begin
   var n_index, m_index: int;
   var res := FAIL;
   
-  (result, n_index, m_index) := pos(self);
+  result := pos(self, res, n_index, m_index);
   
   if not result then
      exit;
     
   foreach var x in self[n_index:, m_index:] do
     if x.IsOdd then
-       res := ((res = 0) or (x > res)) ? x : res; 
+       res := x > res ? x : res; 
   
   maximumn := res;
 end;
@@ -50,11 +57,6 @@ begin
     
     println('Your matrix:');
     data[i].Fill((n, m) -> readinteger);
-    
-    if any_odd_numbers then
-       continue;
-       
-    (any_odd_numbers, __, __) := pos(data[i]);
   end;
 end;
 
@@ -71,6 +73,14 @@ begin
   data_input(data);
   
   /// Check for odd numbers
+  for var i := 1 to ARRAYS do
+    if not any_odd_numbers then
+      any_odd_numbers := pos(data[i], __, __, __)
+    else begin
+      id := i;
+      break;
+    end;
+    
   if not any_odd_numbers then
   begin 
     print('Odd numbers not found.');
@@ -81,7 +91,7 @@ begin
   max_odd := FAIL;
   
   /// Max value search
-  for var i := 1 to ARRAYS do
+  for var i := id to ARRAYS do
   begin
     if data[i].get_max(num) then 
        max_matrix := num
