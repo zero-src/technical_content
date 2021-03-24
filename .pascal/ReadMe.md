@@ -7,8 +7,9 @@
 
 #### Program structure
 ```pascal
+// Optional for PascalABC.Net
 // Example: program sum;
-program {program name}; {optional for PascalABC.Net}
+program {program name};
 
 // Example: uses math, vectors;
 uses {moduls you want to use}; 
