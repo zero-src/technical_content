@@ -17,6 +17,7 @@
     - [and](#operator-and)
     - [or](#operator-or)
     - [xor](#operator-xor)
+- [Constants](#constants)
 
 
 # General information
@@ -393,4 +394,11 @@ r := x xor y; {140} // 1000 1100 (binary)
 ```
 [Back to TOC](#contents-)
 
-# Named constants
+# Constants
+
+## **Константы времени компиляции** 
+> Значения этих констант определяется во время работы программы. Также к ним относятся и литералы.
+
+## **Константы времени исполнения** 
+> Значения этих констант постоянное и не может меняться.
+
