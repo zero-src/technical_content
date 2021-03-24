@@ -9,6 +9,9 @@
           - [Repeat](#repeat)
           - [Loop](#loop)
           - [For](#for)
+      - [Subprograms](#subprograms)
+          - [Procedure](#procedures)
+          - [Function](#functions)
 
 
 # General information
@@ -199,3 +202,78 @@ begin
 end.
 ```
 [Back to TOC](#contents-)
+
+
+## Subprograms
+
+### Procedures
+
+```pascal
+{ Sintax }
+
+// Default procedure
+procedure {name}(params);
+begin
+    {your code}
+end;
+
+// New abilities 
+procedure {name}(params) := {your code};
+
+// Overloaded procedure
+procedure {name}(self: type); extensionmethod;
+begin
+    {your code}
+end;
+
+// Overloaded procedure
+procedure {name}(self: type); extensionmethod := {your code};
+```
+
+```pascal
+{ Example }
+
+// Default procedure
+procedure message;
+begin
+    println('1: Hello');
+end;
+
+// New abilities 
+procedure increment(var x: integer) := x := x + 1;
+
+// Overloaded procedure
+procedure show(self: integer); extensionmethod;
+begin
+    println('3:', self);
+end;
+
+// Overloaded procedure
+procedure o_increment(self: integer); extensionmethod := self += 1;
+
+begin
+var x := 2;
+
+// procedure message
+message; //Output: 1: Hello
+
+// procedure increment
+increment(x);
+println('2:', x); //Output: 2: 3
+
+// procedure show
+x.show; //Output: 3: 3
+
+// procedure o_increment
+x.o_increment; 
+println('4:', x); //Output: 4: 3
+end.
+```
+
+
+### Functions
+
+```pascal
+{ Sintax }
+
+```
