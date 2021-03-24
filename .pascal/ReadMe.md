@@ -80,6 +80,7 @@ QWord | 0 .. 18446744073709551615 | 8
 ----|----------|---------------|-------
 Real | dependinng on platform | ??? | 4 or 8
 Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
+
 [Back to TOC](#contents-)
 
 ## if | else operators
