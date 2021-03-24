@@ -181,7 +181,7 @@ end.
 for {start point} to {last point} do
     {your code}
 
-for {last point} to {start point} do
+for {last point} downto {start point} do
     {your code}
 ```
 
@@ -198,3 +198,4 @@ begin
     print(sum); // Outputs: 100
 end.
 ```
+[Back to TOC](#contents-)
