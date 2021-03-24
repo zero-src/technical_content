@@ -13,6 +13,10 @@
           - [Procedure](#procedures)
           - [Function](#functions)
       - [Bitwise operators](#bitwise-operators)
+          - [not](#operator-not)
+          - [and](#operator-and)
+          - [or](#operator-or)
+          - [xor](#operator-xor)
 
 
 # General information
