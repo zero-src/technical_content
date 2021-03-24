@@ -4,19 +4,19 @@
       - [Operations](#operations)
       - [Variable' types](#variable-types)
       - [if else operators](#if--else-operators)
-      - [Cycles](#cycles)
-          - [While](#while)
-          - [Repeat](#repeat)
-          - [Loop](#loop)
-          - [For](#for)
-      - [Subprograms](#subprograms)
-          - [Procedure](#procedures)
-          - [Function](#functions)
-      - [Bitwise operators](#bitwise-operators)
-          - [not](#operator-not)
-          - [and](#operator-and)
-          - [or](#operator-or)
-          - [xor](#operator-xor)
+- [Cycles](#cycles)
+    - [While](#while)
+    - [Repeat](#repeat)
+    - [Loop](#loop)
+    - [For](#for)
+- [Subprograms](#subprograms)
+    - [Procedure](#procedures)
+    - [Function](#functions)
+- [Bitwise operators](#bitwise-operators)
+    - [not](#operator-not)
+    - [and](#operator-and)
+    - [or](#operator-or)
+    - [xor](#operator-xor)
 
 
 # General information
@@ -392,3 +392,5 @@ r := x xor y; {140} // 1000 1100 (binary)
 1000 1100 {140 in decimal}
 ```
 [Back to TOC](#contents-)
+
+## Named constants
