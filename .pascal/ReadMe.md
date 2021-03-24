@@ -2,6 +2,7 @@
   - [General information](#general-information)
       - [Program structure](#program-structure)
       - [Operations](#operations)
+      - [Variables' types](#variables'-types)
 
 
 ## General information
@@ -51,7 +52,8 @@ begin
 end.
 ```
 
-### Variable's types
+### Variables' types
+
 
 #### Integer types
 
@@ -70,5 +72,7 @@ QWord | 0 .. 18446744073709551615 | 8
 
 Тип	| Диапазон | Значащих цифр | Байтов
 ----|----------|---------------|-------
-Real | зависит от платформы	| ??? | 4 or 8
+Real | dependinng on platform | ??? | 4 or 8
 Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
+
+
