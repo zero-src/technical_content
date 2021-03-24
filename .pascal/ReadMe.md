@@ -276,7 +276,7 @@ end.
 ```pascal
 { Sintax }
 
-// Default procedure
+// Default function
 function {name}(params): {type};
 begin
     {your code}
@@ -285,20 +285,20 @@ end;
 // New abilities 
 function {name}(params): {type} := {your code};
 
-// Overloaded procedure
+// Overloaded function
 function {type}.{name}(params): {type};
 begin
     {your code}
 end;
 
-// Overloaded procedure
+// Overloaded function
 function {type}.{name}(params): {type} := {your code};
 ```
 
 ```pascal
 // result := ... equivalent to {func name} := ...
 
-// Default procedure
+// Default function
 function message: string;
 begin
     result := 'Hello';
@@ -307,14 +307,17 @@ end;
 // New abilities 
 function increment(x: integer): integer := x+1;
 
-// Overloaded procedure
+// Overloaded function
 function integer.more: integer;
 begin
     result := self + 1;
 end;
 
-// Overloaded procedure
+// Overloaded function
 function integer.more1: integer := self + 1;
+
+// Overloaded operator
+function operator not (variable: integer): integer; extensionmethod := 0;
 
 begin
  var x := 0;
@@ -330,6 +333,9 @@ begin
  
  // function integer.more1
  println('4:', x.more1); //Output: 4: 1
+ 
+ // Without overloaded operator it will output -11
+ println('5:', not 10); //Output: 5: 0
 end.
 ```
 [Back to TOC](#contents-)
