@@ -159,17 +159,13 @@ loop {execution count} do
 
 ```pascal
 { Example }
-var i, sum: integer;
+var sum: integer;
 
 begin
     sum := 0;
-    i := 0;
 
     loop 100 do
-    begin
         sum += 1;
-        i += 1;
-    end;
 
     print(sum); // Outputs: 100
 end.
