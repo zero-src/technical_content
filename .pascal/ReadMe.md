@@ -26,6 +26,7 @@
     - [Goto](#goto)
     - [Break](#break)
     - [Continue](#continue)
+- [ASKII table](#askii-table)
 
 # General information
 
@@ -534,3 +535,20 @@ end.
 5.|  P|  Q|  R|  S|  T|  U|  V|  W|  X|  Y|  Z|  [| \ |  ]|  ^|  _
 6.|  `|  a|  b|  c|  d|  e|  f|  g|  h|  i|  j|  k|  l|  m|  n|  o
 7.|  p|  q|  r|  s|  t|  u|  v|  w|  x|  y|  z|  {| \| |  }| ~|  
+
+[Back to TOC](#contents-)
+
+# Debugging 
+> {$I-} ( 'I' from Input and '-' for disabling error messages )
+```pascal
+var x, y: integer;
+begin
+    {$I-}
+    read(x, y);
+    if IOResult = 0 then
+        println(x * y)
+    else
+        println('Incorrect input');
+end.
+```
+[Back to TOC](#contents-)
