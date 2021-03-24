@@ -8,6 +8,7 @@
           - [While](#while)
           - [Repeat](#repeat)
           - [Loop](#loop)
+          - [For](#for)
 
 
 # General information
@@ -174,14 +175,26 @@ end.
 ```
 [Back to TOC](#contents-)
 
-- [ ] task 1
-- [X] task 2
+### For
+```pascal
+{ Sintax }
+for {start point} to {last point} do
+    {your code}
 
-- {+ addition 1 +}
-- [+ addition 2 +]
-- {- deletion 3 -}
-- [- deletion 4 -]
+for {last point} to {start point} do
+    {your code}
+```
 
+```pascal
+{ Example }
+var sum: integer;
 
+begin
+    sum := 0;
+    
+    for var i := 1 to 100 do
+      sum += 1;
 
-
+    print(sum); // Outputs: 100
+end.
+```
