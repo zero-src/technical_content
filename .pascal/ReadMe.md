@@ -85,16 +85,16 @@ Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
 ## if | else operators
 >'if' operator without 'else' will execute only true condition.
 ```pascal
-    if condition then
-        {do something}
+if condition then
+    {do something}
 ```
 
 >'if' operator with 'else' will check all specified conditions.
 ```pascal
-    if condition then
-        {do something}
-    else
-        {do something};
+if condition then
+    {do something}
+else
+    {do something};
 ```
 
 
@@ -102,9 +102,9 @@ Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
 
 ### While
 ```pascal
-    { Sintax }
-    while {true condition} do
-        {your code}
+{ Sintax }
+while {true condition} do
+    {your code}
 ```
 
 ```pascal
@@ -126,15 +126,15 @@ end.
 ```
 
 ### Repeat
-> Sintax
 ```pascal
-    repeat
-        {your code}
-    until {false condition};
+{ Sintax }
+repeat
+    {your code}
+until {false condition};
 ```
 
-> Example
 ```pascal
+{ Example }
 var i, sum: integer;
 
 begin
@@ -151,14 +151,14 @@ end.
 ```
 
 ### Loop
-> Sintax
 ```pascal
-    loop {execution count} do
-        {your code}
+{ Sintax }
+loop {execution count} do
+    {your code}
 ```
 
-> Example
 ```pascal
+{ Example }
 var i, sum: integer;
 
 begin
