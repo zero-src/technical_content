@@ -1,9 +1,13 @@
-## Contents 🚀
+# Contents 🚀
   - [General information](#general-information)
       - [Program structure](#program-structure)
       - [Operations](#operations)
-      - [Variables' types](#variables-types)
+      - [Variable' types](#variable-types)
       - [if else operators](#if--else-operators)
+      - [Cycles](#cycles)
+          - [While](#while)
+          - [Repeat](#repeat)
+          - [Loop](#loop)
 
 
 # General information
@@ -55,7 +59,7 @@ end.
 ```
 
 
-## Variables' types
+## Variable types
 
 ### Integer types
 
@@ -80,18 +84,97 @@ Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
 
 ## if | else operators
 >'if' operator without 'else' will execute only true condition.
-
 ```pascal
     if condition then
         {do something}
 ```
->'if' operator with 'else' will check all specified conditions.
 
+>'if' operator with 'else' will check all specified conditions.
 ```pascal
     if condition then
         {do something}
     else
         {do something};
 ```
+
+
+## Cycles
+
+### While
+> Sintax
+```pascal
+    while {true condition} do
+        {your code}
+```
+
+> Example:
+```pascal
+var i, sum: integer;
+
+begin
+    sum := 0;
+    i := 0;
+
+    while i < 100 do
+    begin
+        sum += 1;
+        i += 1;
+    end;
+
+    print(sum); // Outputs: 100
+end.
+```
+
+### Repeat
+> Sintax
+```pascal
+    repeat
+        {your code}
+    until {false condition};
+```
+
+> Example
+```pascal
+var i, sum: integer;
+
+begin
+    sum := 0;
+    i := 0;
+
+    repeat
+        sum += 1;
+        i += 1;
+    until i = 100;
+
+    print(sum); // Outputs: 100
+end.
+```
+
+### Loop
+> Sintax
+```pascal
+    loop {execution count} do
+        {your code}
+```
+
+> Example
+```pascal
+var i, sum: integer;
+
+begin
+    sum := 0;
+    i := 0;
+
+    loop 100 do
+    begin
+        sum += 1;
+        i += 1;
+    end;
+
+    print(sum); // Outputs: 100
+end.
+```
+
+
 
 
