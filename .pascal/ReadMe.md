@@ -357,7 +357,7 @@ x := not 4; // x = 11111111 11111011 (binary)
 
 ### Operator: and
 ```pascal
-p := x and y; {34} // 0010 0010
+p := x and y; {34} // 0010 0010 (binary)
 
 0010 1010
 1010 0110
@@ -365,5 +365,23 @@ p := x and y; {34} // 0010 0010
 0010 0010 {34 in decimal}
 ```
 
-q := x or y;  {174}  // 10101110
-r := x xor y; {140}  // 10001100
+### Operator: or
+```pascal
+q := x or y; {174}  // 1010 1110 (binary)
+
+0010 1010
+1010 0110
+---------
+1010 1110 {174 in decimal}
+```
+
+### Operator: xor
+```pascal
+r := x xor y; {140} // 1000 1100 (binary)
+
+0010 1010
+1010 0110
+---------
+1000 1100 {140 in decimal}
+```
+[Back to TOC](#contents-)
