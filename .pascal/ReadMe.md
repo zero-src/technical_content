@@ -396,14 +396,14 @@ r := x xor y; {140} // 1000 1100 (binary)
 
 # Constants
 
-## **Константы времени компиляции** 
-> Значения этих констант определяется во время компиляции программы.
+## **Compile-time constants** 
+> The values of these constants are determined at compile-time.
 ```pascal
 const message = 'hello';
 ```
 
-## **Константы времени исполнения** 
-> Значения этих констант определяется во время исполнения программы.
+## **Runtime constants** 
+> The values of these constants are determined at runtime.
 ```pascal
 const hello = 'Hello';
       part = copy(hello, 2, 2); {here it is!}
