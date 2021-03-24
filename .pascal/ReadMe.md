@@ -12,6 +12,7 @@
       - [Subprograms](#subprograms)
           - [Procedure](#procedures)
           - [Function](#functions)
+      - [Bitwise operators](#bitwise-operators)
 
 
 # General information
@@ -339,3 +340,31 @@ begin
 end.
 ```
 [Back to TOC](#contents-)
+
+## Bitwise operators
+
+```pascal
+    x, y, p, q, r: byte;
+
+    // not
+    x := 4;     // x =  0000000 00000100 (binary)
+    x := not 4; // x = 11111111 11111011 (binary)
+```
+
+> 'and' operator
+```
+    // and
+    x := 42;    // 00101010 (binary)
+    y := 166;   // 10100110 (binary)
+
+    // And operator
+    00101010
+    10100110
+    --------
+    00100010
+
+    p := x and y; {34}   // 00100010
+```
+
+    q := x or y;  {174}  // 10101110
+    r := x xor y; {140}  // 10001100
