@@ -396,13 +396,14 @@ r := x xor y; {140} // 1000 1100 (binary)
 
 # Constants
 
-## **Compile-time constants** 
+## Compile-time constants
 > The values of these constants are determined at compile-time.
 ```pascal
 const message = 'hello';
 ```
+[Back to TOC](#contents-)
 
-## Runtime **Runtime** constants
+## Runtime constants
 > The values of these constants are determined at runtime.
 ```pascal
 const hello = 'Hello';
@@ -410,4 +411,9 @@ const hello = 'Hello';
 ```
 [Back to TOC](#contents-)
 
-## P
+## Pseudo constants
+> The values of those constants can be changed.
+```pascal
+const number: integer = 20;
+```
+[Back to TOC](#contents-)
