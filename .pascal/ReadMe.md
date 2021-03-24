@@ -344,15 +344,15 @@ end.
 ## Bitwise operators
 
 ```pascal
-x, y, p, q, r: byte;
-
-// not
+var x, y, p, q, r: byte;
+```
+### Operator: not
+```pascal
 x := 4;     // x =  0000000 00000100 (binary)
 x := not 4; // x = 11111111 11111011 (binary)
 ```
 
 ### Operator: and
-
 ```pascal
 x := 42;  // 00101010 (binary)
 y := 166; // 10100110 (binary)
