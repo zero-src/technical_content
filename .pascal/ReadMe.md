@@ -108,9 +108,9 @@ else
 ```
 [Back to TOC](#contents-)
 
-## Cycles
+# Cycles
 
-### While
+## While
 ```pascal
 { Sintax }
 while {true condition} do
@@ -136,7 +136,7 @@ end.
 ```
 [Back to TOC](#contents-)
 
-### Repeat
+## Repeat
 ```pascal
 { Sintax }
 repeat
@@ -162,7 +162,7 @@ end.
 ```
 [Back to TOC](#contents-)
 
-### Loop
+## Loop
 ```pascal
 { Sintax }
 loop {execution count} do
@@ -183,7 +183,7 @@ end.
 ```
 [Back to TOC](#contents-)
 
-### For
+## For
 ```pascal
 { Sintax }
 for {start point} to {last point} do
@@ -209,9 +209,9 @@ end.
 [Back to TOC](#contents-)
 
 
-## Subprograms
+# Subprograms
 
-### Procedures
+## Procedures
 
 ```pascal
 { Sintax }
@@ -276,7 +276,7 @@ end.
 ```
 [Back to TOC](#contents-)
 
-### Functions
+## Functions
 
 ```pascal
 { Sintax }
@@ -345,7 +345,7 @@ end.
 ```
 [Back to TOC](#contents-)
 
-## Bitwise operators
+# Bitwise operators
 ```pascal
 var x, y, p, q, r: byte;
 
@@ -353,14 +353,14 @@ x := 42;  // 00101010 (binary)
 y := 166; // 10100110 (binary)
 ```
 
-### Operator: not
+## Operator: not
 ```pascal
 x := 4;     // x =  0000000 00000100 (binary)
 x := not 4; // x = 11111111 11111011 (binary)
 ```
 [Back to TOC](#contents-)
 
-### Operator: and
+## Operator: and
 ```pascal
 p := x and y; {34} // 0010 0010 (binary)
 
@@ -371,7 +371,7 @@ p := x and y; {34} // 0010 0010 (binary)
 ```
 [Back to TOC](#contents-)
 
-### Operator: or
+## Operator: or
 ```pascal
 q := x or y; {174}  // 1010 1110 (binary)
 
@@ -382,7 +382,7 @@ q := x or y; {174}  // 1010 1110 (binary)
 ```
 [Back to TOC](#contents-)
 
-### Operator: xor
+## Operator: xor
 ```pascal
 r := x xor y; {140} // 1000 1100 (binary)
 
@@ -393,4 +393,4 @@ r := x xor y; {140} // 1000 1100 (binary)
 ```
 [Back to TOC](#contents-)
 
-## Named constants
+# Named constants
