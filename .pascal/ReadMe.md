@@ -542,7 +542,7 @@ end.
 # Debugging 
 > **{$I-} where 'I' from Input and '-' for disabling error messages**
 >
-> **If (IOResult <> 0) it means that error was found**
+> - **If (IOResult <> 0) it means that error was found**
 ```pascal
 var x, y: integer;
 begin
