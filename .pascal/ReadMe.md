@@ -176,8 +176,11 @@ end.
 
 - [ ] task 1
 - [X] task 2
-- [ ] [](#) Open a followup issue
-- [ ]  Open a followup issue [](#)
+
+- {+ addition 1 +}
+- [+ addition 2 +]
+- {- deletion 3 -}
+- [- deletion 4 -]
 
 
 
