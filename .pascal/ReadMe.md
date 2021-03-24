@@ -1,6 +1,7 @@
 ### Contents 🚀
   - [General information](#general-information)
       - [Program structure](#program-structure)
+      - [Operations](#operations)
 
 
 ## General information
@@ -37,3 +38,18 @@ begin
     {code here}
 end.
 ```
+
+#### Operations
+```pascal
+var a, b, c: real;
+
+begin
+    c := a + b;
+    c := a - b;
+    c := a / b; {(a div b) if a, b: integer}
+    c := a * b;
+end.
+```
+
+
+
