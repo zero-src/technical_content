@@ -2,7 +2,7 @@
   - [General information](#general-information)
       - [Program structure](#program-structure)
       - [Operations](#operations)
-      - [Variables' types](#variables'-types)
+      - [Variables' types](#variables-types)
 
 
 ## General information
