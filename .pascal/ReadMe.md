@@ -3,6 +3,7 @@
       - [Program structure](#program-structure)
       - [Operations](#operations)
       - [Variables' types](#variables-types)
+      - [if else operators](#if--else-operators)
 
 
 # General information
