@@ -342,10 +342,13 @@ end.
 [Back to TOC](#contents-)
 
 ## Bitwise operators
-
 ```pascal
 var x, y, p, q, r: byte;
+
+x := 42;  // 00101010 (binary)
+y := 166; // 10100110 (binary)
 ```
+
 ### Operator: not
 ```pascal
 x := 4;     // x =  0000000 00000100 (binary)
@@ -354,15 +357,12 @@ x := not 4; // x = 11111111 11111011 (binary)
 
 ### Operator: and
 ```pascal
-x := 42;  // 00101010 (binary)
-y := 166; // 10100110 (binary)
+p := x and y; {34} // 0010 0010
 
 0010 1010
 1010 0110
 ---------
-0010 0010
-
-p := x and y; {34} // 00100010
+0010 0010 {34 in decimal}
 ```
 
 q := x or y;  {174}  // 10101110
