@@ -6,7 +6,7 @@
 
 ## General information
 
-#### Program structure
+### Program structure
 ```pascal
 // Optional for PascalABC.Net
 // Example: program sum;
@@ -39,7 +39,7 @@ begin
 end.
 ```
 
-#### Operations
+### Operations
 ```pascal
 var a, b, c: real;
 
@@ -51,9 +51,9 @@ begin
 end.
 ```
 
-#### Variable's types
+### Variable's types
 
-##### Integer types
+#### Integer types
 
 Тип	| Диапазон | Байтов
 ----|----------|-------
@@ -66,7 +66,7 @@ Longword | 0..4294967295 | 4
 Int64 | -9223372036854775808 .. 9223372036854775807	| 8
 QWord | 0 .. 18446744073709551615 | 8
 
-##### Float types
+#### Float types
 
 Тип	| Диапазон | Значащих цифр | Байтов
 ----|----------|---------------|-------
