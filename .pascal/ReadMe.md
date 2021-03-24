@@ -44,7 +44,7 @@ begin
     {code here}
 end.
 ```
-
+[Back to TOC](#contents-)
 
 ## Operations
 ```pascal
@@ -57,7 +57,7 @@ begin
     c := a * b;
 end.
 ```
-
+[Back to TOC](#contents-)
 
 ## Variable types
 
@@ -80,7 +80,7 @@ QWord | 0 .. 18446744073709551615 | 8
 ----|----------|---------------|-------
 Real | dependinng on platform | ??? | 4 or 8
 Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
-
+[Back to TOC](#contents-)
 
 ## if | else operators
 >'if' operator without 'else' will execute only true condition.
@@ -96,7 +96,7 @@ if condition then
 else
     {do something};
 ```
-
+[Back to TOC](#contents-)
 
 ## Cycles
 
@@ -124,6 +124,7 @@ begin
     print(sum); // Outputs: 100
 end.
 ```
+[Back to TOC](#contents-)
 
 ### Repeat
 ```pascal
@@ -149,6 +150,7 @@ begin
     print(sum); // Outputs: 100
 end.
 ```
+[Back to TOC](#contents-)
 
 ### Loop
 ```pascal
@@ -163,13 +165,13 @@ var sum: integer;
 
 begin
     sum := 0;
-
     loop 100 do
         sum += 1;
 
     print(sum); // Outputs: 100
 end.
 ```
+[Back to TOC](#contents-)
 
 
 
