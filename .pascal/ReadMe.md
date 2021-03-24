@@ -102,13 +102,13 @@ Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
 
 ### While
 ```pascal
-    // Sintax
+    { Sintax }
     while {true condition} do
         {your code}
 ```
 
 ```pascal
-{Example}
+{ Example }
 var i, sum: integer;
 
 begin
