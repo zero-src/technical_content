@@ -122,7 +122,7 @@ else
 
 ## While
 ```pascal
-{ Sintax }
+{ syntax }
 while {true condition} do
     {your code}
 ```
@@ -148,7 +148,7 @@ end.
 
 ## Repeat
 ```pascal
-{ Sintax }
+{ syntax }
 repeat
     {your code}
 until {false condition};
@@ -174,7 +174,7 @@ end.
 
 ## Loop
 ```pascal
-{ Sintax }
+{ syntax }
 loop {execution count} do
     {your code}
 ```
@@ -195,7 +195,7 @@ end.
 
 ## For
 ```pascal
-{ Sintax }
+{ syntax }
 for {start point} to {last point} do
     {your code}
 
@@ -224,7 +224,7 @@ end.
 ## Procedures
 
 ```pascal
-{ Sintax }
+{ syntax }
 
 // Default procedure
 procedure {name}(params);
@@ -289,7 +289,7 @@ end.
 ## Functions
 
 ```pascal
-{ Sintax }
+{ syntax }
 
 // Default function
 function {name}(params): {type};
@@ -541,6 +541,7 @@ end.
 
 # Debugging 
 > **{$I-} where 'I' from Input and '-' for disabling error messages**
+>
 > **If (IOResult <> 0) it means that error was found**
 ```pascal
 var x, y: integer;
