@@ -2,9 +2,9 @@
   - [General information](#general-information)
       - [Program structure](#program-structure)
       - [Operations](#operations)
-      - [Variable' types](#variable-types)
+      - [Variable types](#variable-types)
       - [if else operators](#if--else-operators)
-- [Cycles](#cycles)
+- [Loops](#loops)
     - [While](#while)
     - [Repeat](#repeat)
     - [Loop](#loop)
@@ -18,7 +18,14 @@
     - [or](#operator-or)
     - [xor](#operator-xor)
 - [Constants](#constants)
-
+    - [Compile-time constants](#compile-time-constants)
+    - [Runtime constants](#runtime-constants)
+- [Different way of numbers recording](#different-way-of-numbers-recording)
+- [More operators](#more-operators)
+    - [Exit](#exit)
+    - [Goto](#goto)
+    - [Break](#break)
+    - [Continue](#continue)
 
 # General information
 
@@ -109,7 +116,7 @@ else
 ```
 [Back to TOC](#contents-)
 
-# Cycles
+# Loops
 
 ## While
 ```pascal
@@ -132,7 +139,7 @@ begin
         i += 1;
     end;
 
-    print(sum); // Outputs: 100
+    print(sum); // Output: 100
 end.
 ```
 [Back to TOC](#contents-)
@@ -158,7 +165,7 @@ begin
         i += 1;
     until i = 100;
 
-    print(sum); // Outputs: 100
+    print(sum); // Output: 100
 end.
 ```
 [Back to TOC](#contents-)
@@ -179,7 +186,7 @@ begin
     loop 100 do
         sum += 1;
 
-    print(sum); // Outputs: 100
+    print(sum); // Output: 100
 end.
 ```
 [Back to TOC](#contents-)
@@ -204,7 +211,7 @@ begin
     for var i := 1 to 100 do
       sum += 1;
 
-    print(sum); // Outputs: 100
+    print(sum); // Output: 100
 end.
 ```
 [Back to TOC](#contents-)
@@ -356,6 +363,8 @@ y := 166; // 10100110 (binary)
 
 ## Operator: not
 ```pascal
+var x: integer;
+
 x := 4;     // x =  0000000 00000100 (binary)
 x := not 4; // x = 11111111 11111011 (binary)
 ```
@@ -411,9 +420,117 @@ const hello = 'Hello';
 ```
 [Back to TOC](#contents-)
 
-## Pseudo constants
-> The values of those constants can be changed.
+
+# Different way of numbers recording
+> '$' allows you to use HexaDecimal numbers.
 ```pascal
-const number: integer = 20;
+var x: byte;
+
+begin
+    x := $1A7;
+    print(x); // Output: 423
+end.
 ```
 [Back to TOC](#contents-)
+
+# More operators
+
+## Exit
+> Exit allows you to exit from current execution location.
+```pascal 
+var x, y: integer; 
+
+function calc(a: integer): integer;
+begin
+    a := 0;
+    loop 10 do
+    begin
+        a += 1;
+        exit;
+    end;
+    
+    result := a;
+end;
+
+begin
+    x := 1;
+    x := calc(x); 
+    println(x); // Output: 0;
+    
+    y := 1;
+    loop 10 do
+    begin
+        y += 1;
+        exit; {Force exit}
+    end;
+
+    println(y); // Will not be executed
+end.
+```
+[Back to TOC](#contents-)
+
+## Goto
+> Goto allows you to jump across the code
+```pascal
+label place;
+begin
+    goto place;
+    println(1);
+
+    place:
+        println(2);
+    // Output: 2;
+end.
+```
+[Back to TOC](#contents-)
+
+## Break
+> Break allows you exit from current loop.
+```pascal
+var x: integer;
+begin
+    x := 0;
+
+    for var i := 1 to 10 do
+    begin
+        if i = 5 then
+            break;
+        
+        x += 1;
+    end;
+
+    print(x); // Output: 4
+end.
+```
+[Back to TOC](#contents-)
+
+## Continue
+> Continue allows you to skip current iteration
+```pascal
+var x: integer;
+begin
+    x := 0;
+
+    for var i := 1 to 10 do
+    begin
+        if i = 5 then
+            continue;
+        
+        x += 1;
+    end;
+
+    print(x); // Output: 9
+end.
+```
+[Back to TOC](#contents-)
+
+# ASKII table
+
+  | .0 .1 .2 .3 .4 .5 .6 .7 .8 .9 .A .B .C .D .E .F
+  |------------------------------------------------
+2.|     !  "  #  $  %  &  '  (  )  *  +  ,  -  .  /
+3.|  0  1  2  3  4  5  6  7  8  9  :  ;  <  =  >  ?
+4.|  @  A  B  C  D  E  F  G  H  I  J  K  L  M  N  O
+5.|  P  Q  R  S  T  U  V  W  X  Y  Z  [  \  ]  ^  _
+6.|  `  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o
+7.|  p  q  r  s  t  u  v  w  x  y  z  {  |  }  ~  
