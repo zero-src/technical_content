@@ -40,6 +40,7 @@ begin
 end.
 ```
 
+
 ### Operations
 ```pascal
 var a, b, c: real;
@@ -52,8 +53,8 @@ begin
 end.
 ```
 
-### Variables' types
 
+### Variables' types
 
 #### Integer types
 
@@ -74,5 +75,7 @@ QWord | 0 .. 18446744073709551615 | 8
 ----|----------|---------------|-------
 Real | dependinng on platform | ??? | 4 or 8
 Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
+
+
 
 
