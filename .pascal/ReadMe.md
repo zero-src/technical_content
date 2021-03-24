@@ -252,24 +252,24 @@ end;
 procedure o_increment(self: integer); extensionmethod := self += 1;
 
 begin
-var x := 2;
+    var x := 2;
 
-// procedure message
-message; //Output: 1: Hello
+    // procedure message
+    message; //Output: 1: Hello
 
-// procedure increment
-increment(x);
-println('2:', x); //Output: 2: 3
+    // procedure increment
+    increment(x);
+    println('2:', x); //Output: 2: 3
 
-// procedure show
-x.show; //Output: 3: 3
+    // procedure show
+    x.show; //Output: 3: 3
 
-// procedure o_increment
-x.o_increment; 
-println('4:', x); //Output: 4: 3
+    // procedure o_increment
+    x.o_increment; 
+    println('4:', x); //Output: 4: 3
 end.
 ```
-
+[Back to TOC](#contents-)
 
 ### Functions
 
@@ -277,3 +277,4 @@ end.
 { Sintax }
 
 ```
+[Back to TOC](#contents-)
