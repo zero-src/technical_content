@@ -79,13 +79,13 @@ Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
 
 
 ## if | else operators
-'if' operator without 'else' will execute only true condition.
+>'if' operator without 'else' will execute only true condition.
 
 ```pascal
     if condition then
         {do something}
 ```
-'if' operator with 'else' will check all specified conditions.
+>'if' operator with 'else' will check all specified conditions.
 
 ```pascal
     if condition then
