@@ -27,6 +27,7 @@
     - [Break](#break)
     - [Continue](#continue)
 - [ASKII table](#askii-table)
+- [Debugging](#debugging)
 
 # General information
 
@@ -539,7 +540,7 @@ end.
 [Back to TOC](#contents-)
 
 # Debugging 
-> {$I-} ( 'I' from Input and '-' for disabling error messages )
+> **{$I-} where 'I' from Input and '-' for disabling error messages**
 ```pascal
 var x, y: integer;
 begin
