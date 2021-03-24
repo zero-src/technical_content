@@ -402,10 +402,12 @@ r := x xor y; {140} // 1000 1100 (binary)
 const message = 'hello';
 ```
 
-## **Runtime constants** 
+## Runtime constants
 > The values of these constants are determined at runtime.
 ```pascal
 const hello = 'Hello';
       part = copy(hello, 2, 2); {here it is!}
 ```
 [Back to TOC](#contents-)
+
+## P
