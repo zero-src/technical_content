@@ -1,13 +1,13 @@
-### Contents 🚀
+## Contents 🚀
   - [General information](#general-information)
       - [Program structure](#program-structure)
       - [Operations](#operations)
       - [Variables' types](#variables-types)
 
 
-## General information
+# General information
 
-### Program structure
+## Program structure
 ```pascal
 // Optional for PascalABC.Net
 // Example: program sum;
@@ -41,7 +41,7 @@ end.
 ```
 
 
-### Operations
+## Operations
 ```pascal
 var a, b, c: real;
 
@@ -54,9 +54,9 @@ end.
 ```
 
 
-### Variables' types
+## Variables' types
 
-#### Integer types
+### Integer types
 
 Тип	| Диапазон | Байтов
 ----|----------|-------
@@ -69,7 +69,7 @@ Longword | 0..4294967295 | 4
 Int64 | -9223372036854775808 .. 9223372036854775807	| 8
 QWord | 0 .. 18446744073709551615 | 8
 
-#### Float types
+### Float types
 
 Тип	| Диапазон | Значащих цифр | Байтов
 ----|----------|---------------|-------
@@ -77,5 +77,20 @@ Real | dependinng on platform | ??? | 4 or 8
 Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
 
 
+## if | else operators
+'if' operator without 'else' will execute only true condition.
+
+```pascal
+    if condition then
+        {do something}
+```
+'if' operator with 'else' will check all specified conditions.
+
+```pascal
+    if condition then
+        {do something}
+    else
+        {do something};
+```
 
 
