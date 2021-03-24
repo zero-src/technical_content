@@ -276,5 +276,60 @@ end.
 ```pascal
 { Sintax }
 
+// Default procedure
+function {name}(params): {type};
+begin
+    {your code}
+end;
+
+// New abilities 
+function {name}(params): {type} := {your code};
+
+// Overloaded procedure
+function {type}.{name}(params): {type};
+begin
+    {your code}
+end;
+
+// Overloaded procedure
+function {type}.{name}(params): {type} := {your code};
+```
+
+```pascal
+// result := ... equivalent to {func name} := ...
+
+// Default procedure
+function message: string;
+begin
+    result := 'Hello';
+end;
+
+// New abilities 
+function increment(x: integer): integer := x+1;
+
+// Overloaded procedure
+function integer.more: integer;
+begin
+    result := self + 1;
+end;
+
+// Overloaded procedure
+function integer.more1: integer := self + 1;
+
+begin
+ var x := 0;
+  
+ // function message
+ println('1:', message); //Output: 1: Hello
+ 
+ // function increment
+ println('2:', increment(x)); //Output: 2: 1
+ 
+ // function integer.more
+ println('3:', x.more); //Output: 3: 1
+ 
+ // function integer.more1
+ println('4:', x.more1); //Output: 4: 1
+end.
 ```
 [Back to TOC](#contents-)
