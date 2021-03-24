@@ -107,8 +107,8 @@ Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
         {your code}
 ```
 
-> Example:
 ```pascal
+{Example}
 var i, sum: integer;
 
 begin
