@@ -1,9 +1,9 @@
 ### Contents 🚀
-  - [start](#start)
+  - [General information](#general-information)
       - [Program structure](#program-structure)
 
 
-## Start
+## General information
 
 #### Program structure
 ```pascal
