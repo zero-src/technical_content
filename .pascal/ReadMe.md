@@ -176,7 +176,8 @@ end.
 
 - [ ] task 1
 - [X] task 2
-- [ ] \(Optional) task 3
+- [ ] \(Optional) Open a followup issue
+- [ ] \(Optional) Open a followup issue
 
 
 
