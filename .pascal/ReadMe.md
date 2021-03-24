@@ -101,8 +101,8 @@ Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
 ## Cycles
 
 ### While
-Sintax
 ```pascal
+    // Sintax
     while {true condition} do
         {your code}
 ```
