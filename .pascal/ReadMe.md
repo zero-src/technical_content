@@ -32,9 +32,10 @@
     - [Range](#range-type)
     - [Enumerated type](#enumerated-type)
 - [Arrays](#arrays)
+- [Record](#record)
 
 # General information
-
+**I am using PascalABC.NET 3.8 for compiling programs.
 ## Program structure
 ```pascal
 // Optional for PascalABC.Net
@@ -664,7 +665,7 @@ end.
 ```
 [Back to TOC](#contents-)
 
-> You can also put Range type into brackets: **array [integer] of integer**
+> You can also put **ranged** type into brackets: **array [integer] of integer**
 ```pascal
 type BoolArr = array [boolean] of integer;
 var a: BoolArr;
@@ -681,3 +682,56 @@ begin
 end.
 ```
 [Back to TOC](#contents-)
+
+# Record
+```pascal
+{ Syntax }
+type {Record name} = record
+    {type defining}
+end;
+var {name}: {Record name};
+```
+
+```pascal
+{ Example }
+type CheckPoint = record
+    hidden: boolean;
+    distance: real;
+end;
+
+var point: CheckPoint;
+
+begin
+    point.hidden := false;
+    point.distance := 0.72;
+
+    print(point);
+    // Output: (False, 0.72);
+end.
+```
+[Back to TOC](#contents-)
+
+> Also you are able to use record as a type in array
+```pascal
+{ Example }
+type CheckPoint = record
+    hidden: boolean;
+    distance: real;
+end;
+
+var point: array [boolean] of CheckPoint;
+
+begin
+    point[false].hidden := true;
+    point[false].distance := 0.84;
+
+    point[true].hidden := false;
+    point[true].distance := 0.72;
+
+    print(point);
+    // Output: [(True, 0.84), (False, 0.72)] ;
+end.
+```
+[Back to TOC](#contents-)
+
+# P
