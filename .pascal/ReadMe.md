@@ -39,7 +39,6 @@
 - [Files](#files)
     - [Text files](#text-files)
     - [Typed files](#typed-files)
-    - [Untyped files](#untyped-files)
 
 # General information
 >**I am using PascalABC.NET 3.8 for compiling .pas files.**
@@ -986,8 +985,4 @@ begin
     close(f);
 end.
 ```
-[Back to TOC](#contents-)
-
-## Untyped files
-
 [Back to TOC](#contents-)
