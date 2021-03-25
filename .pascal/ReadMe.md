@@ -663,4 +663,14 @@ begin
 end.
 ```
 
-> You can also put Range type into brackets **array [integer] of integer**
+> You can also put Range type into brackets: **array [integer] of integer**
+type BoolArr = array [boolean] of integer;
+var a: BoolArr;
+
+begin
+    foreach var x in a do
+        print(x);
+
+    a[true] := 0;
+end.
+```
