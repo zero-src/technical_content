@@ -628,4 +628,39 @@ end.
 [Back to TOC](#contents-)
 
 # Arrays
+> Array consists of several variables with a same type
+```pascal
+{ Syntax }
+type {Array type name} = array [{Start value}..{Last value}] of {values type};
+var {name}: {Array type name};
 
+begin
+    for var i := {Start value} to {Last value} do
+        print(i);
+
+    { OR }
+
+    for var i := {Last value} downto {Start value} do
+        print(i);
+end.
+```
+
+```pascal
+{ Example }
+type IntArr = array [1..5] of integer;
+var a: IntArr;
+
+begin
+    for var i := 1 to 5 do
+        print(i);
+
+    { OR }
+
+    for var i := 5 downto 1 do
+        print(i);
+
+    // Output: 1 2 3 4 5 5 4 3 2 1
+end.
+```
+
+> You can also put Range type into brackets  array [integer] of integer
