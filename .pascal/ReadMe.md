@@ -1002,4 +1002,14 @@ end.
 var p: ^integer;
 ```
 
+> For recieving adress from variable use '@'
+```pascal
+var r: real;
+    p: ^real;
+
+begin
+    p := @r;
+end.
+```
+
 [Back to TOC](#contents-)
