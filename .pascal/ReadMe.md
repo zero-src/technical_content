@@ -1002,7 +1002,7 @@ end.
 var p: ^integer;
 ```
 
-> For recieving adress from variable use '@'
+> For recieving **adress** from variable use '@'
 ```pascal
 var r: real;
     p: ^real;
