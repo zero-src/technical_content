@@ -993,7 +993,7 @@ end.
 > - Address identifies memory cell.
 > - Address of memory area is equivalent to address of the first memory cell in thes area
 >
-> #### Pointers
+> ### Pointers
 > - Pointer - variable wich keeps an address
 > - "A points to B" means "A contains address of B"
 
