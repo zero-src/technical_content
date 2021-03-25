@@ -1026,4 +1026,21 @@ begin
     print(p^); // Output: 5
 end.
 ```
+
+> ### Example program
+```pascal
+type PNode = record
+       name: string;
+     end;
+
+var p: ^PNode;
+    r: PNode;
+
+begin
+    p := @r;
+    p^.name := 'vlad';
+    
+    println(p^.name); // Output: vlad
+end.
+```
 [Back to TOC](#contents-)
