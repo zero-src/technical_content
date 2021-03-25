@@ -29,7 +29,7 @@
 - [ASKII table](#askii-table)
 - [Debugging](#debugging)
 - [Ranges and Enumerable types](#ranges-and-enumerable-types)
-    - [Range](#reange-type)
+    - [Range](#range-type)
     - [Enumerable](#enumerable-type)
 
 # General information
