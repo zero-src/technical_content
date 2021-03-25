@@ -36,7 +36,6 @@
     - [Array](#array)
     - [Record](#record)
 - [Strings](#strings)
-- [#cmd-colors]
 
 # General information
 >**I am using PascalABC.NET 3.8 for compiling .pas files.**
@@ -866,3 +865,5 @@ begin
 end.
 ```
 [Back to TOC](#contents-)
+
+# Files
