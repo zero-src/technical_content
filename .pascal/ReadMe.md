@@ -664,11 +664,18 @@ end.
 ```
 
 > You can also put Range type into brackets: **array [integer] of integer**
+```pascal
 type BoolArr = array [boolean] of integer;
 var a: BoolArr;
 
 begin
     foreach var x in a do
         print(x);
+    // Output: 0 0
+    
+    a[true] := 1; println;
+    foreach var x in a do
+        print(x);
+    // Output: 0 1
 end.
 ```
