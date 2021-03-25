@@ -31,10 +31,12 @@
 - [Ranges and Enumerated types](#ranges-and-enumerated-types)
     - [Range](#range-type)
     - [Enumerated type](#enumerated-type)
+        - [Cmd colors](#cmd-colors)
 - [More types](#more-types)
     - [Array](#array)
     - [Record](#record)
 - [Strings](#strings)
+- [#cmd-colors]
 
 # General information
 >**I am using PascalABC.NET 3.8 for compiling .pas files.**
@@ -631,6 +633,61 @@ end.
 ```
 [Back to TOC](#contents-)
 
+### Cmd colors
+> **Output preview**
+
+![**Output preview**](https://media.discordapp.net/attachments/753901770522230894/824585847252713492/unknown.png?width=881&height=331)
+> **Code preview**
+
+```pascal
+{ ColorsDemo }
+uses crt;
+
+const
+    ColorCount = 16;
+    BGColCount = 8;
+var
+    AllColors: array [1..ColorCount] of word =
+    (
+        Black, Blue, Green, Cyan,
+        Red, Magenta, Brown, LightGray,
+        DarkGray, LightBlue, LightGreen, LightCyan,
+        LightRed, LightMagenta, Yellow, White
+    );
+
+procedure MakeLine(line, fgcolor: integer);
+var i, j, w: integer;
+begin
+    w := WindowWidth div BGColCount;
+    for i := 1 to BGColCount do
+    begin
+        GotoXY((i-1)*w + 1, line);
+        TextBackground(AllColors[i]);
+        for j := 1 to w do
+        begin
+            if j mod 2 = 0 then
+                TextColor(fgcolor + 0)
+            else
+                TextColor(fgcolor);
+            write(' ')
+        end
+    end 
+end;
+
+procedure MakeScreen;
+var i: integer;
+begin
+    clrscr;
+    for i := 1 to WindowHeight do
+        MakeLine(i, AllColors[i mod ColorCount + 1]);
+end;
+
+begin
+    MakeScreen;
+end.
+```
+[Back to TOC](#contents-)
+
 # More types
 
 ## Array
@@ -809,57 +866,3 @@ begin
 end.
 ```
 [Back to TOC](#contents-)
-
-# Cmd colors
-> **Output preview**
-
-![**Output preview**](https://media.discordapp.net/attachments/753901770522230894/824585847252713492/unknown.png?width=881&height=331)
-> **Code preview**
-
-```pascal
-{ ColorsDemo }
-uses crt;
-
-const
-    ColorCount = 16;
-    BGColCount = 8;
-var
-    AllColors: array [1..ColorCount] of word =
-    (
-        Black, Blue, Green, Cyan,
-        Red, Magenta, Brown, LightGray,
-        DarkGray, LightBlue, LightGreen, LightCyan,
-        LightRed, LightMagenta, Yellow, White
-    );
-
-procedure MakeLine(line, fgcolor: integer);
-var i, j, w: integer;
-begin
-    w := WindowWidth div BGColCount;
-    for i := 1 to BGColCount do
-    begin
-        GotoXY((i-1)*w + 1, line);
-        TextBackground(AllColors[i]);
-        for j := 1 to w do
-        begin
-            if j mod 2 = 0 then
-                TextColor(fgcolor + 0)
-            else
-                TextColor(fgcolor);
-            write(' ')
-        end
-    end 
-end;
-
-procedure MakeScreen;
-var i: integer;
-begin
-    clrscr;
-    for i := 1 to WindowHeight do
-        MakeLine(i, AllColors[i mod ColorCount + 1]);
-end;
-
-begin
-    MakeScreen;
-end.
-```
