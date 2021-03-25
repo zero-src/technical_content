@@ -997,7 +997,7 @@ end.
 > - Pointer - variable wich keeps an address
 > - "A points to B" means "A contains address of B"
 
-> Example: p contains adress of integer variable
+**p contains adress of integer variable**
 ```pascal
 var p: ^integer;
 ```
