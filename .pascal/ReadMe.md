@@ -663,4 +663,4 @@ begin
 end.
 ```
 
-> You can also put Range type into brackets  array [integer] of integer
+> You can also put Range type into brackets **array [integer] of integer**
