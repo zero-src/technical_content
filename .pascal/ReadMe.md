@@ -28,9 +28,10 @@
     - [Continue](#continue)
 - [ASKII table](#askii-table)
 - [Debugging](#debugging)
-- [Ranges and Enumerable types](#ranges-and-enumerable-types)
+- [Ranges and Enumerated types](#ranges-and-enumerated-types)
     - [Range](#range-type)
     - [Enumerated type](#enumerated-type)
+- [Arrays](#arrays)
 
 # General information
 
@@ -626,4 +627,5 @@ end.
 ```
 [Back to TOC](#contents-)
 
-# P
+# Arrays
+
