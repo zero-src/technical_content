@@ -35,7 +35,7 @@
 - [Record](#record)
 
 # General information
-**I am using PascalABC.NET 3.8 for compiling programs.
+>**I am using PascalABC.NET 3.8 for compiling programs.**
 ## Program structure
 ```pascal
 // Optional for PascalABC.Net
