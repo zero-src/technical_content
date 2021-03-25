@@ -799,6 +799,12 @@ begin
     
     val(s1, x, err);
     println(x); // Output: 12.3
+    
+    // SetLength
+    println('Before:', s1.Length); // Output: Before: 4
+    
+    SetLength(s1, 10);
+    println('After:', s1.Length); // Output: Before: 10
 end.
 ```
 [Back to TOC](#contents-)
