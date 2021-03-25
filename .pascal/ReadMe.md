@@ -28,6 +28,9 @@
     - [Continue](#continue)
 - [ASKII table](#askii-table)
 - [Debugging](#debugging)
+- [Ranges and Enumerable types](#ranges-and-enumerable-types)
+    - [Range](#reange-type)
+    - [Enumerable](#enumerable-type)
 
 # General information
 
@@ -81,8 +84,7 @@ end.
 ## Variable types
 
 ### Integer types
-
-Тип	| Диапазон | Байтов
+Type | Range | Bytes
 ----|----------|-------
 Byte| 0 .. 255 | 1
 Shortint | -128 .. 127 | 1
@@ -94,8 +96,7 @@ Int64 | -9223372036854775808 .. 9223372036854775807	| 8
 QWord | 0 .. 18446744073709551615 | 8
 
 ### Float types
-
-Тип	| Диапазон | Значащих цифр | Байтов
+Type | Range | Significant numbers | Bytes
 ----|----------|---------------|-------
 Real | dependinng on platform | ??? | 4 or 8
 Double | 5.0E-324 .. 1.7E308 | 15-16 | 8
@@ -356,12 +357,6 @@ end.
 [Back to TOC](#contents-)
 
 # Bitwise operators
-```pascal
-var x, y, p, q, r: byte;
-
-x := 42;  // 00101010 (binary)
-y := 166; // 10100110 (binary)
-```
 
 ## Operator: not
 ```pascal
@@ -371,6 +366,13 @@ x := 4;     // x =  0000000 00000100 (binary)
 x := not 4; // x = 11111111 11111011 (binary)
 ```
 [Back to TOC](#contents-)
+
+```pascal
+var x, y, p, q, r: byte;
+
+x := 42;  // 00101010 (binary)
+y := 166; // 10100110 (binary)
+```
 
 ## Operator: and
 ```pascal
@@ -535,9 +537,38 @@ end.
 4.|  @|  A|  B|  C|  D|  E|  F|  G|  H|  I|  J|  K|  L|  M|  N|  O
 5.|  P|  Q|  R|  S|  T|  U|  V|  W|  X|  Y|  Z|  [| \ |  ]|  ^|  _
 6.|  `|  a|  b|  c|  d|  e|  f|  g|  h|  i|  j|  k|  l|  m|  n|  o
-7.|  p|  q|  r|  s|  t|  u|  v|  w|  x|  y|  z|  {| \| |  }| ~|  
+7.|  p|  q|  r|  s|  t|  u|  v|  w|  x|  y|  z|  {| \| |  }| ~|  
 
+```pascal
+{ ASKII Table }
+var i, j: integer;
+    c: char;
+
+begin
+    write('  |');
+    for c := '0' to '9' do
+        write(' .', c);
+
+    for c := 'A' to 'F' do
+        write(' .', c);
+    writeln;
+
+    write('  |');
+    for i := 1 to 16 do
+        write('---');
+    writeln;
+
+    for i := 2 to 7 do
+    begin
+        write(i, '.|');
+        for j := 0 to 15 do
+            write('  ', chr(i * 16 + j));
+        writeln
+    end
+end.
+```
 [Back to TOC](#contents-)
+
 
 # Debugging 
 > **{$I-} where 'I' from Input and '-' for disabling error messages**
@@ -551,6 +582,46 @@ begin
         println(x * y)
     else
         println('Incorrect input');
+end.
+```
+[Back to TOC](#contents-)
+
+# Ranges and Enumerable types
+
+## Range type
+> Useless and dead type... Forget abot this type please
+```pascal
+{ Syntax }
+type {Type name} = {range};
+var {variable}: {Type name};
+```
+
+```pascal
+{ Example }
+type R = 1..10;
+var range: R;
+
+begin
+    {No example coz type is dead}
+end.
+```
+[Back to TOC](#contents-)
+
+## Enumerable type
+```pascal
+{ Syntax }
+type {name} = ({params});
+```
+
+```pascal
+{ Example }
+type weekday = (Monday, Tuesday, Wednesday, Thursday, Friday,
+		Saturday, Sunday);
+
+var	startOfWeek: weekday;
+begin
+	startOfWeek := Sunday;
+    print(startOfWeek); // Output: Sunday
 end.
 ```
 [Back to TOC](#contents-)
