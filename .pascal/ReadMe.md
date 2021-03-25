@@ -989,7 +989,7 @@ end.
 [Back to TOC](#contents-)
 
 # Addresses, pointers and dynamic memory
-> #### Addresses
+> ### Addresses
 > - Address identifies memory cell.
 > - Address of memory area is equivalent to address of the first memory cell in thes area
 >
