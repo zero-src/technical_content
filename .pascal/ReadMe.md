@@ -1012,4 +1012,18 @@ begin
 end.
 ```
 
+> ### Dereference usage
+> - For recieving address from variable we are using '@'
+> - For dereferencing value from memory we are using '^' after our variable (variable^)
+```pascal
+var r: real;
+    p: ^real;
+
+begin
+    r := 5;
+    p := @r;
+    
+    print(p^); // Output: 5
+end.
+```
 [Back to TOC](#contents-)
