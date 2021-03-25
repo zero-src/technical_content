@@ -30,7 +30,7 @@
 - [Debugging](#debugging)
 - [Ranges and Enumerable types](#ranges-and-enumerable-types)
     - [Range](#range-type)
-    - [Enumerable](#enumerable-type)
+    - [Enumerated type](#enumerated-type)
 
 # General information
 
@@ -607,7 +607,7 @@ end.
 ```
 [Back to TOC](#contents-)
 
-## Enumerable type
+## Enumerated type
 ```pascal
 { Syntax }
 type {name} = ({params});
