@@ -39,7 +39,7 @@
 - [Files](#files)
     - [Text files](#text-files)
     - [Typed files](#typed-files)
-- [Adresses, pointers and dynamic memory](##adresses-pointers-and-dynamic-memory)
+- [Adresses, pointers and dynamic memory](#adresses-pointers-and-dynamic-memory)
 
 # General information
 >**I am using PascalABC.NET 3.8 for compiling .pas files.**
