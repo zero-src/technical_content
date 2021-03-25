@@ -662,6 +662,7 @@ begin
     // Output: 1 2 3 4 5 5 4 3 2 1
 end.
 ```
+[Back to TOC](#contents-)
 
 > You can also put Range type into brackets: **array [integer] of integer**
 ```pascal
@@ -679,3 +680,4 @@ begin
     // Output: 0 1
 end.
 ```
+[Back to TOC](#contents-)
