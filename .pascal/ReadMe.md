@@ -995,6 +995,6 @@ end.
 >
 > #### Pointers
 > - Pointer - variable wich keeps an address
-> - "A points to B" means "A consists address of B"
+> - "A points to B" means "A contains address of B"
 
 [Back to TOC](#contents-)
