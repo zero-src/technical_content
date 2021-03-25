@@ -618,7 +618,7 @@ type {name} = ({params});
 type weekday = (Monday, Tuesday, Wednesday, Thursday, Friday,
 		Saturday, Sunday);
 
-var	startOfWeek: weekday;
+var startOfWeek: weekday;
 begin
 	startOfWeek := Sunday;
     print(startOfWeek); // Output: Sunday
