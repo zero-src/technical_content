@@ -31,11 +31,13 @@
 - [Ranges and Enumerated types](#ranges-and-enumerated-types)
     - [Range](#range-type)
     - [Enumerated type](#enumerated-type)
-- [Arrays](#arrays)
-- [Record](#record)
+- [More types](#more-types)
+    - [Array](#array)
+    - [Record](#record)
 
 # General information
 >**I am using PascalABC.NET 3.8 for compiling .pas files.**
+
 ## Program structure
 ```pascal
 // Optional for PascalABC.Net
@@ -628,7 +630,9 @@ end.
 ```
 [Back to TOC](#contents-)
 
-# Arrays
+# More types
+
+## Array
 > Array consists of several variables with a same type
 ```pascal
 { Syntax }
@@ -683,7 +687,7 @@ end.
 ```
 [Back to TOC](#contents-)
 
-# Record
+## Record
 ```pascal
 { Syntax }
 type {Record name} = record
