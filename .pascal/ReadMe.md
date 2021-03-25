@@ -931,7 +931,61 @@ end.
 [Back to TOC](#contents-)
 
 ## Typed files
+```pascal
+{ Syntax }
+var {name}: file of integer;
 
+begin
+    // Connects variable with selected file
+    assign({name}, {FileName});
+
+    // Creates file if needed. Erases all information in the file then opens file for writing
+    rewrite({name});
+
+    // Opens existing file for reading
+    reset({name});
+
+    // Changes current 'file pointer' position
+    seek({name}, {position})
+
+    // Closes current operation (rewrite, reset, append, ...)
+    close({name});
+end.
+```
+
+> This program opens 'typed file' and writs record data into file
+```pascal
+{ Example }
+type n_point = record
+    name: string[15];
+    hide: boolean;
+end;
+
+var f: file of n_point;
+    p, v: n_point;
+
+begin
+    assign(f, 'file.txt');
+    rewrite(f);
+    
+    p.hide := true;
+    p.name := 'point';
+    
+    seek(f, 1);
+    print(f, p);
+    
+    close(f);
+    
+    reset(f);
+    
+    while not EOF(f) do
+    begin
+        read(f, v);
+        print(v);
+    end;
+    close(f);
+end.
+```
 [Back to TOC](#contents-)
 
 ## Untyped files
