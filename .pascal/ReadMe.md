@@ -897,7 +897,7 @@ begin
 end.
 ```
 
-> Task: 
+> Task: Create a file from integers. Open file and output only Even numbers
 ```pascal
 { Solution }
 var n, inp: integer;
@@ -928,4 +928,12 @@ begin
     close(f);
 end.
 ```
+[Back to TOC](#contents-)
+
+## Typed files
+
+[Back to TOC](#contents-)
+
+## Untyped files
+
 [Back to TOC](#contents-)
