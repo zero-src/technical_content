@@ -39,7 +39,7 @@
 - [Files](#files)
     - [Text files](#text-files)
     - [Typed files](#typed-files)
-- [Adresses, pointers and dynamic memory](#adresses-pointers-and-dynamic-memory)
+- [addresses, pointers and dynamic memory](#addresses-pointers-and-dynamic-memory)
 
 # General information
 >**I am using PascalABC.NET 3.8 for compiling .pas files.**
@@ -988,6 +988,13 @@ end.
 ```
 [Back to TOC](#contents-)
 
-# Adresses, pointers and dynamic memory
+# addresses, pointers and dynamic memory
+> #### addresses
+> - address identifies memory cell.
+> - address of memory area is equivalent to address of the first memory cell in thes area
+>
+> #### Pointers
+> - Pointer - variable wich keeps an address
+> - "A points to B" means "A consists address of B"
 
 [Back to TOC](#contents-)
