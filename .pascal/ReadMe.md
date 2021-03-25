@@ -34,6 +34,7 @@
 - [More types](#more-types)
     - [Array](#array)
     - [Record](#record)
+- [Strings](#strings)
 
 # General information
 >**I am using PascalABC.NET 3.8 for compiling .pas files.**
@@ -738,4 +739,66 @@ end.
 ```
 [Back to TOC](#contents-)
 
-# P
+# Strings
+> String is equivalent to **array [0..255] of char**
+```pascal
+{ Syntax }
+var {name}: string;
+```
+
+> Example operations with strings
+```pascal
+const msg1 = 'Hello World!';
+      msg2 = 'Yes.';
+      
+var s1, s2: string;
+
+begin
+    // Logic operators
+    // Uses ASKII 
+    println('cat' > 'cab'); // Output: True
+    
+    // Concatenation
+    s1 := msg1;
+    s2 := msg2;
+    
+    println(concat(s1, s2)); // Output: Hello World!Yes.
+    
+    // Copy
+    s1 := msg1;
+    println(copy(s1, 1, 5)); // Output: Hello
+    
+    // Delete
+    s1 := msg1;
+    
+    delete(s1, 1, 6);
+    println(s1); // Output: World!
+    
+    // Insert
+    s1 := msg1;
+    s2 := msg2;
+    
+    insert(s2, s1, 1);
+    println(s1); // Output: Yes.Hello World!
+    
+    // Length
+    s2 := msg2;
+    println(s2.Length); // Output: 4
+    
+    // Pos
+    s1 := msg1;
+    println(pos('!', s1)); // Output: 12
+    
+    // Str
+    str(10.2, s1);
+    println(s1); // Output: 10.2
+    
+    // Val
+    var (x, err) := (0.0, 0);
+    s1 := '12.3';
+    
+    val(s1, x, err);
+    println(x); // Output: 12.3
+end.
+```
+[Back to TOC](#contents-)
