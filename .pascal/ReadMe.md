@@ -36,6 +36,10 @@
     - [Array](#array)
     - [Record](#record)
 - [Strings](#strings)
+- [Files](#files)
+    - [Text files](#text-files)
+    - [Typed files](#typed-files)
+    - [Untyped files](#untyped-files)
 
 # General information
 >**I am using PascalABC.NET 3.8 for compiling .pas files.**
@@ -867,3 +871,29 @@ end.
 [Back to TOC](#contents-)
 
 # Files
+
+## Text files
+> User-friendly files
+
+```pascal
+{ Syntax }
+var {name}: text;
+
+begin
+    // Connects variable with selected file
+    assign({name}, {FileName});
+
+    // Creates file if needed. Erases all information in the file then opens file for writing
+    rewrite({name});
+
+    // Opens existing file for reading
+    reset({name});
+
+    // Opens existing file for writing
+    append({name});
+
+    // Closes current operation (rewrite, reset, append, ...)
+    close({name});
+end.
+```
+[Back to TOC](#contents-)
