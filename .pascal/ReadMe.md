@@ -814,6 +814,8 @@ end.
 > **Output preview**
 
 ![**Output preview**](https://media.discordapp.net/attachments/753901770522230894/824585847252713492/unknown.png?width=881&height=331)
+> **Output preview**
+
 ```pascal
 { ColorsDemo }
 uses crt;
