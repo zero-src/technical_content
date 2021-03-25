@@ -383,6 +383,7 @@ var x, y, p, q, r: byte;
 x := 42;  // 00101010 (binary)
 y := 166; // 10100110 (binary)
 ```
+[Back to TOC](#contents-)
 
 ## Operator: and
 ```pascal
@@ -581,6 +582,7 @@ end.
 
 
 # Debugging 
+> ### Only for Free / Turbo Pascal
 > **{$I-} where 'I' from Input and '-' for disabling error messages**
 > - **If (IOResult <> 0) it means that error was found**
 ```pascal
