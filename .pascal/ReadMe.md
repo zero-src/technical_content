@@ -986,3 +986,5 @@ begin
 end.
 ```
 [Back to TOC](#contents-)
+
+# Adresses, pointers and dynamic memory
