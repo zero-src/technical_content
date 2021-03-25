@@ -1043,4 +1043,11 @@ begin
     println(p^.name); // Output: vlad
 end.
 ```
+
+> ### The conclusion
+> - If 't' is a **type** then '^t' is a pointer to 't'
+> - If 'x' is a **random variable** then '@x' is an address of 'x'
+> - If 'p' is a **pointer** then 'p^' means what 'p' points at
+> - 'nil' means **null address**
+
 [Back to TOC](#contents-)
