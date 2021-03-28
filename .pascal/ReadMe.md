@@ -1070,15 +1070,6 @@ var p: ^string;
 begin
     // Pseudo-procedure 'New' allocates memory from heap (size: 256 bytes)
     new(p);
-end.
-```
-
-```pascal
-var p: ^string;
-
-begin
-    // Pseudo-procedure 'New' allocates memory from heap (size: 256 bytes)
-    new(p);
 
     {...}
 
