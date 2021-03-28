@@ -1084,6 +1084,7 @@ end.
 
 ![image_2](https://cdn.discordapp.com/attachments/753335249391583386/825669557816393728/unknown.png)
 
+> Example program with singly linked list with 3 elements
 ```pascal
 type itemptr = ^item;
      item = record
