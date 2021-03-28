@@ -1077,5 +1077,10 @@ begin
     dispose(p);
 end.
 ```
+[Back to TOC](#contents-)
+
+## Singly linked lists
+> Singly linked list with 3 elements
+![image_2](https://cdn.discordapp.com/attachments/753335249391583386/825669557816393728/unknown.png)
 
 [Back to TOC](#contents-)
