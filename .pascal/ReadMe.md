@@ -40,6 +40,7 @@
     - [Text files](#text-files)
     - [Typed files](#typed-files)
 - [Addresses and pointers](#addresses-and-pointers)
+- [Dynamic variables](#dynamic-variables)
 
 # General information
 >**I am using PascalABC.NET 3.8 for compiling .pas files.**
@@ -1062,4 +1063,28 @@ end.
 > - After destruction dynamic variable memory returns to the **heap**
 
 ![image_1](https://cdn.discordapp.com/attachments/753335249391583386/825663734490988544/unknown.png)
+
+```pascal
+var p: ^string;
+
+begin
+    // Pseudo-procedure 'New' allocates memory from heap (size: 256 bytes)
+    new(p);
+end.
+```
+
+```pascal
+var p: ^string;
+
+begin
+    // Pseudo-procedure 'New' allocates memory from heap (size: 256 bytes)
+    new(p);
+
+    {...}
+
+    // Pseudo-procedure 'Dispose' deletes dynamic variable. It brings memory back to the heap
+    dispose(p);
+end.
+```
+
 [Back to TOC](#contents-)
