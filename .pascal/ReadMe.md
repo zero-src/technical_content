@@ -1054,3 +1054,12 @@ end.
 > - 'nil' means **null address**
 
 [Back to TOC](#contents-)
+
+# Dynamic variables
+> ### Note
+> - Dynamic variables (memory area) are created **during program execution**
+> - Memory for dynamic variables is allocated from **heap** (spetial area of memory)
+> - After destruction dynamic variable memory returns to the **heap**
+
+![image_1](https://cdn.discordapp.com/attachments/753335249391583386/825663734490988544/unknown.png)
+[Back to TOC](#contents-)
