@@ -1145,16 +1145,11 @@ begin
     stack := tmp;
 end;
 
-function SOLIsEmpty(stack: StackOfLongints): boolean;
-begin
-    SOLIsEmpty := stack = nil;
-end;
-
 function SOLPop(var stack: StackOfLongints; var n: longint): boolean;
 begin
     var tmp: LongItemPrt;
     
-    if SOLIsEmpty(stack) then
+    if stack = nil then
     begin
         SOLPop := false;
         exit;
@@ -1175,16 +1170,14 @@ var s: StackOfLongints;
 begin
     SOLInit(s);
     
-    print('Your numbers:');
-    loop 5 do
-    begin
-        read(n);
-        SOLPush(s, n);
-    end;
+    // 1..5 numbers
+    for var i := 1 to 5 do
+        SOLPush(s, i);
     
     print('Output:');
     while SOLPop(s, n) do
         print(n);
+    // Output: 5 4 3 2 1
 end.
 ```
 [Back to TOC](#contents-)
@@ -1252,16 +1245,14 @@ var q: QueueOfLongints;
 begin
     QOLInit(q);
     
-    print('Your numbers:');
-    loop 5 do
-    begin
-        read(n);
-        QOLPut(q, n);
-    end;
+    // 1..5 numbers
+    for var i := 1 to 5 do
+        QOLPut(q, i);
     
     print('Output:');
     while QOLGet(q, n) do
         print(n);
+    // Output: 1 2 3 4 5
 end.
 ```
 [Back to TOC](#contents-)
