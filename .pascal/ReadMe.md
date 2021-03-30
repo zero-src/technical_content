@@ -1109,4 +1109,159 @@ end.
 
 ![image_3](https://cdn.discordapp.com/attachments/753335249391583386/825672397788676116/unknown.png)
 
+> If you want to output numbers from previous programm, use this
+```pascal
+while first <> nil do
+begin
+    print(first^.data);
+    first := first^.next;
+end;
+```
+[Back to TOC](#contents-)
+
+## Example programs
+
+>  ### Stack Input / Output
+```pascal
+type LongItemPrt = ^LongItem;
+     LongItem = record
+        data: longint;
+        next: LongItemPrt;
+     end;
+     StackOfLongints = LongItemPrt;
+
+procedure SOLInit(var stack: StackOfLongints);
+begin
+    stack := nil;
+end;
+
+procedure SOLPush(var stack: StackOfLongints; n: longint);
+begin
+    var tmp: LongItemPrt;
+    new(tmp);
+    
+    tmp^.data := n;
+    tmp^.next := stack;
+    stack := tmp;
+end;
+
+function SOLIsEmpty(stack: StackOfLongints): boolean;
+begin
+    SOLIsEmpty := stack = nil;
+end;
+
+function SOLPop(var stack: StackOfLongints; var n: longint): boolean;
+begin
+    var tmp: LongItemPrt;
+    
+    if SOLIsEmpty(stack) then
+    begin
+        SOLPop := false;
+        exit;
+    end;
+    
+    n := stack^.data;
+    tmp := stack;
+    
+    stack := stack^.next;
+    dispose(tmp);
+    
+    SOLPop := true;
+end;
+
+var s: StackOfLongints;
+    n: longint;
+
+begin
+    SOLInit(s);
+    
+    print('Your numbers:');
+    loop 5 do
+    begin
+        read(n);
+        SOLPush(s, n);
+    end;
+    
+    print('Output:');
+    while SOLPop(s, n) do
+        print(n);
+end.
+```
+[Back to TOC](#contents-)
+
+>  ### Queue Input / Output
+```pascal
+type LongItemPrt = ^LongItem;
+     LongItem = record
+        data: longint;
+        next: LongItemPrt;
+     end;
+     
+     QueueOfLongints = record
+        first, last: LongItemPrt;
+     end;
+
+procedure QOLInit(var queue: QueueOfLongints);
+begin
+    queue.first := nil;
+    queue.last := nil;
+end;
+
+procedure QOLPut(var queue: QueueOfLongints; n: longint);
+begin
+    if queue.first = nil then
+    begin
+        new(queue.first);
+        queue.last := queue.first;
+    end
+    else
+        begin
+            new(queue.last^.next);
+            queue.last := queue.last^.next;
+        end;
+        
+    queue.last^.data := n;
+    queue.last^.next := nil;
+end;
+
+function QOLGet(var queue: QueueOfLongints; var n: longint): boolean;
+begin
+    var tmp: LongItemPrt;
+    
+    if queue.first = nil then 
+    begin
+        QOLGet := false;
+        exit;
+    end;
+    
+    n := queue.first^.data;
+    tmp := queue.first;
+    
+    queue.first := queue.first^.next;
+    
+    if queue.first = nil then
+        queue.last := nil;
+    
+    dispose(tmp);
+    QOLGet := true;
+end;
+
+var q: QueueOfLongints;
+    n: longint;
+
+begin
+    QOLInit(q);
+    
+    print('Your numbers:');
+    loop 5 do
+    begin
+        read(n);
+        QOLPut(q, n);
+    end;
+    
+    print('Output:');
+    while QOLGet(q, n) do
+        print(n);
+end.
+```
 [Back to TOC](#contents-)
