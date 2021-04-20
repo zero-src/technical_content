@@ -1,6 +1,5 @@
 ﻿var saved: array [1..256] of string;
     cnt: integer;
-    s: string;
     f: text;
 
 function resolver(s: string): string;

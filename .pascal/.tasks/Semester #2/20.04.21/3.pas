@@ -27,7 +27,7 @@ begin
   
   for var i := 1 to cnt do
     if k <> i then
-      println(f,saved[i]);
+      println(f, saved[i]);
 
   close(f);
 end.
