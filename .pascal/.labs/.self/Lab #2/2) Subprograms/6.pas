@@ -1,14 +1,5 @@
-﻿var idx: integer;
+﻿var idx, sp_pos: integer;
     s, c_str: string;
-
-function rm_all_except(s: string; your_set: set of char): string;
-begin
-  for var i := s.Length downto 1 do
-    if not (s[i] in your_set) then
-      s[i] := ' ';
-    
-  result := s;
-end;
 
 begin
   /// Ввод строки и удаление первых и последних пробелов
@@ -19,33 +10,30 @@ begin
   while pos(' '*2, s) > 0 do
     delete(s, pos(' '*2, s), 1);
   
-  /// Удаление лишних символов из строки
-  s := rm_all_except(s, ['0'..'9', '+', '-', '.']);
-  s := s.trim;
-  
   /// Начальное значение строчки
+  insert(' ', s, s.Length+1);
   c_str := '';
   
-  /// Начало цикла
-  idx := s[1] in ['+', '-'] ? 2 : 1;
+  sp_pos := 0;
+  idx := 0;
   
-  /// Начальные значения
-  if s[1] in ['+', '-'] then
-  begin
-    s := ' ' + s;
-    idx := 2;
-  end
-  else
-    idx := 1;
+  for var i := 1 to s.CountOf(' ') do
+  begin    
+    c_str += copy(s, 1, pos(' ', s));
+    delete(s, 1, pos(' ', s));
+    
+    idx += 1;
+    sp_pos := idx;
+    
+    while idx < c_str.Length do 
+    begin
+      var m := c_str[idx];
+      if not (c_str[idx] in ['0'..'7', '+', '-', '.']) then
+        delete(c_str, sp_pos, s.Length);
+      idx += 1;
+    end;
+  end;
   
-  /// Добавление нужных пробелов между цифрами
-  for var i := idx to s.Length do
-    if s[i] in ['+', '-'] then
-      c_str += ' ' + s[i]
-    else
-      c_str += s[i];
-  
-  c_str := c_str.trim;
-  println('Ответ:', c_str);
+  print('Ответ:', c_str);
 end.
-/// ab+0.1937-1.1w12
+/// -232 1.218 +12.001 +0.12
