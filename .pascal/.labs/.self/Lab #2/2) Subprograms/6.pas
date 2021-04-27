@@ -27,7 +27,6 @@ begin
     
     while idx < c_str.Length do 
     begin
-      var m := c_str[idx];
       if not (c_str[idx] in ['0'..'7', '+', '-', '.']) then
         delete(c_str, sp_pos, s.Length);
       idx += 1;
