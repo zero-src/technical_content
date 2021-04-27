@@ -8,6 +8,6 @@ function c_square(r: real): real;
 
 implementation
 
-function c_length(r: real): real := 2 * PI * r;
-function c_square(r: real): real := PI * r * r;
+function c_length := 2 * PI * r;
+function c_square := PI * r * r;
 end.
