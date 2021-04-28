@@ -4,15 +4,15 @@
        name   : string;
      end;
      
- var student: array of lib;
+var student: array of lib;
      i, n, num, max, idx: integer;
      s_nm: string;
      
- function find_by_number(a: array of lib; val: integer): integer; begin
+function find_by_number(a: array of lib; val: integer): integer; begin
   for var i := 0 to a.Length - 1 do
     if a[i].number = val then
       result := i;
- end;
+end;
  
  procedure input(s: array of lib; n: integer); var i: integer; begin
    for i := 0 to n-1 do begin
