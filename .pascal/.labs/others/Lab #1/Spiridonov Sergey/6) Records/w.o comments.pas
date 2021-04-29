@@ -48,7 +48,7 @@ begin
     separator;
     
     s_gender := readlnstring('Search by gender:');
-    for var i:= 1 to list_size do
+    for var i := 1 to list_size do
         if d[i].gender.ToUpper = s_gender.ToUpper then
         begin
             println('-'*18);
