@@ -52,7 +52,7 @@ begin
     
     /// Ввод фамилии для поиска работы студента
     s_surname := readlnstring('Search by surname:');
-    for var i:= 1 to list_size do
+    for var i := 1 to list_size do
         if d[i].surname.ToUpper = s_surname.ToUpper then
             println('Job:', d[i].job);        
     separator;
