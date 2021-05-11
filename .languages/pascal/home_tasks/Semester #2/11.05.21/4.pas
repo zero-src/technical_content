@@ -6,6 +6,8 @@ const White = 15;
 
 begin
     TextBackground(White);
+    ClrScr;
+    
     TextColor(Blue + Blink);
     
     print('Упражнение 4');

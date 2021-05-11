@@ -5,6 +5,8 @@ const LightGray = 7;
 
 begin
     TextBackground(LightGray);
+    ClrScr;
+    
     TextColor(Red);
     
     print('Внимание!');
