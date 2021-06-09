@@ -1,4 +1,4 @@
-﻿const LAST = 10;
+﻿const LAST=10;
       A = 1;
       B = 5;
       
