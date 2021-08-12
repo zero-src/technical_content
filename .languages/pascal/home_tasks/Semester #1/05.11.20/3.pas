@@ -6,4 +6,5 @@
     arr.fill(i -> random(-10.0, 20.0));
   
   arr.Print;
+  readln;
 end.
