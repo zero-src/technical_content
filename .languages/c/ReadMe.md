@@ -270,11 +270,10 @@ int main()
 
 	first = fill_int_list(5, 0);
 
+    // int x = intlist_reduce_l(&int_plus, 0, first); // same result
 	int x = intlist_reduce_r(&int_plus, 0, first);
-	// int x = intlist_reduce_l(&int_plus, 0, first); // same result
 
 	print_int_list(first); // 0 1 2 3 4
-
 	printf("\n%d", x); // 10
 
     return 0;
