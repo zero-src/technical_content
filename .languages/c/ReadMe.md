@@ -120,6 +120,7 @@ int main()
         50, 25, 75, 15, 30, 60, 90, 10, 20, 40,
         60, 70, 80, 95,  5, 35, 45, 55, 65, 85
     };
+    
     struct node* root = NULL;
     int i;
 
@@ -143,30 +144,15 @@ int main()
 
 #define INT_LIST_SIZE 5
 
-void delete_from_int_list(struct item** pcur, int (*crit)(int));
-void print_int_list(struct item *p);
-
-struct item* fill_int_list(int size, int offset);
-
-int is_negative(int x);
-
 struct item {
 	int data;
 	struct item *next;
 };
 
-int main()
-{
-	struct item *first = malloc(INT_LIST_SIZE * sizeof(struct item));
-
-	first = fill_int_list(INT_LIST_SIZE, -2);
-	delete_from_int_list(&first, &is_negative);
-	print_int_list(first);
-
-	return 0;
+int is_negative(int x) 
+{ 
+    return x < 0; 
 }
-
-int is_negative(int x) { return x < 0; }
 
 void print_int_list(struct item* p) 
 {
@@ -209,6 +195,89 @@ void delete_from_int_list(struct item** pcur, int (*crit)(int))
 			pcur = &(*pcur)->next;
 		}
 	}
+}
+
+int main()
+{
+	struct item *first = malloc(INT_LIST_SIZE * sizeof(struct item));
+
+	first = fill_int_list(INT_LIST_SIZE, -2);
+	delete_from_int_list(&first, &is_negative);
+	print_int_list(first);
+
+	return 0;
+}
+```
+[Back to TOC](#contents-)
+
+### Recursive list functions
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct item {
+    int val;
+    struct item* next;
+};
+
+typedef int (*intfunptr)(int, int);
+
+int int_plus(int x, int y)
+{ 
+	return x + y; 
+}
+
+int intlist_reduce_l(intfunptr f, int i, struct item* ls)
+{
+    return ls ? intlist_reduce_l(f, f(i, ls->val), ls->next) : i;
+}
+
+int intlist_reduce_r(intfunptr f, int i, struct item* ls)
+{
+	return ls ? f(ls->val, intlist_reduce_r(f, i, ls->next)) : i;
+}
+
+struct item* fill_int_list(int size, int offset)
+{
+	struct item* first = NULL, * tmp;
+
+	int s_size = size + offset - 1;
+	int s_end = offset;
+
+	for (int i = s_size; i >= s_end; i--)
+	{
+		tmp = malloc(sizeof(struct item));
+		tmp->val = i;
+		tmp->next = first;
+		first = tmp;
+	}
+
+	return first;
+}
+
+void print_int_list(struct item* p)
+{
+	if (p)
+	{
+		printf("%d ", p->val);
+		print_int_list(p->next ? p->next : NULL);
+	}
+}
+
+int main()
+{
+	struct item* first;
+
+	first = fill_int_list(5, 0);
+
+	int x = intlist_reduce_r(&int_plus, 0, first);
+	// int x = intlist_reduce_l(&int_plus, 0, first); // same result
+
+	print_int_list(first); // 0 1 2 3 4
+
+	printf("\n%d", x); // 10
+
+    return 0;
 }
 ```
 [Back to TOC](#contents-)
