@@ -224,7 +224,7 @@ typedef int (*intfunptr)(int, int);
 
 int int_plus(int x, int y)
 { 
-	return x + y; 
+    return x + y; 
 }
 
 int intlist_reduce_l(intfunptr f, int i, struct item* ls)
@@ -233,50 +233,50 @@ int intlist_reduce_l(intfunptr f, int i, struct item* ls)
 }
 
 int intlist_reduce_r(intfunptr f, int i, struct item* ls)
-{
-	return ls ? f(ls->val, intlist_reduce_r(f, i, ls->next)) : i;
+{ 
+    return ls ? f(ls->val, intlist_reduce_r(f, i, ls->next)) : i;
 }
 
 struct item* fill_int_list(int size, int offset)
 {
-	struct item* first = NULL, * tmp;
+    struct item* first = NULL, * tmp;
 
-	int s_size = size + offset - 1;
-	int s_end = offset;
+    int s_size = size + offset - 1;
+    int s_end = offset;
 
-	for (int i = s_size; i >= s_end; i--)
-	{
-		tmp = malloc(sizeof(struct item));
-		tmp->val = i;
-		tmp->next = first;
-		first = tmp;
-	}
+    for (int i = s_size; i >= s_end; i--)
+    {
+        tmp = malloc(sizeof(struct item));
+        tmp->val = i;
+        tmp->next = first;
+        first = tmp;
+    }
 
-	return first;
+    return first;
 }
 
 void print_int_list(struct item* p)
 {
 	if (p)
 	{
-		printf("%d ", p->val);
-		print_int_list(p->next ? p->next : NULL);
+        printf("%d ", p->val);
+        print_int_list(p->next ? p->next : NULL);
 	}
 }
 
 int main()
 {
-    struct item* first;
+        struct item* first;
 
-    first = fill_int_list(5, 0);
+        first = fill_int_list(5, 0);
 
-    // int x = intlist_reduce_l(&int_plus, 0, first); // same result
-    int x = intlist_reduce_r(&int_plus, 0, first);
+        // int x = intlist_reduce_l(&int_plus, 0, first); // same result
+        int x = intlist_reduce_r(&int_plus, 0, first);
 
-    print_int_list(first); // 0 1 2 3 4
-    printf("\n%d", x); // 10
+        print_int_list(first); // 0 1 2 3 4
+        printf("\n%d", x); // 10
 
-    return 0;
+        return 0;
 }
 ```
 [Back to TOC](#contents-)
