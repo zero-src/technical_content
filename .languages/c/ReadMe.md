@@ -7,7 +7,8 @@
 ```c
 #include <stdio.h>
 
-int main(){
+int main()
+{
 
     long number;
     float x;
@@ -145,8 +146,8 @@ int main()
 #define INT_LIST_SIZE 5
 
 struct item {
-	int data;
-	struct item *next;
+    int data;
+    struct item *next;
 };
 
 int is_negative(int x) 
@@ -156,56 +157,56 @@ int is_negative(int x)
 
 void print_int_list(struct item* p) 
 {
-	if (p)
-	{
-		printf("%d ", p->data);
-		print_int_list(p->next ? p->next : NULL);
-	}
+    if (p)
+    {
+        printf("%d ", p->data);
+        print_int_list(p->next ? p->next : NULL);
+    }
 }
 
 struct item* fill_int_list(int size, int offset)
 {
-	struct item* first = NULL, *tmp;
+    struct item* first = NULL, *tmp;
 
-	int s_size = size + offset - 1;
-	int s_end = offset;
+    int s_size = size + offset - 1;
+    int s_end = offset;
 
-	for (int i = s_size; i >= s_end; i--)
-	{
-		tmp = malloc(sizeof(struct item));
-		tmp->data = i;
-		tmp->next = first;
-		first = tmp;
-	}
+    for (int i = s_size; i >= s_end; i--)
+    {
+        tmp = malloc(sizeof(struct item));
+        tmp->data = i;
+        tmp->next = first;
+        first = tmp;
+    }
 
-	return first;
+    return first;
 }
 
 void delete_from_int_list(struct item** pcur, int (*crit)(int))
 {
-	while (*pcur)
-	{
-		if ((*crit)((*pcur)->data))
-		{
-			struct item* tmp = *pcur;
-			*pcur = (*pcur)->next;
-			free(tmp);
-		} else
-		{
-			pcur = &(*pcur)->next;
-		}
-	}
+    while (*pcur)
+    {
+        if ((*crit)((*pcur)->data))
+        {
+            struct item* tmp = *pcur;
+            *pcur = (*pcur)->next;
+            free(tmp);
+        } else
+        {
+            pcur = &(*pcur)->next;
+        }
+    }
 }
 
 int main()
 {
-	struct item *first = malloc(INT_LIST_SIZE * sizeof(struct item));
+    struct item *first = malloc(INT_LIST_SIZE * sizeof(struct item));
 
-	first = fill_int_list(INT_LIST_SIZE, -2);
-	delete_from_int_list(&first, &is_negative);
-	print_int_list(first);
+    first = fill_int_list(INT_LIST_SIZE, -2);
+    delete_from_int_list(&first, &is_negative);
+    print_int_list(first);
 
-	return 0;
+    return 0;
 }
 ```
 [Back to TOC](#contents-)
