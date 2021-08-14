@@ -257,11 +257,11 @@ struct item* fill_int_list(int size, int offset)
 
 void print_int_list(struct item* p)
 {
-	if (p)
-	{
+    if (p)
+    {
         printf("%d ", p->val);
         print_int_list(p->next ? p->next : NULL);
-	}
+    }
 }
 
 int main()
