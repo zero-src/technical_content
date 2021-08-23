@@ -1,9 +1,11 @@
 # Contents 🚀
-- [Struct](#struct)
+- [Structs](#structs)
     - [Example](#example)
     - [Private / Public methods](#private--public-methods)
+- [Classes](#classes)
+    - [Initialisation](#initialisation)
 
-## Struct
+## Structs
 
 ### Example
 ```cpp
@@ -94,6 +96,46 @@ int main()
 
     //[clx_re, clx_im] : 2.7 3.8
     //[struct_re, struct_im] : 2.7 3.8
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+## Classes
+
+### Initialisation
+```cpp
+#include <iostream>
+
+class Complex {
+    double re, im;
+
+public:
+    Complex(double a_re, double a_im) { re = a_re; im = a_im; }
+    double GetRe() { return re; }
+    double GetIm() { return im; }
+    double Modulo() { return sqrt(re * re + im * im); }
+    double Argument() { return atan2(im, re); }
+};
+
+int main()
+{
+    double re, im, mod, arg;
+
+    /*
+    re = Complex(2.7, 3.8).GetRe();
+    im = Complex(2.7, 3.8).GetIm();
+    mod = Complex(2.7, 3.8).Modulo();
+    arg = Complex(2.7, 3.8).Argument();
+    */
+
+    Complex clx(2.7, 3.8);
+
+    re = clx.GetRe();
+    im = clx.GetIm();
+    mod = clx.Modulo();
+    arg = clx.Argument();
 
     return 0;
 }
