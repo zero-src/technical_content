@@ -77,6 +77,17 @@ int main()
     // C++17 structured binding:
     auto [struct_re, struct_im] = clx.get();
     
+    /*
+    // This code dose the same as code above
+    double clx_re, clx_im;
+
+    // C++14 structured binding:
+    std::tie(clx_re, clx_im) = str_complex(2.7, 3.8).get();
+
+    // C++17 structured binding:
+    auto [struct_re, struct_im] = str_complex(2.7, 3.8).get();
+    */
+
     std::cout   << "\n[clx_re, clx_im]: " << clx_re << " " << clx_im
                 << "\n[struct_re, struct_im]: " << struct_re << " " << struct_im
                 << std::endl;
