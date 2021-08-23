@@ -1,6 +1,7 @@
 # Contents 🚀
 - [Struct](#struct)
-    - [Default struct](#example)
+    - [Example](#example)
+    - [Private / Public methods](#private--public-methods)
 
 ## Struct
 
