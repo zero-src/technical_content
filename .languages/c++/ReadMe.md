@@ -119,7 +119,7 @@ public:
     double Modulo() { return sqrt(re * re + im * im); }
     double Argument() { return atan2(im, re); }
 
-    // Destructor
+    // Destructor (works after object destruction)
     ~Complex() { 
         if (re != 0 || im != 0) 
         { 
