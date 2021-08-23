@@ -54,7 +54,7 @@ private:
     double re, im;
 
 public:
-    void set(double new_re, double new_im)
+    str_complex(double new_re, double new_im)
     {
         re = new_re;
         im = new_im;
@@ -68,11 +68,8 @@ public:
 
 int main()
 {
-    str_complex clx;
+    str_complex clx(2.7, 3.8);
     double clx_re, clx_im;
-
-    // New values
-    clx.set(2.7, 3.8);
 
     // C++14 structured binding:
     std::tie(clx_re, clx_im) = clx.get();
