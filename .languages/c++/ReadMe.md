@@ -1,32 +1,11 @@
 # Contents 🚀
-- [Inline](#inline)
 - [Structs](#structs)
     - [Example](#example)
     - [Private / Public methods](#private--public-methods)
 - [Classes](#classes)
     - [Initialisation](#initialisation)
-
-## Inline
-```cpp
-#include <iostream>
-
-inline int sum(int a, int b)
-{
-    return a + b;
-}
-
-int main()
-{
-    int a(2), b(3), res(0);
-
-    // Here inline works as #define
-    // res = a + b;
-    res = sum(a, b);
-
-    return 0;
-}
-```
-[Back to TOC](#contents-)
+- [Inline](#inline)
+- [Extern](#extern)
 
 ## Structs
 
@@ -171,5 +150,52 @@ int main()
 
     return 0;
 }
+```
+[Back to TOC](#contents-)
+
+## Inline
+```cpp
+#include <iostream>
+
+inline int sum(int a, int b)
+{
+    return a + b;
+}
+
+int main()
+{
+    int a(2), b(3), res(0);
+
+    // Here inline works as #define
+    // res = a + b;
+    res = sum(a, b);
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+## Extern
+> "foo.h" file
+
+```cpp
+#ifndef FOO_H_SENTRY
+#define FOO_H_SENTRY
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// ...
+
+double foo(double a, int b);
+
+// ...
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
 ```
 [Back to TOC](#contents-)
