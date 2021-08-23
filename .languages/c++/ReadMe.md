@@ -1,9 +1,31 @@
 # Contents 🚀
+- [Inline](#inline)
 - [Structs](#structs)
     - [Example](#example)
     - [Private / Public methods](#private--public-methods)
 - [Classes](#classes)
     - [Initialisation](#initialisation)
+
+## Inline
+```cpp
+#include <iostream>
+
+inline int sum(int a, int b)
+{
+    return a + b;
+}
+
+int main()
+{
+    int a(2), b(3), res(0);
+
+    // Here inline works as #define
+    // res = a + b;
+    res = sum(a, b);
+
+    return 0;
+}
+```
 
 ## Structs
 
