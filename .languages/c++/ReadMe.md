@@ -1,6 +1,6 @@
 # Contents 🚀
 - [Struct](#struct)
-    -[Default struct](#default-struct)
+    - [Default struct](#default-struct)
 
 ## Struct
 
