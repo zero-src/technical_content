@@ -177,25 +177,11 @@ int main()
 
 ## Extern
 > "foo.h" file
-
 ```cpp
-#ifndef FOO_H_SENTRY
-#define FOO_H_SENTRY
-
 #ifdef __cplusplus
-extern "C" {
-#endif
-
-// ...
-
-double foo(double a, int b);
-
-// ...
-
-#ifdef __cplusplus
-}
-#endif
-
+extern "C" int foo(int, int); // C++ compiler sees this
+#else
+int foo(int, int);            // C compiler sees this
 #endif
 ```
 [Back to TOC](#contents-)
