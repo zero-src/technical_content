@@ -241,18 +241,6 @@ public:
     Complex(double a_re, double a_im) { re = a_re; im = a_im; }
     Complex() { re = 0; im = 0; } // Now initialization is overloaded
 
-    double GetRe() const
-        { return re; }
-
-    double GetIm() const
-        { return re; }
-
-    double Modulo() const
-        { return sqrt(re * re + im * im); }
-
-    double Argument() const
-        { return atan2(im, re); }
-
     // Overloaded "+" operator
     Complex operator+(const Complex &expr) const
     {
@@ -331,9 +319,9 @@ int main()
 > "foo.h" file
 ```cpp
 #ifdef __cplusplus
-extern "C" int foo(int, int); // C++ compiler sees this
+    extern "C" int foo(int, int); // C++ compiler sees this
 #else
-int foo(int, int);            // C compiler sees this
+    int foo(int, int);            // C compiler sees this
 #endif
 ```
 [Back to TOC](#contents-)
