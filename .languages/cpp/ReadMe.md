@@ -343,8 +343,8 @@ int main()
 
     second[0] = 'G';
 
-    string.PrintLnString( );
-    second.PrintLnString( );
+    string.PrintLnString( ); // Hello
+    second.PrintLnString( ); // Gello
 
     std::cin.get();
 }
