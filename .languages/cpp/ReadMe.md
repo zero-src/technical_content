@@ -118,10 +118,17 @@ class Complex {
 public:
     Complex(double a_re, double a_im) { re = a_re; im = a_im; }
 
-    double GetRe()      { return re; }
-    double GetIm()      { return im; }
-    double Modulo()     { return sqrt(re * re + im * im); }
-    double Argument()   { return atan2(im, re); }
+    double GetRe() const
+        { return re; }
+
+    double GetIm() const
+        { return re; }
+
+    double Modulo() const
+        { return sqrt(re * re + im * im); }
+
+    double Argument() const
+        { return atan2(im, re); }
 
     // Destructor (works after object destruction)
     ~Complex() { 
@@ -234,27 +241,34 @@ public:
     Complex(double a_re, double a_im) { re = a_re; im = a_im; }
     Complex() { re = 0; im = 0; } // Now initialization is overloaded
 
-    double GetRe()      { return re; }
-    double GetIm()      { return im; }
-    double Modulo()     { return sqrt(re * re + im * im); }
-    double Argument()   { return atan2(im, re); }
+    double GetRe() const
+        { return re; }
+
+    double GetIm() const
+        { return re; }
+
+    double Modulo() const
+        { return sqrt(re * re + im * im); }
+
+    double Argument() const
+        { return atan2(im, re); }
 
     // Overloaded "+" operator
-    Complex operator+(const Complex &expr)
+    Complex operator+(const Complex &expr) const
     {
         Complex res(re + expr.re, im + expr.im);
         return res;
     }
 
     // Overloaded "-" operator
-    Complex operator-(const Complex &expr) 
+    Complex operator-(const Complex &expr) const
     {
         Complex res(re - expr.re, im - expr.im);
         return res;
     }
 
     // Overloaded "*" operator
-    Complex operator*(const Complex &expr)
+    Complex operator*(const Complex &expr) const
     {
         Complex res(re * expr.re - im * expr.im, 
                     im * expr.im + im * expr.im);
@@ -262,11 +276,9 @@ public:
     }
 
     // Overloaded "/" operator
-    Complex operator/(const Complex &expr)
+    Complex operator/(const Complex &expr) const
     {
         double dvs = expr.re * expr.re + expr.im * expr.im;
-
-        // Here our "/" operator is not overloaded
         Complex res((re * expr.re - im * expr.im) / dvs,
                     (im * expr.im + im * expr.im) / dvs);
         return res;
