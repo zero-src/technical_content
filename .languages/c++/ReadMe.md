@@ -4,6 +4,7 @@
     - [Private / Public methods](#private--public-methods)
 - [Classes](#classes)
     - [Initialisation](#initialisation)
+- [Overloading](#overloaded-operators)
 - [Inline](#inline)
 - [Extern](#extern)
 
@@ -147,6 +148,69 @@ int main()
     im = clx.GetIm();
     mod = clx.Modulo();
     arg = clx.Argument();
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+## Overloaded operators
+```cpp
+#include <iostream>
+
+class Complex {
+    double re, im;
+
+public:
+    Complex(double a_re, double a_im) { re = a_re; im = a_im; }
+
+    double GetRe() { return re; }
+    double GetIm() { return im; }
+    double Modulo() { return sqrt(re * re + im * im); }
+    double Argument() { return atan2(im, re); }
+
+    // Overloaded "+" operator
+    Complex operator+(Complex expr)
+    {
+        Complex res(re + expr.re, im + expr.im);
+        return res;
+    }
+
+    // Overloaded "-" operator
+    Complex operator-(Complex expr) 
+    {
+        Complex res(re - expr.re, im - expr.im);
+        return res;
+    }
+
+    // Overloaded "*" operator
+    Complex operator*(Complex expr)
+    {
+        Complex res(re * expr.re - im * expr.im, 
+                    im * expr.im + im * expr.im);
+        return res;
+    }
+
+    // Overloaded "/" operator
+    Complex operator/(Complex expr)
+    {
+        double dvs = expr.re * expr.re + expr.im * expr.im;
+
+        // Here our "/" operator is not overloaded
+        Complex res((re * expr.re - im * expr.im) / dvs,
+                    (im * expr.im + im * expr.im) / dvs);
+        return res;
+    }
+};
+
+int main()
+{
+    Complex clx1(1.1, 2.2);
+    Complex clx2(3.3, 4.4);
+    Complex clx3 = clx1 + clx2;
+
+    printf("clx3: [%.1f %.1f]\n", clx3.GetRe(), clx3.GetIm());
+    // clx3: [4.4 6.6]
 
     return 0;
 }
