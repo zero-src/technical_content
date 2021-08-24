@@ -4,7 +4,8 @@
     - [Private / Public methods](#private--public-methods)
 - [Classes](#classes)
     - [Initialisation](#initialisation)
-- [Overloading](#overloaded-operators)
+- [Overload](#overloaded-operators)
+- [Reference](#reference)
 - [Inline](#inline)
 - [Extern](#extern)
 
@@ -152,6 +153,10 @@ int main()
     return 0;
 }
 ```
+[Back to TOC](#contents-)
+
+## Reference
+>References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
 [Back to TOC](#contents-)
 
 ## Overloaded operators
