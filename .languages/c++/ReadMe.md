@@ -117,10 +117,10 @@ class Complex {
 public:
     Complex(double a_re, double a_im) { re = a_re; im = a_im; }
 
-    double GetRe() { return re; }
-    double GetIm() { return im; }
-    double Modulo() { return sqrt(re * re + im * im); }
-    double Argument() { return atan2(im, re); }
+    double GetRe()      { return re; }
+    double GetIm()      { return im; }
+    double Modulo()     { return sqrt(re * re + im * im); }
+    double Argument()   { return atan2(im, re); }
 
     // Destructor (works after object destruction)
     ~Complex() { 
@@ -164,10 +164,10 @@ class Complex {
 public:
     Complex(double a_re, double a_im) { re = a_re; im = a_im; }
 
-    double GetRe() { return re; }
-    double GetIm() { return im; }
-    double Modulo() { return sqrt(re * re + im * im); }
-    double Argument() { return atan2(im, re); }
+    double GetRe()      { return re; }
+    double GetIm()      { return im; }
+    double Modulo()     { return sqrt(re * re + im * im); }
+    double Argument()   { return atan2(im, re); }
 
     // Overloaded "+" operator
     Complex operator+(Complex expr)
@@ -209,8 +209,8 @@ int main()
     Complex clx2(3.3, 4.4);
     Complex clx3 = clx1 + clx2;
 
-    printf("clx3: [%.1f %.1f]\n", clx3.GetRe(), clx3.GetIm());
-    // clx3: [4.4 6.6]
+    printf("clx3: [%.1f, %.1f]\n", clx3.GetRe(), clx3.GetIm());
+    // clx3: [4.4, 6.6]
 
     return 0;
 }
