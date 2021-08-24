@@ -163,6 +163,7 @@ class Complex {
 
 public:
     Complex(double a_re, double a_im) { re = a_re; im = a_im; }
+    Complex() { re = 0; im = 0; } // Now initialization is overloaded
 
     double GetRe()      { return re; }
     double GetIm()      { return im; }
@@ -205,9 +206,15 @@ public:
 
 int main()
 {
+    // Default initialization
     Complex clx1(1.1, 2.2);
     Complex clx2(3.3, 4.4);
+
+    // clx3 = clx1.operator+(clx2);
     Complex clx3 = clx1 + clx2;
+
+    // Overloaded initialization in action
+    Complex clx_array[5];
 
     printf("clx3: [%.1f, %.1f]\n", clx3.GetRe(), clx3.GetIm());
     // clx3: [4.4, 6.6]
