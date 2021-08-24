@@ -240,21 +240,21 @@ public:
     double Argument()   { return atan2(im, re); }
 
     // Overloaded "+" operator
-    Complex operator+(Complex expr)
+    Complex operator+(const Complex &expr)
     {
         Complex res(re + expr.re, im + expr.im);
         return res;
     }
 
     // Overloaded "-" operator
-    Complex operator-(Complex expr) 
+    Complex operator-(const Complex &expr) 
     {
         Complex res(re - expr.re, im - expr.im);
         return res;
     }
 
     // Overloaded "*" operator
-    Complex operator*(Complex expr)
+    Complex operator*(const Complex &expr)
     {
         Complex res(re * expr.re - im * expr.im, 
                     im * expr.im + im * expr.im);
@@ -262,7 +262,7 @@ public:
     }
 
     // Overloaded "/" operator
-    Complex operator/(Complex expr)
+    Complex operator/(const Complex &expr)
     {
         double dvs = expr.re * expr.re + expr.im * expr.im;
 
