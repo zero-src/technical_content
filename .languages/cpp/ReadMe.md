@@ -15,7 +15,7 @@
 ```cpp
 #include <iostream>
 
-int main()
+int main( )
 {
     int number(10);
     int& ref_number = number;
@@ -41,7 +41,7 @@ void new_numbers(int &a, int &b)
     b = 10;
 }
 
-int main()
+int main( )
 {   
     int a(0), b(0);
 
@@ -64,7 +64,7 @@ int& change_var(int& x) {
     return x;
 }
 
-int main()
+int main( )
 {   
     int a = 0; 
     change_var(a) = 5;
@@ -86,18 +86,18 @@ int main()
 struct str_complex {
     double re, im;
 
-    double cpp_mult()
+    double cpp_mult( )
     { 
         return sqrt(re * re + im * im); 
     }
 
-    double cpp_mult_this()
+    double cpp_mult_this( )
     {
         return sqrt(this->re * this->re + this->im * this->im);
     }
 };
 
-int main()
+int main( )
 {
     str_complex clx;
     double res, res_this;
@@ -105,8 +105,8 @@ int main()
     clx.re = 2.7;
     clx.im = 3.8;
 
-    res = clx.cpp_mult();
-    res_this = clx.cpp_mult_this();
+    res = clx.cpp_mult( );
+    res_this = clx.cpp_mult_this( );
     
     std::cout << "res: " << res << "\nres_this: " << res_this << std::endl;
 
@@ -126,7 +126,6 @@ int main()
 struct str_complex {
 private:
     double re, im;
-
 public:
     str_complex(double new_re, double new_im)
     {
@@ -134,7 +133,7 @@ public:
         im = new_im;
     }
 
-    std::tuple<double, double> get()
+    std::tuple<double, double> get( )
     {
         return std::make_tuple(re, im);
     }
@@ -146,20 +145,20 @@ int main()
     double clx_re, clx_im;
 
     // C++14 structured binding:
-    std::tie(clx_re, clx_im) = clx.get();
+    std::tie(clx_re, clx_im) = clx.get( );
 
     // C++17 structured binding:
-    auto [struct_re, struct_im] = clx.get();
+    auto [struct_re, struct_im] = clx.get( );
     
     /*
     // This code dose the same as code above
     double clx_re, clx_im;
 
     // C++14 structured binding:
-    std::tie(clx_re, clx_im) = str_complex(2.7, 3.8).get();
+    std::tie(clx_re, clx_im) = str_complex(2.7, 3.8).get( );
 
     // C++17 structured binding:
-    auto [struct_re, struct_im] = str_complex(2.7, 3.8).get();
+    auto [struct_re, struct_im] = str_complex(2.7, 3.8).get( );
     */
 
     std::cout   << "\n[clx_re, clx_im]: " << clx_re << " " << clx_im
@@ -182,24 +181,23 @@ int main()
 
 class Complex {
     double re, im;
-
 public:
     Complex(double a_re, double a_im) { re = a_re; im = a_im; }
 
-    double GetRe() const
+    double GetRe( ) const
         { return re; }
 
-    double GetIm() const
+    double GetIm( ) const
         { return re; }
 
-    double Modulo() const
+    double Modulo( ) const
         { return sqrt(re * re + im * im); }
 
-    double Argument() const
+    double Argument( ) const
         { return atan2(im, re); }
 
     // Destructor (works after object destruction)
-    ~Complex() { 
+    ~Complex( ) { 
         if (re != 0 || im != 0) 
         { 
             re = im = 0; 
@@ -207,7 +205,7 @@ public:
     }
 };
 
-int main()
+int main( )
 {
     double re, im, mod, arg;
 
@@ -220,10 +218,10 @@ int main()
 
     Complex clx(2.7, 3.8);
 
-    re = clx.GetRe();
-    im = clx.GetIm();
-    mod = clx.Modulo();
-    arg = clx.Argument();
+    re = clx.GetRe( );
+    im = clx.GetIm( );
+    mod = clx.Modulo( );
+    arg = clx.Argument( );
 
     return 0;
 }
@@ -236,7 +234,6 @@ int main()
 
 class Complex {
     double re, im;
-
 public:
     Complex(double a_re, double a_im) { re = a_re; im = a_im; }
     Complex() { re = 0; im = 0; } // Now initialization is overloaded
@@ -273,7 +270,7 @@ public:
     }
 };
 
-int main()
+int main( )
 {
     // Default initialization
     Complex clx1(1.1, 2.2);
@@ -302,7 +299,7 @@ inline int sum(int a, int b)
     return a + b;
 }
 
-int main()
+int main( )
 {
     int a(2), b(3), res(0);
 
