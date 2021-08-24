@@ -159,6 +159,8 @@ int main()
 >References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
 
 ```cpp
+#include <iostream>
+
 int main()
 {
     int number(10);
@@ -173,7 +175,52 @@ int main()
     return 0;
 }
 ```
+[Back to TOC](#contents-)
 
+>Reference allows you to return multiple values
+```cpp
+#include <iostream>
+
+void new_numbers(int &a, int &b)
+{
+    a = 5;
+    b = 10;
+}
+
+int main()
+{   
+    int a(0), b(0);
+
+    // Reference in action
+    new_numbers(a, b);
+
+    printf("[a, b]: [%d, %d]\n", a, b);
+    // [a, b]: [5, 10]
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+>Return by reference
+```cpp
+#include <iostream>
+
+int& change_var(int& x) {
+    return x;
+}
+
+int main()
+{   
+    int a = 0; 
+    change_var(a) = 5;
+
+    printf("a: %d\n", a);
+    // a: 5
+
+    return 0;
+}
+```
 [Back to TOC](#contents-)
 
 ## Overloaded operators
