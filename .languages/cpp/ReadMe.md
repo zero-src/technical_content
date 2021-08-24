@@ -6,6 +6,7 @@
 - [Classes](#classes)
     - [Initialisation](#initialisation)
     - [Overloaded operators](#overloaded-operators)
+    - [Copy Constructor](#copy-constructor)
 - [Inline](#inline)
 - [Extern](#extern)
 
@@ -286,6 +287,66 @@ int main( )
     // clx3: [4.4, 6.6]
 
     return 0;
+}
+```
+[Back to TOC](#contents-)
+
+## Copy Constructor
+
+>Example
+```cpp
+#include <iostream>
+#include <string>
+
+class String 
+{
+private:
+    char* m_Buffer;
+    unsigned int m_Size;
+public:
+    String(const char* string)
+    { 
+        m_Size = strlen(string);
+        m_Buffer = new char[m_Size + 1];
+        memcpy(m_Buffer, string, m_Size);
+        m_Buffer[m_Size] = 0;
+    }
+
+    String(const String& other) : m_Size(other.m_Size)
+    {
+        m_Buffer = new char[m_Size + 1];
+        memcpy(m_Buffer, other.m_Buffer, m_Size + 1);
+    }
+
+    ~String()
+    { 
+        delete[] m_Buffer; 
+    }
+
+    void PrintLnString()
+    {
+        for (int i = 0; i < m_Size; i++)
+            std::cout << m_Buffer[i];
+        std::cout << std::endl;
+    }
+
+    char& operator[](unsigned int index)
+    {
+        return m_Buffer[index];
+    }
+};
+
+int main()
+{
+    String string = "Hello";
+    String second = string;
+
+    second[0] = 'G';
+
+    string.PrintLnString( );
+    second.PrintLnString( );
+
+    std::cin.get();
 }
 ```
 [Back to TOC](#contents-)
