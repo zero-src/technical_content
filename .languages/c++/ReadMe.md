@@ -157,6 +157,23 @@ int main()
 
 ## Reference
 >References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
+
+```cpp
+int main()
+{
+    int number(10);
+    int& ref_number = number;
+
+    number = 11;
+    std::cout << ref_number << std::endl; // 11
+
+    ref_number = 10;
+    std::cout << number << std::endl; // 10
+
+    return 0;
+}
+```
+
 [Back to TOC](#contents-)
 
 ## Overloaded operators
@@ -215,7 +232,7 @@ int main()
     Complex clx1(1.1, 2.2);
     Complex clx2(3.3, 4.4);
 
-    // clx3 = clx1.operator+(clx2);
+    // Complex clx3 = clx1.operator+(clx2);
     Complex clx3 = clx1 + clx2;
 
     // Overloaded initialization in action
