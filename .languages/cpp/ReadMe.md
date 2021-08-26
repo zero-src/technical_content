@@ -330,7 +330,7 @@ public:
         std::cout << std::endl;
     }
 
-    char& operator[](unsigned int index)
+    char& operator[](unsigned int index) const
     {
         return m_Buffer[index];
     }
