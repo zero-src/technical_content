@@ -192,7 +192,7 @@ public:
         { return re; }
 
     double GetIm( ) const
-        { return re; }
+        { return im; }
 
     double Modulo( ) const
         { return sqrt(re * re + im * im); }
@@ -437,7 +437,7 @@ double Complex::GetRe() const
 
 double Complex::GetIm() const
 {
-    return re;
+    return im;
 }
 
 int main()
@@ -503,7 +503,7 @@ public:
         { return re; }
 
     double GetIm( ) const
-        { return re; }
+        { return im; }
 };
 
 int main()
