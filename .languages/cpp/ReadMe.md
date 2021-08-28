@@ -607,6 +607,7 @@ int main()
     return 0;
 }
 ```
+[Back to TOC](#contents-)
 
 > Example 2
 ```cpp
