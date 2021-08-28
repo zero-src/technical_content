@@ -22,8 +22,8 @@ int main()
 {
     float variable = 30;
 
-    std::cout << "This is local to the main function: " << variable << std::endl;
-    std::cout << "This is global to the main function: " << ::variable << std::endl;
+    std::cout << "This is local to the main function: " << variable << std::endl; // => 30
+    std::cout << "This is global to the main function: " << ::variable << std::endl; // => 20
 
     return 0;
 }
