@@ -1,5 +1,4 @@
 # Contents 🚀
-- ["::" - Scope resolution operator](#scope-resolution-operator)
 - [Reference](#reference)
 - [Structs](#structs)
     - [Example](#example)
@@ -8,62 +7,9 @@
     - [Initialisation](#initialisation)
     - [Overloaded operators](#overloaded-operators)
     - [Copy Constructor](#copy-constructor)
-    - [Scope resolution operator](#scope-resolution-operator)
+    - [Scope resolution operator](#scope-resolution-operator-)
 - [Inline](#inline)
 - [Extern](#extern)
-
-## Scope resolution operator
-> Example 1
-```cpp
-#include <iostream>
-
-int variable = 20;
-
-int main()
-{
-    float variable = 30;
-
-    std::cout << "This is local to the main function: " << variable << std::endl; // => 30
-    std::cout << "This is global to the main function: " << ::variable << std::endl; // => 20
-
-    return 0;
-}
-```
-
-> Example 2
-```cpp
-#include <iostream>
-
-const int x = 5;
-
-namespace foo {
-    const int x = 0;
-}
-
-int bar() {
-    int x = 1;
-    return x;
-}
-
-struct Meh {
-    static const int x = 2;
-}
-
-int main() 
-{
-    std::cout << x; // => 5
-    {
-        int x = 4;
-        std::cout << x; // => 4
-        std::cout << ::x; // => 5, this one looks for x outside the current scope
-    }
-    std::cout << Meh::x; // => 2, use the definition of x inside the scope of Meh
-    std::cout << foo::x; // => 0, use the definition of x inside foo
-    std::cout << bar(); // => 1, use the definition of x inside bar (returned by bar)
-
-    return 0;
-}
-```
 
 ## Reference
 >References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
@@ -410,6 +356,60 @@ int main()
 [Back to TOC](#contents-)
 
 ## Scope resolution operator "::"
+> Example 1
+```cpp
+#include <iostream>
+
+int variable = 20;
+
+int main()
+{
+    float variable = 30;
+
+    std::cout << "This is local to the main function: " << variable << std::endl; // => 30
+    std::cout << "This is global to the main function: " << ::variable << std::endl; // => 20
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+> Example 2
+```cpp
+#include <iostream>
+
+const int x = 5;
+
+namespace foo {
+    const int x = 0;
+}
+
+int bar() {
+    int x = 1;
+    return x;
+}
+
+struct Meh {
+    static const int x = 2;
+}
+
+int main() 
+{
+    std::cout << x; // => 5
+    {
+        int x = 4;
+        std::cout << x; // => 4
+        std::cout << ::x; // => 5, this one looks for x outside the current scope
+    }
+    std::cout << Meh::x; // => 2, use the definition of x inside the scope of Meh
+    std::cout << foo::x; // => 0, use the definition of x inside foo
+    std::cout << bar(); // => 1, use the definition of x inside bar (returned by bar)
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
 ```cpp
 #include <iostream>
 
