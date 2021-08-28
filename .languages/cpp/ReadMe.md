@@ -1,4 +1,5 @@
 # Contents 🚀
+- ["::" - Scope resolution operator](#scope-resolution-operator)
 - [Reference](#reference)
 - [Structs](#structs)
     - [Example](#example)
@@ -9,6 +10,59 @@
     - [Copy Constructor](#copy-constructor)
 - [Inline](#inline)
 - [Extern](#extern)
+
+## Scope resolution operator
+> Example 1
+```cpp
+#include <iostream>
+
+int variable = 20;
+
+int main()
+{
+    float variable = 30;
+
+    std::cout << "This is local to the main function: " << variable << std::endl;
+    std::cout << "This is global to the main function: " << ::variable << std::endl;
+
+    return 0;
+}
+```
+
+> Example 2
+```cpp
+#include <iostream>
+
+const int x = 5;
+
+namespace foo {
+    const int x = 0;
+}
+
+int bar() {
+    int x = 1;
+    return x;
+}
+
+struct Meh {
+    static const int x = 2;
+}
+
+int main() 
+{
+    std::cout << x; // => 5
+    {
+        int x = 4;
+        std::cout << x; // => 4
+        std::cout << ::x; // => 5, this one looks for x outside the current scope
+    }
+    std::cout << Meh::x; // => 2, use the definition of x inside the scope of Meh
+    std::cout << foo::x; // => 0, use the definition of x inside foo
+    std::cout << bar(); // => 1, use the definition of x inside bar (returned by bar)
+
+    return 0;
+}
+```
 
 ## Reference
 >References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
@@ -128,7 +182,7 @@ struct str_complex {
 private:
     double re, im;
 public:
-    str_complex(double new_re, double new_im)
+    str_complex(double a_re = 0, double a_im = 0) 
     {
         re = new_re;
         im = new_im;
@@ -183,7 +237,8 @@ int main()
 class Complex {
     double re, im;
 public:
-    Complex(double a_re, double a_im) { re = a_re; im = a_im; }
+    Complex(double a_re = 0, double a_im = 0)  
+        { re = a_re; im = a_im; }
 
     double GetRe( ) const
         { return re; }
@@ -236,8 +291,10 @@ int main( )
 class Complex {
     double re, im;
 public:
-    Complex(double a_re, double a_im) { re = a_re; im = a_im; }
-    Complex() { re = 0; im = 0; } // Now initialization is overloaded
+    Complex(double a_re = 0, double a_im = 0) 
+    { 
+        re = a_re; im = a_im; 
+    }
 
     // Overloaded "+" operator
     Complex operator+(const Complex &expr) const
