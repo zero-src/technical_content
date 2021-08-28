@@ -367,9 +367,9 @@ int main()
     return 0;
 }
 ```
-[Back to TOC](#contents-)
 
 ### OR
+
 ```cpp
 #include <iostream>
 
