@@ -233,13 +233,14 @@ int main( )
 [Back to TOC](#contents-)
 
 ## Overloaded operators
+> Simple overloading
 ```cpp
 #include <iostream>
 
 class Complex {
     double re, im;
 public:
-    Complex(double a_re = 0, double a_im = 0) 
+    Complex(double a_re, double a_im) 
     { 
         re = a_re; im = a_im; 
     }
@@ -290,6 +291,121 @@ int main( )
 
     printf("clx3: [%.1f, %.1f]\n", clx3.GetRe(), clx3.GetIm());
     // clx3: [4.4, 6.6]
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+> "Operator" overloading by simple functions
+```cpp
+#include <iostream>
+
+class Complex {
+    double re, im;
+public:
+    Complex(double a_re, double a_im) : re(a_re), im(a_im) { }
+    Complex(double a_re) : re(a_re), im(0) { }
+    Complex() : re(0), im(0) { }
+
+    Complex operator+(const Complex& expr) const
+    {
+        return Complex(re + expr.re, im + expr.im);
+    }
+};
+
+int main()
+{
+    Complex x, y, z;
+
+    x = y + z; // correct
+    x = x + 0.5; // correct
+
+    x = 0.5 + x; // error
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+> To avoid this error we must recode out overloading
+```cpp
+#include <iostream>
+
+class Complex {
+    double re, im;
+public:
+    Complex(double a_re, double a_im) : re(a_re), im(a_im) { }
+    Complex(double a_re) : re(a_re), im(0) { }
+    Complex() : re(0), im(0) { }
+
+    double GetRe() const
+    {
+        return re;
+    }
+
+    double GetIm() const
+    {
+        return im;
+    }
+};
+
+Complex operator+(const Complex& a, const Complex& b)
+{
+    return Complex(a.GetRe() + b.GetRe(), a.GetIm() + b.GetIm());
+}
+
+int main()
+{
+    Complex x, y, z;
+
+    x = y + z; // correct
+
+    x = x + 0.5; // correct
+    x = 0.5 + x; // correct
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+### OR
+```cpp
+#include <iostream>
+
+class Complex {
+    double re, im;
+public:
+    Complex(double a_re, double a_im) : re(a_re), im(a_im) { }
+    Complex(double a_re) : re(a_re), im(0) { }
+    Complex() : re(0), im(0) { }
+
+    double GetRe() const
+    {
+        return re;
+    }
+
+    double GetIm() const
+    {
+        return im;
+    }
+
+    friend Complex operator+(const Complex& a, const Complex& b);
+};
+
+Complex operator+(const Complex& a, const Complex& b)
+{
+    return Complex(a.re + b.re, a.im + b.im);
+}
+
+int main()
+{
+    Complex x, y, z;
+
+    x = y + z; // correct
+    
+    x = x + 0.5; // correct
+    x = 0.5 + x; // correct
 
     return 0;
 }
