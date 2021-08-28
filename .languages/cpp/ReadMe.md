@@ -328,7 +328,7 @@ int main()
 ```
 [Back to TOC](#contents-)
 
-> To avoid this error we must recode out overloading
+> To avoid this error we must recode our overloading
 ```cpp
 #include <iostream>
 
@@ -403,7 +403,7 @@ int main()
     Complex x, y, z;
 
     x = y + z; // correct
-    
+
     x = x + 0.5; // correct
     x = 0.5 + x; // correct
 
