@@ -495,7 +495,7 @@ int main()
 class Complex {
     double re, im;
 public:
-    Complex(double a_re = 0, double a_im = 0) : re(a_re), im(a_im) { }
+    Complex(double a_re, double a_im) : re(a_re), im(a_im) { }
     Complex(double a_re) : re(a_re), im(0) { }
     Complex() : re(0), im(0) { }
 
