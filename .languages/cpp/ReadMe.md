@@ -8,6 +8,7 @@
     - [Initialisation](#initialisation)
     - [Overloaded operators](#overloaded-operators)
     - [Copy Constructor](#copy-constructor)
+    - [Scope resolution operator](#scope-resolution-operator)
 - [Inline](#inline)
 - [Extern](#extern)
 
@@ -404,6 +405,47 @@ int main()
     second.PrintLnString( ); // Gello
 
     std::cin.get();
+}
+```
+[Back to TOC](#contents-)
+
+## Scope resolution operator "::"
+```cpp
+#include <iostream>
+
+class Complex {
+private:
+    double re, im;
+public:
+    Complex(double a_re = 0, double a_im = 0);
+
+    double GetRe() const;
+    double GetIm() const;
+};
+
+Complex::Complex(double a_re = 0, double a_im = 0)
+{
+    re = a_re; im = a_im;
+}
+
+double Complex::GetRe() const
+{
+    return re;
+}
+
+double Complex::GetIm() const
+{
+    return re;
+}
+
+int main()
+{
+    double re, im;
+
+    re = Complex(2.7, 3.8).GetRe();
+    im = Complex(2.7, 3.8).GetIm();
+
+    return 0;
 }
 ```
 [Back to TOC](#contents-)
