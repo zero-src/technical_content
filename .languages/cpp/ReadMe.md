@@ -8,6 +8,7 @@
     - [Overloaded operators](#overloaded-operators)
     - [Copy Constructor](#copy-constructor)
     - [Scope resolution operator](#scope-resolution-operator-)
+    - [Class members initialization](#class-members-initialization)
 - [Inline](#inline)
 - [Extern](#extern)
 
@@ -451,7 +452,8 @@ int main()
 ```
 [Back to TOC](#contents-)
 
-## Class members' initialization
+## Class members initialization
+> Example 1
 ```cpp
 #include <iostream>
 
@@ -473,7 +475,7 @@ public:
     B();
 };
 
-// Initializing **"A B::a"** field
+// Initializing "A B::a" field
 B::B() : a(2, 3)
 {
     // ...
@@ -482,6 +484,35 @@ B::B() : a(2, 3)
 int main()
 {
     // ...
+    return 0;
+}
+```
+
+> Example 2
+```cpp
+#include <iostream>
+
+class Complex {
+    double re, im;
+public:
+    Complex(double a_re = 0, double a_im = 0) : re(a_re), im(a_im) { }
+    Complex(double a_re) : re(a_re), im(0) { }
+    Complex() : re(0), im(0) { }
+
+    double GetRe( ) const
+        { return re; }
+
+    double GetIm( ) const
+        { return re; }
+};
+
+int main()
+{
+    double re, im;
+
+    re = Complex(2.7, 3.8).GetRe(); // => 2.7
+    im = Complex(7.2).GetIm(); // => 0
+
     return 0;
 }
 ```
