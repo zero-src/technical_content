@@ -410,6 +410,7 @@ int main()
 ```
 [Back to TOC](#contents-)
 
+> Example 3
 ```cpp
 #include <iostream>
 
@@ -445,6 +446,42 @@ int main()
     re = Complex(2.7, 3.8).GetRe();
     im = Complex(2.7, 3.8).GetIm();
 
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+## Class members' initialization
+```cpp
+#include <iostream>
+
+class A {
+private:
+    int x, y;
+public:
+    A(int o_x, int o_y) 
+    { 
+        x = o_x; 
+        y = o_y; 
+    }
+};
+
+class B {
+private:
+    A a;
+public:
+    B();
+};
+
+// Initializing **"A B::a"** field
+B::B() : a(2, 3)
+{
+    // ...
+}
+
+int main()
+{
+    // ...
     return 0;
 }
 ```
