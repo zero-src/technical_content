@@ -126,7 +126,8 @@ int main( )
 #include <iostream>
 #include <tuple>
 
-struct str_complex {
+struct str_complex 
+{
 private:
     double re, im;
 public:
@@ -531,7 +532,8 @@ int main()
 ```cpp
 #include <iostream>
 
-class Complex {
+class Complex 
+{
 private:
     double re, im;
 public:
@@ -573,7 +575,8 @@ int main()
 ```cpp
 #include <iostream>
 
-class A {
+class A 
+{
 private:
     int x, y;
 public:
@@ -584,7 +587,8 @@ public:
     }
 };
 
-class B {
+class B 
+{
 private:
     A a;
 public:
