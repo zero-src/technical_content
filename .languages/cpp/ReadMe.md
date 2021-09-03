@@ -298,6 +298,82 @@ int main( )
 ```
 [Back to TOC](#contents-)
 
+> ++ and -- overloading
+```cpp
+#include <iostream>
+
+#define send(x) std::cout << x << std::endl
+
+class A {
+public:
+    void operator++()       { send("first");    }
+    void operator--()       { send("second");   }
+    void operator++(int)    { send("third");    }
+    void operator--(int)    { send("fourth");   }
+};
+
+int main()
+{
+    A a;
+
+    ++a; // => first
+    a++; // => third
+
+    --a; // => second
+    a--; // => fourth
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+```cpp
+#include <iostream>
+
+#define send(x) std::cout << x << std::endl
+
+class A {
+    int i;
+public:
+    A(int x) : i(x) { }
+
+    const A& operator++()
+    {
+        i++; return *this;
+    }
+
+    A operator++(int)
+    {
+        A tmp(*this); i++; return tmp;
+    }
+
+    void Get() const
+    {
+        send(i);
+    }
+};
+
+int main()
+{
+    A a(0), b(0);
+
+    a = 10;
+    b = ++a;
+
+    a.Get(); // => 11
+    b.Get(); // => 11
+
+    a = 10;
+    b = a++;
+
+    a.Get(); // => 11
+    b.Get(); // => 10
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
 > "Operator" overloading by simple functions
 ```cpp
 #include <iostream>
@@ -477,14 +553,14 @@ int main()
 ```cpp
 #include <iostream>
 
-class A
-{
-private:
-    //...
-    A& operator=(const A& other) { }
-    // ...
+class A {
+    int* p;
+    unsigned int size;
+
+    A operator=(const A other) const { }
+
 public:
-    //...
+    A() : p(nullptr), size(0) { }
 };
 
 int main()
@@ -492,7 +568,8 @@ int main()
     A test_class, tmp_class;
     test_class = tmp_class; // error
 
-    std::cin.get();
+    std::cout << "ddd" << std::endl;
+    return 0;
 }
 ```
 [Back to TOC](#contents-)
