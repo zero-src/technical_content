@@ -473,6 +473,30 @@ int main()
 ```
 [Back to TOC](#contents-)
 
+> To avoid class copying you can initialize private copy constructor
+```cpp
+#include <iostream>
+
+class A
+{
+private:
+    //...
+    A& operator=(const A& other) { }
+    // ...
+public:
+    //...
+};
+
+int main()
+{
+    A test_class, tmp_class;
+    test_class = tmp_class; // error
+
+    std::cin.get();
+}
+```
+[Back to TOC](#contents-)
+
 ## Scope resolution operator "::"
 > Example 1
 ```cpp
