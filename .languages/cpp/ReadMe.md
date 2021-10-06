@@ -14,6 +14,7 @@
 - [Extern](#extern)
 - [OOP](#oop-basics)
     - [Inheritance](#inheritance)
+    - [Polymorphism](#polymorphism)
 
 ## Reference
 >References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
@@ -809,6 +810,8 @@ int main( )
 
 ![oop_basics](https://github.com/zero-src/technical_content/blob/master/.languages/cpp/data/oop_inh.png)
 ```cpp
+#include <iostream>
+
 struct person {
     char name[64];
     char sex;
@@ -835,3 +838,36 @@ int main()
     return 0;
 }
 ```
+[Back to TOC](#contents-)
+
+
+### Polymorphism
+```cpp
+#include <iostream>
+
+struct person {
+    char m_cSex;
+};
+
+struct student : person {
+    int code;
+    int year;
+};
+
+void f(person &pers)
+{
+    std::cout << pers.m_cSex << "\n";
+}
+
+int main()
+{
+    person s1{};
+    person &ref = s1;
+
+    ref.m_cSex = 'f';
+    f(s1); // <== Here it is
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
