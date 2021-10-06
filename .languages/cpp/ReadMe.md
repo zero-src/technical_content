@@ -806,4 +806,4 @@ int main( )
 
 ### OOP Basics
 
-![oop_basics]()
+![oop_basics](https://github.com/zero-src/technical_content/blob/master/.languages/cpp/data/oop_inh.png)
