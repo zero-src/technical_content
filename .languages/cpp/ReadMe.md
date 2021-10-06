@@ -805,8 +805,9 @@ int main( )
 ## OOP Basics
 
 ### Inheritance
-
 > Inheritance example
+
+![oop_basics](https://github.com/zero-src/technical_content/blob/master/.languages/cpp/data/oop_inh.png)
 ```cpp
 struct person {
     char name[64];
@@ -819,6 +820,18 @@ struct student : person {
     int year;
     float average;
 };
-```
 
-![oop_basics](https://github.com/zero-src/technical_content/blob/master/.languages/cpp/data/oop_inh.png)
+int main()
+{
+    student s1;
+    strcopy(s1.name, "John Doe");
+
+    s1.sex = 'm';
+    s1.year_of_birth = 1989;
+    s1.code = 51311;
+    s1.year = 2;
+    s1.average = 4.75;
+
+    return 0;
+}
+```
