@@ -12,6 +12,8 @@
 - [Exceptions](#exceptions)
 - [Inline](#inline)
 - [Extern](#extern)
+- [OOP](#oop-basics)
+    - [Inheritance](#inheritance)
 
 ## Reference
 >References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
@@ -760,10 +762,9 @@ int main() {
         std::cout << "Accessing the 11th element of the vector...\n";
         std::cout << v.at(10); // vector::at() throws std::out_of_range
     } catch (const std::exception& e) { // caught by reference to base
-        std::cout << " a standard exception was caught, with message '"
-                  << e.what() << "'\n";
+        std::cout << e.what() << "'\n";
     }
- 
+
 }
 ```
 [Back to TOC](#contents-)
@@ -800,3 +801,9 @@ int main( )
 #endif
 ```
 [Back to TOC](#contents-)
+
+## OOP
+
+### OOP Basics
+
+![oop_basics]()
