@@ -802,8 +802,23 @@ int main( )
 ```
 [Back to TOC](#contents-)
 
-## OOP
+## OOP Basics
 
-### OOP Basics
+### Inheritance
+
+> Inheritance example
+```cpp
+struct person {
+    char name[64];
+    char sex;
+    int year_of_birth;
+};
+
+struct student : person {
+    int code;
+    int year;
+    float average;
+};
+```
 
 ![oop_basics](https://github.com/zero-src/technical_content/blob/master/.languages/cpp/data/oop_inh.png)
