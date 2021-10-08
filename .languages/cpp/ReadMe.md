@@ -15,6 +15,8 @@
 - [OOP](#oop-basics)
     - [Inheritance](#inheritance)
     - [Polymorphism](#polymorphism)
+- [Virtualisation](#virtualisation)
+    - [Abstract classes](#abstract-classes)
 
 ## Reference
 >References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
@@ -869,5 +871,46 @@ int main()
 
     return 0;
 }
+```
+[Back to TOC](#contents-)
+
+## Virtualisation
+
+### Abstract classes
+```cpp
+class GraphObject {
+protected:
+    double x, y;
+    int color;
+public:
+    GraphObject(double _x, double _y, int col)
+        : x(_x), y(_y), color(col) { }
+
+    virtual ~GraphObject() = default;
+    virtual void Show() = 0;
+    virtual void Hide() = 0;
+    void Move(double _x, double _y);
+};
+
+class Pixel : public GraphObject {
+public:
+    Pixel(double x, double y, int col)
+        : GraphObject(x, y, col) { }
+
+    virtual ~Pixel() = default;
+    virtual void Show();
+    virtual void Hide();
+};
+
+class Circle : public GraphObject {
+    double radius;
+public:
+    Circle(double x, double y, double rad, int col)
+        : GraphObject(x, y, col), radius(rad) { }
+
+    virtual ~Circle() = default;
+    virtual void Show();
+    virtual void Hide();
+};
 ```
 [Back to TOC](#contents-)
