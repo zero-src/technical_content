@@ -914,3 +914,69 @@ public:
 };
 ```
 [Back to TOC](#contents-)
+
+#### or
+
+```cpp
+class GraphObject {
+protected:
+    double x, y;
+    int color;
+public:
+    GraphObject(double _x, double _y, int col)
+        : x(_x), y(_y), color(col) { }
+
+    virtual ~GraphObject();
+    virtual void Show() = 0;
+    virtual void Hide() = 0;
+    void Move(double _x, double _y);
+};
+
+class PolygonalChain : public GraphObject {
+    struct Vertex {
+        double dx, dy;
+        Vertex *next;
+    };
+    Vertex *first;
+public:
+    PolygonalChain(double x, double y, int col)
+        : GraphObject(x, y, col), first(nullptr) { }
+    virtual ~PolygonalChain();
+    void AddVertex(double _dx, double _dy);
+    virtual void Show();
+    virtual void Hide();
+};
+
+void PolygonalChain::AddVertex(double _dx, double _dy)
+{
+    auto *tmp = new Vertex;
+    tmp->dx = _dx;
+    tmp->dy = _dy;
+    tmp->next = first;
+    first = tmp;
+}
+
+PolygonalChain::~PolygonalChain()
+{
+    while(first)
+    {
+        auto *tmp = first;
+        first = first->next;
+        delete tmp;
+    }
+}
+
+class Square : public PolygonalChain {
+public:
+    Square(double x, double y, double a, int color)
+        : PolygonalChain(x, y, color)
+    {
+        AddVertex(0, 0);
+        AddVertex(0, a);
+        AddVertex(a, a);
+        AddVertex(a, 0);
+        AddVertex(0, 0);
+    }
+};
+```
+[Back to TOC](#contents-)
