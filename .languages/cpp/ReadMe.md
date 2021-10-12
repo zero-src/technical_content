@@ -17,6 +17,7 @@
     - [Polymorphism](#polymorphism)
 - [Virtualisation](#virtualisation)
     - [Abstract classes](#abstract-classes)
+- [Hidden names](#hidden-names)
 
 ## Reference
 >References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
@@ -978,5 +979,34 @@ public:
         AddVertex(0, 0);
     }
 };
+```
+[Back to TOC](#contents-)
+
+## Hidden names
+
+```cpp
+class A {
+public:
+    void f(int a, int b);
+};
+
+void A::f(int a, int b)
+{
+    std::cout << a << b << std::endl;
+}
+
+class B : public A {
+    double f; // f(int, int) method is hidden
+};
+
+int main()
+{
+    B b;
+
+    b.f(2, 3); // Error: method unavailable
+    b.A::f(2, 3); // Perfect!!
+
+    return 0;
+}
 ```
 [Back to TOC](#contents-)
