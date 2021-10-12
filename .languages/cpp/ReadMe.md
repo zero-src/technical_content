@@ -1,5 +1,5 @@
 # Contents 🚀
-- [Type cast](#cast-mathod)
+- [Type cast](#cast-method)
 - [Reference](#reference)
 - [Structs](#structs)
     - [Example](#example)
