@@ -21,6 +21,7 @@
 - [Virtualisation](#virtualisation)
     - [Bypass method](#bypass)
     - [Abstract classes](#abstract-classes)
+- [Templates](#template)
 
 ## Reference
 >References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
@@ -1134,3 +1135,48 @@ public:
 };
 ```
 [Back to TOC](#contents-)
+
+## Template
+> typename example
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+class Control {
+public:
+    Control(const std::string& n) : name(n)
+    {}
+
+    template <typename T>
+    T* as()
+    {
+        return (T*)this;
+    }
+
+    std::string name;
+};
+
+class Checkbox : public Control {
+public:
+    Checkbox(const std::string& name) : Control(name)
+    {}
+
+    bool enable{};
+};
+
+std::vector<Control*> controls{};
+
+int main()
+{
+    controls.emplace_back(new Control("Some control"));
+    controls.emplace_back(new Checkbox("Some checkbox"));
+
+    std::cout << controls[0]->name << std::endl; // Some control
+
+    std::cout << controls[1]->name << std::endl; // Some checkbox
+    std::cout << controls[1]->as<Checkbox>()->enable << std::endl; // 0
+
+    return 0;
+}
+```
