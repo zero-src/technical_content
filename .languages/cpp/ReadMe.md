@@ -1,5 +1,4 @@
 # Contents 🚀
-- [Type cast](#cast-method)
 - [Reference](#reference)
 - [Structs](#structs)
     - [Example](#example)
@@ -10,6 +9,8 @@
     - [Copy Constructor](#copy-constructor)
     - [Scope resolution operator](#scope-resolution-operator-)
     - [Class members initialization](#class-members-initialization)
+    - [Hidden names](#hidden-names)
+- [Type cast](#cast-method)
 - [Exceptions](#exceptions)
 - [Inline](#inline)
 - [Extern](#extern)
@@ -19,63 +20,6 @@
 - [Virtualisation](#virtualisation)
     - [Bypass method](#bypass)
     - [Abstract classes](#abstract-classes)
-- [Hidden names](#hidden-names)
-
-## Cast method
-```cpp
-#include <iostream>
-
-class A { };
-class B : public A { };
-class C { };
-
-int main()
-{
-    int x;
-    char *p = (char*)&x; // cast method from "C"
-
-
-    // C++ includes:
-    // - static_cast
-    // - dynamic_cast
-    // - const_cast
-    // - reinterpret_cast
-
-
-    // const_cast
-    int *p_integer = new int(0);
-    const int *p_const_int = new const int(0);
-    const char *p_const_char = new const char('a');
-
-    p_const_int = p_integer; // Perfect
-    p_integer = p_const_int; // Error
-    p_integer = const_cast<int *>(p_const_int); // Perfect
-    p_integer = const_cast<int *>(p_const_char); // Error
-
-    // static_cast or dynamic_cast (only for abstract classes)
-    A **scene = new A*[5];
-    A *sp = static_cast<A*>(scene[0]); // Perfect
-
-    A *ap;
-    B *bp;
-    C *cp;
-
-    ap = bp; // Perfect
-    bp = ap; // Error
-    bp = static_cast<B*>(ap); // Perfect
-    cp = static_cast<C*>(ap); // Error: A && C are nor relatives
-
-
-    // reinterpret_cast (Almighty thing)
-    int *a;
-    float *b;
-
-    a = reinterpret_cast<int*>(b);
-
-    return 0;
-}
-```
-[Back to TOC](#contents-)
 
 ## Reference
 >References are not objects; they do not necessarily occupy storage, although the compiler may allocate storage if it is necessary to implement the desired semantics (e.g. a non-static data member of reference type usually increases the size of the class by the amount necessary to store a memory address).
@@ -191,8 +135,7 @@ int main( )
 #include <iostream>
 #include <tuple>
 
-struct str_complex 
-{
+struct str_complex {
 private:
     double re, im;
 public:
@@ -805,6 +748,90 @@ int main()
 ```
 [Back to TOC](#contents-)
 
+## Hidden names
+```cpp
+class A {
+public:
+    void f(int a, int b);
+};
+
+void A::f(int a, int b)
+{
+    std::cout << a << b << std::endl;
+}
+
+class B : public A {
+    double f; // f(int, int) method is hidden
+};
+
+int main()
+{
+    B b;
+
+    b.f(2, 3); // Error: method unavailable
+    b.A::f(2, 3); // Perfect!!
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+## Cast method
+```cpp
+#include <iostream>
+
+class A { };
+class B : public A { };
+class C { };
+
+int main()
+{
+    int x;
+    char *p = (char*)&x; // cast method from "C"
+
+
+    // C++ includes:
+    // - static_cast
+    // - dynamic_cast
+    // - const_cast
+    // - reinterpret_cast
+
+
+    // const_cast
+    int *p_integer = new int(0);
+    const int *p_const_int = new const int(0);
+    const char *p_const_char = new const char('a');
+
+    p_const_int = p_integer; // Perfect
+    p_integer = p_const_int; // Error
+    p_integer = const_cast<int *>(p_const_int); // Perfect
+    p_integer = const_cast<int *>(p_const_char); // Error
+
+    // static_cast or dynamic_cast (only for abstract classes)
+    A **scene = new A*[5];
+    A *sp = static_cast<A*>(scene[0]); // Perfect
+
+    A *ap;
+    B *bp;
+    C *cp;
+
+    ap = bp; // Perfect
+    bp = ap; // Error
+    bp = static_cast<B*>(ap); // Perfect
+    cp = static_cast<C*>(ap); // Error: A && C are nor relatives
+
+
+    // reinterpret_cast (Almighty thing)
+    int *a;
+    float *b;
+
+    a = reinterpret_cast<int*>(b);
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
 ## Exceptions
 ```cpp
 #include <iostream>
@@ -1071,33 +1098,5 @@ public:
         AddVertex(0, 0);
     }
 };
-```
-[Back to TOC](#contents-)
-
-## Hidden names
-```cpp
-class A {
-public:
-    void f(int a, int b);
-};
-
-void A::f(int a, int b)
-{
-    std::cout << a << b << std::endl;
-}
-
-class B : public A {
-    double f; // f(int, int) method is hidden
-};
-
-int main()
-{
-    B b;
-
-    b.f(2, 3); // Error: method unavailable
-    b.A::f(2, 3); // Perfect!!
-
-    return 0;
-}
 ```
 [Back to TOC](#contents-)
