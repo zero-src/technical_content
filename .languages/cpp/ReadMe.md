@@ -12,6 +12,7 @@
     - [Hidden names](#hidden-names)
 - [Type cast](#cast-method)
 - [Exceptions](#exceptions)
+    - [Hierarchy](#exceptions-hierarchy)
 - [Inline](#inline)
 - [Extern](#extern)
 - [OOP](#oop-basics)
@@ -854,6 +855,39 @@ int main() {
         std::cout << e.what() << "'\n";
     }
 
+}
+```
+[Back to TOC](#contents-)
+
+## Exceptions hierarchy
+```cpp
+#include <iostream>
+
+// LVL 3
+class Error { };
+
+// LVL 2
+class UserError : Error { };
+class ExternalError : Error { };
+class Bug : Error { };
+
+// LVL 1
+class IcnorrectInput : UserError { };
+class WrongFileName : UserError { };
+class IncorrectPassword : UserError { };
+
+int main()
+{
+    // Only LVL 1 class ( IcnorrectInput )
+    try {} catch (const IcnorrectInput& ex) { }
+
+    // LVL 1-2 classes
+    try {} catch (const UserError& ex) { }
+
+    // LVL 1-3 classes
+    try {} catch (const Error& ex) { }
+
+    return 0;
 }
 ```
 [Back to TOC](#contents-)
