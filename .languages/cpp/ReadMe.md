@@ -10,6 +10,7 @@
     - [Scope resolution operator](#scope-resolution-operator-)
     - [Class members initialization](#class-members-initialization)
     - [Hidden names](#hidden-names)
+    - [Ghetto benchmark](#ghetto-benchmark)
 - [Type cast](#cast-method)
 - [Exceptions](#exceptions)
     - [Hierarchy](#exceptions-hierarchy)
@@ -772,6 +773,52 @@ int main()
 
     b.f(2, 3); // Error: method unavailable
     b.A::f(2, 3); // Perfect!!
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+## Ghetto benchmark
+```cpp
+#include <chrono>
+
+class Timer {
+    std::chrono::time_point<std::chrono::high_resolution_clock> m_StartTimepoint;
+public:
+    Timer()
+    {
+        m_StartTimepoint = std::chrono::high_resolution_clock::now();
+    }
+
+    ~Timer()
+    {
+        Stop();
+    }
+
+    void Stop()
+    {
+        auto endTimepoint = std::chrono::high_resolution_clock::now();
+
+        auto start = std::chrono::time_point_cast<std::chrono::milliseconds>(m_StartTimepoint).time_since_epoch().count();
+        auto end = std::chrono::time_point_cast<std::chrono::milliseconds>(endTimepoint).time_since_epoch().count();
+
+        auto duration = end - start;
+        double ms = duration * 0.001;
+
+        std::cout << "\n" << duration << "us (" << ms << "ms)\n";
+    }
+};
+
+int main()
+{
+    int value = 0;
+    {
+        Timer timer;
+        for (int i = 0; i < 1000000; i++)
+            value += 2;
+    }
+    std::cout << value << std::endl;
 
     return 0;
 }
