@@ -12,23 +12,26 @@ typedef std::vector<double> equation_t;
 typedef std::vector<std::vector<double>> restricts_t;
 
 class Equation {
-    Table *m_Table = new Table();
+    std::vector<Table*> tables_ { new Table(), new Table(), new Table() };
 
     equation_t params_ {};
 
     restricts_t restricts_ {};
     restricts_t normalized_restricts_ {};
 public:
-    ~Equation() { delete m_Table; }
-
     // params_
     equation_t params() const { return params_; }
-    void printParams() const;
+    void printParamsAsTable() const;
     void setupParams();
 
     // restricts_
-    void printRestrictions() const;
+    static std::vector<std::string> vectorToStr(equation_t const & vec);
+    void printRestrictionsAsTable() const;
     void setupRestrictions();
+
+    // normalized_restricts_
+    restricts_t normalized_restricts() const { return normalized_restricts_; }
+    void setupNormalizedRestrictions();
 };
 
 #endif //LEARN_CPP_EQUATION_H
