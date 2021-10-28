@@ -77,11 +77,17 @@ void Equation::setupRestrictions()
         }
 
         tmp_equation.emplace_back(0);
-        equation_as_string.erase(0, 2);
-        tmp_equation.emplace_back(std::stoi(equation_as_string));
+        if (equation_as_string.find("<=") != std::string::npos)
+        {
+            equation_as_string.erase(0, 2);
+            tmp_equation.emplace_back(std::stoi(equation_as_string));
+        }
 
         if (equation_as_string.find(">=") != std::string::npos)
         {
+            equation_as_string.erase(0, 2);
+            tmp_equation.emplace_back(std::stoi(equation_as_string));
+
             for (uint32_t j = 0; j < tmp_equation.size(); j++)
             {
                 if (j == tmp_equation.size() - 2)
@@ -115,7 +121,6 @@ std::vector<std::string> Equation::vectorToStr(equation_t const & vec)
 
 void Equation::printRestrictionsAsTable() const
 {
-    std::cout << "\n";
     tables_[1]->update();
     tables_[1]->draw();
 }
