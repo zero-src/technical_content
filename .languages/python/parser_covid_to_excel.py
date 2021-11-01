@@ -1,10 +1,12 @@
-import requests
+import requests  # https://docs.python-requests.org/en/master/
 import csv
 
 SITE_TO_PARSE = 'https://api.covid19api.com/summary'
 PARSE_CATEGORY = 'Global'
 
 
+# Получение тела сайта
+# https://realpython.com/python-requests/
 def get_data_from_site(link, category):
     response = requests.get(link)
 
@@ -46,4 +48,3 @@ if __name__ == '__main__':
 
     # Заполняем файл полученными данными
     file_filling(PARSE_CATEGORY, parsed_data_from_site)
-
