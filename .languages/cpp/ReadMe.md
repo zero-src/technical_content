@@ -1,5 +1,6 @@
 # Contents 🚀
 - [Reference](#reference)
+- [Operator new](#operator-new)
 - [Arrays](#arrays)
 - [Structs](#structs)
     - [Example](#example)
@@ -87,6 +88,31 @@ int main( )
 
     printf("a: %d\n", a);
     // a: 5
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+## Operator new
+> "new" in buffer
+```cpp
+#include <iostream>
+
+int main()
+{
+    // Buffer on stack
+    unsigned char buf[sizeof(int)*3];
+
+    // Placement new in buffer
+    int *pInt = new (buf) int(3);
+
+    pInt[0] = 0;
+    pInt[1] = 1;
+    pInt[2] = 2;
+    
+    for (int i = 0; i < 3; i++)
+        std::cout << pInt[i] << std::endl;
 
     return 0;
 }
