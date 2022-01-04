@@ -1,5 +1,6 @@
 # Contents 🚀
 - [Reference](#reference)
+- [Arrays](#arrays)
 - [Structs](#structs)
     - [Example](#example)
     - [Private / Public methods](#private--public-methods)
@@ -86,6 +87,46 @@ int main( )
 
     printf("a: %d\n", a);
     // a: 5
+
+    return 0;
+}
+```
+[Back to TOC](#contents-)
+
+## Arrays
+> You are able to use macros for receiving length of static array
+```cpp
+#define ARRAYSIZEM(a) (sizeof(a) / sizeof(a[0]))
+```
+
+> Also you length can be found by function
+```cpp
+template <typename T, size_t N>
+size_t ARRAYSIZET(T (&a)[N])
+{
+    return N;
+}
+```
+[Back to TOC](#contents-)
+
+> Whole code 
+```cpp
+#include <iostream>
+
+#define ARRAYSIZEM(a) (sizeof(a) / sizeof(a[0]))
+
+template <typename T, size_t N>
+size_t ARRAYSIZET(T (&a)[N])
+{
+    return N;
+}
+
+int main()
+{
+    int a[] = { 1, 2, 3, 4, 5, 6 };
+
+    std::cout << ARRAYSIZEM(a) << std::endl; // -> 6
+    std::cout << ARRAYSIZET(a)  << std::endl; // -> 6
 
     return 0;
 }
