@@ -125,7 +125,7 @@ int main()
 #define ARRAYSIZEM(a) (sizeof(a) / sizeof(a[0]))
 ```
 
-> Also you length can be found by function
+> Also array length can be found by function
 ```cpp
 template <typename T, size_t N>
 size_t ARRAYSIZET(T (&a)[N])
