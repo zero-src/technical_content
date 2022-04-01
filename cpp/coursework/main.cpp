@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "Equations/Equation.h"
 
 int main()
@@ -9,9 +11,6 @@ int main()
 
     auto e = new Equation(size);
 
-    // Проверка количства уравнений
-    std::cout << "DEBUG: size_ = " << e->getSize() << std::endl;
-
     // Инициализация матрицы
     e->init_matrix();
 
@@ -20,6 +19,25 @@ int main()
 
     // Вывод системы линейных уравнений
     e->printEquationSystem();
+
+    float det = e->getDeterminant(e->getAsMatrix());
+
+    if (std::abs(det) >= 0.01f)
+    {
+        std::cout << "Метод Крамера\n";
+
+        Matrix mtx = e->getSize();
+        for (uint16_t i = 0; i < e->getSize(); i++)
+        {
+            e->safeMatrix(i, mtx);
+            e->m_fRoots[i] = e->getDeterminant(mtx) / det;
+
+            if (std::abs(e->m_fRoots[i]) < 0.0001f)
+                printf("x%d = 0\n", i+1);
+            else
+                printf("x%d = %7.4f\n", i+1, e->m_fRoots[i]);
+        }
+    }
 
     // Удаление мусора из памяти
     delete e;
