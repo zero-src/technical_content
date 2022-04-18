@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(
         course main.cpp
-        Equations/Equation.cpp
-        Equations/Equation.h
+        Matrix/Matrix.cpp
+        Matrix/Matrix.h
+        Calculations/calc.cpp
+        Calculations/calc.h
 )
