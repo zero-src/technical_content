@@ -7,8 +7,8 @@
 
 #include <iostream>
 
-typedef float** matrix_t;
 typedef float*  array_t;
+typedef array_t* matrix_t;
 
 struct Matrix {
     uint16_t n_size = 0, m_size = 0;

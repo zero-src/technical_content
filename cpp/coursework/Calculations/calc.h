@@ -29,6 +29,7 @@ namespace calc {
     void manualArrayInput(array_t& arr, uint16_t size);
 
     float getDeterminant(const matrix_t& matrix, uint16_t size);
+
 }
 
 #endif //COURSE_CALC_H

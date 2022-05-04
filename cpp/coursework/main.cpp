@@ -43,6 +43,15 @@ int main()
         }
     }
 
+    std::cout << "\nМетод Гаусса-Жордана\n";
+
+
+    for (uint16_t i = 0; i < equations_count; i++) {
+        for (uint16_t j = 0; j < equations_count; j++)
+            std::cout << mtx->matrix[i][j] << "\t";
+        std::cout << std::endl;
+    }
+
     delete [] equation_roots;
     delete [] free_terms;
     delete mtx;
