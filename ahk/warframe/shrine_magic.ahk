@@ -22,19 +22,19 @@ history := ""
 propasToZimbabwe() 
 {
     ; Mid portal
-    click, middle
+    SendInput {MButton}
     sleep 5 ; extra delay
 
     ; CL portal
     DllCall("mouse_event", uint, 1, int, -360, int, 0, uint, 0, int, 0)
-    send {1} ; madurai ability
+    SendInput {1} ; madurai ability
     sleep, 800 ; madurai anim is OG
-    click, middle   
+    SendInput {MButton}  
 
     ; CR portal
     DllCall("mouse_event", uint, 1, int, 770, int, 0, uint, 0, int, 0)
     sleep, 526 ; delay for early propa
-    click, middle
+    SendInput {MButton}
 
     ; Ghetto prediction for "long" spot
     sleep 10
@@ -48,19 +48,21 @@ back_to_frame()
     SendInput {e}
     sleep 1
     SendInput {-}
-    sleep 2
+    sleep 1
+    SendInput {-}
+    sleep 1
 
     return
 }
 
 unstuck(air_time) {
-    send {t}
+    SendInput {t}
     sleep 6 ; chat can not be opened instant
 
     sendInput, /unstuck
     sleep, 1
 
-    send {Enter}
+    SendInput {Enter}
     sleep air_time
 
     return
@@ -128,8 +130,8 @@ NumpadPgup::
     history := ""
 return
 
-; Misc Keybinds
-home::reload
-^home::reload
-^end::exitapp
-end::exitapp
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                Misc                 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+*home::reload
+*end::exitapp

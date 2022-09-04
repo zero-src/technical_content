@@ -15,16 +15,20 @@ SetWinDelay -1
 ;;                 GUI                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-g_width := A_ScreenWidth / 2 - 25
-g_height := A_ScreenHeight / 2 + 25
+g_width := A_ScreenWidth / 2 - 1700
+g_height := A_ScreenHeight - 240
+
+g_shock_dur := 94
+g_eclipse_dur := 58
 
 Gui +AlwaysOnTop +LastFound +Toolwindow -Caption
 Gui, Color, 000000
-Gui, Font, s14
-Gui, Add, Text, vSpeed cWhite, "S"
+Gui, Font, s19
+Gui, Add, Text, vShock cYellow, 00
+Gui, Add, Text, vEclipse cWhite, 00
 WinSet, TransColor, 000000
+Gui, Show, x%g_width% y%g_height% NoActivate
 return
-
 ;*F11:: Suspend
 
 ; *F12:: 
@@ -60,22 +64,25 @@ back_to_frame()
     SendInput {e}
     sleep 1
     SendInput {-}
-    sleep 2
+    sleep 1
+    SendInput {-}
+    sleep 1
 
     return
 }
 
-ppp_zenith()
+pp_r_zenith()
 {
     send_propa()
-    sleep 550
-    send_propa()
-    sleep 550
-    send_propa()
-    
-    sleep 520
-    back_to_frame()
+    sleep 525
 
+    send_propa()
+    sleep 1100
+
+    call_shot()
+    sleep 1
+
+    back_to_frame()
     rapidFire(40)
 
     return
@@ -84,18 +91,18 @@ ppp_zenith()
 console_hack()
 {
     SendInput {w}
-        sleep 1
+        sleep 2
         SendInput {Shift}
     SendInput {w}
 
-    sleep 70
+    sleep 65
 
     loop, 3
     {
         SendInput {x}
         sleep 20
         SendInput {y}
-        sleep 30
+        sleep 50
     }
     return
 }
@@ -109,7 +116,7 @@ energy_drain()
         SendInput {LButton}
         Sleep 1
     }
-    SendInput {Shift up}
+    SendInput {Shift Up}
 
     return
 }
@@ -120,7 +127,7 @@ travel_to_cr()
     sleep 150
 
     SendInput {Space Up}
-    sleep 100
+    sleep 110
 
     SendInput {Shift}
     DllCall("mouse_event", uint, 1, int, -1501, int, 438, uint, 0, int, 0)
@@ -137,21 +144,29 @@ travel_to_cr()
 return
 
 *F1::
-    SendInput {5}
-        sleep 1
-    SendInput {5}
+    Gui, Show, x%g_width% y%g_height% NoActivate
 
-    SendInput {2}
-    sleep 50
-    
+    SendInput {5}
+    ; sleep 1
+    ; SendInput {5}
+
+    shock_timer := 0
     SendInput {1 down}
         sleep 500
     SendInput {1 up}
 
+    SetTimer, UpdateShock, -10
+    SetTimer, UpdateShock, 1000
+
+    eclipse_timer := 0
     sleep 150
     SendInput {4}
 
-    sleep 3000
+    SetTimer, UpdateEclipse, -10
+    SetTimer, UpdateEclipse, 1000
+    
+
+    sleep 2000
 return
 
 *F3::
@@ -165,8 +180,8 @@ return
 
 F4::
 ^F4::
-    ppp_zenith()
-    sleep 5000
+    pp_r_zenith()
+    sleep 3000
 return
 
 *F5::
@@ -182,32 +197,58 @@ NumpadDown::
     sleep 30
     SendInput {f}
 
-    rapidFire(50)
+    rapidFire(80)
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;               Timers                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; ~*2::
-;     Gui, Show, x%g_width% y%g_height% NoActivate
-;     speed := 0
-;     SetTimer, UpdateSpeed, -10
-;     SetTimer, UpdateSpeed, 1000
-; return
+~*1::
+    Gui, Show, x%g_width% y%g_height% NoActivate
+    shock_timer := 0
+    SetTimer, UpdateShock, -10
+    SetTimer, UpdateShock, 1000
+return
 
-; UpdateSpeed:
-;     speed++
-;     time_display := 23 - speed
+~*4::
+    Gui, Show, x%g_width% y%g_height% NoActivate
+    eclipse_timer := 0
+    SetTimer, UpdateEclipse, -10
+    SetTimer, UpdateEclipse, 1000
+return
 
-;     if (time_display=0)
-;         SetTimer, UpdateSpeed, off ; stops the counter
+UpdateEclipse:
+    eclipse_timer++
+    time_display := g_eclipse_dur - eclipse_timer
 
-;     GuiControl,, Speed, %time_display%
-; return
+    if (time_display=0)
+        SetTimer, UpdateEclipse, off ; stops the counter
+
+    GuiControl,, eclipse, %time_display%
+return
+
+UpdateShock:
+    shock_timer++
+    time_display := g_shock_dur - shock_timer
+
+    if (time_display=0)
+        SetTimer, UpdateShock, off ; stops the counter
+
+    GuiControl,, Shock, %time_display%
+return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                Misc                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 *insert::reload
 *del::exitapp
+
+#IfWinActive, Warframe 
+{
+    *c::
+        SendInput {5}
+        SendInput {2}
+        SendInput {c}
+    return
+}

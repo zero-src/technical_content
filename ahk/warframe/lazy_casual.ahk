@@ -1,37 +1,49 @@
-﻿#NoEnv
-#MaxHotkeysPerInterval 99000000
-#HotkeyInterval 99000000
-#KeyHistory 0
-ListLines Off
-Process, Priority, , A
-SetBatchLines, -1
+﻿SetWorkingDir %A_ScriptDir%  
+#SingleInstance Force
+#Persistent
+#NoEnv
+#InstallKeybdHook
+#InstallMouseHook
+SetBatchLines -1
 SetKeyDelay, -1, -1
-SetMouseDelay, -1
-SetDefaultMouseSpeed, 0
-SetWinDelay, -1
-SetControlDelay, -1
-SendMode Input
+SetMouseDelay, -1, -1
+SetControlDelay -1
+SetWinDelay -1
+#MaxHotkeysPerInterval 200
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;              Globals                ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 zaw_air_heavy_attack() 
 {
-    send {s down}
+    SendInput {RButton down}
+    sleep 1
+
+    SendInput {s down}
         sleep 1
-        send {CtrlDown}
-            sleep 50
-            click, middle
-        send {CtrlUp}
-    send {s up}
+        SendInput {CtrlDown}
+            sleep 1
+            SendInput {MButton}
+        SendInput {CtrlUp}
+    SendInput {s up}
+
+    SendInput {RButton up}
 
     return
 }
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;               Hotkeys               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 XButton2::
 ^XButton2::
     zaw_air_heavy_attack()
 return
 
-; Misc Keybinds
-insert::reload
-^insert::reload
-^del::exitapp
-del::exitapp
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                Misc                 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+*insert::reload
+*del::exitapp

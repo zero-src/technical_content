@@ -26,6 +26,22 @@ g_offset := gr_presets.lady.offset
 g_ping := gr_presets.lady.ping
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                 GUI                 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; A_ScreenWidt
+; A_ScreenHeight
+
+g_width := 20
+g_height := A_ScreenHeight - Ceil(A_ScreenHeight / 8)
+
+Gui +AlwaysOnTop +LastFound +Toolwindow -Caption
+Gui, Color, 000000
+Gui, Font, s19 bold, Verdana
+Gui, Add, Text, vDesync cGreen, LC 
+WinSet, TransColor, 000000
+return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;      Propa snd Raplak keybinds      ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 send_propa() 
@@ -62,10 +78,12 @@ call_ppr()
 
 anti_desync(downtime) 
 {
-    loop, 5 
+    loop, 5
     {
         call_ppr()
-        sleep downtime
+
+        if (A_Index != 5)
+            sleep downtime
     }
     return
 }
@@ -89,7 +107,9 @@ energy_drain()
 ;;               Hotkeys               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 *XButton2::
+    Gui, Show, x%g_width% y%g_height% NoActivate
     anti_desync(g_offset)
+    Gui, Cancel
 return
 
 *F5::
