@@ -1,3 +1,6 @@
-### Lazy_dps.ahk ui
+### lazy_dps.ahk ui
 
-![lazy_dps_png](https://cdn.discordapp.com/attachments/753335249391583386/825663734490988544/unknown.png)
+![lazy_dps_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/lazy_dps.png?raw=true)
+
+### ui_panel.ahk
+![ui_panel_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/ui_panel.png?raw=true)
