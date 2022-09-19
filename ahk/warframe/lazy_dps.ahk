@@ -1,4 +1,4 @@
-﻿SetWorkingDir %A_ScriptDir%  
+SetWorkingDir %A_ScriptDir%  
 #SingleInstance Force
 #Persistent
 #NoEnv
@@ -16,18 +16,32 @@ SetWinDelay -1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 g_width := A_ScreenWidth / 2 - 1700
-g_height := A_ScreenHeight - 240
+g_height := A_ScreenHeight - 200
 
 g_shock_dur := 94
 g_eclipse_dur := 58
 
-Gui +AlwaysOnTop +LastFound +Toolwindow -Caption
+gui, desync_bg: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
+gui, desync_bg: Add, Progress, w30 h60 c839DD5 Background141414 vMyProgress, 0
+gui, desync_bg: Color, 141414
+gui, desync_bg: Show, x%g_width% y%g_height% NoActivate
+WinSet, Transparent, 180
+
+Gui +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 Gui, Color, 000000
-Gui, Font, s19
-Gui, Add, Text, vShock cYellow, 00
-Gui, Add, Text, vEclipse cWhite, 00
+Gui, Font, s16
+Gui, Add, Text, x14 y5 vShock cYellow, 00
+Gui, Add, Text, x14 y25 vEclipse cWhite, 00
 WinSet, TransColor, 000000
 Gui, Show, x%g_width% y%g_height% NoActivate
+
+gui, ping_text: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
+gui, ping_text: Font, s10 DRAFT_QUALITY, Smallest Pixel-7
+gui, ping_text: Add, Text, x3 y45 vping_text0 cCACACA, ---------
+gui, ping_text: Add, Text, x9 y55 vping_text1 cCACACA, _DPS_
+gui, ping_text: Color, 141414
+gui, ping_text: Show, x%g_width% y%g_height% NoActivate
+WinSet, TransColor, 141414
 return
 ;*F11:: Suspend
 
@@ -124,12 +138,13 @@ energy_drain()
 travel_to_cr()
 {
     SendInput {Space Down}
-    sleep 150
-
+        sleep 150
     SendInput {Space Up}
-    sleep 110
 
+    sleep 110
     SendInput {Shift}
+    sleep 10
+    
     DllCall("mouse_event", uint, 1, int, -1501, int, 438, uint, 0, int, 0)
 
     return
@@ -159,7 +174,7 @@ return
     SetTimer, UpdateShock, 1000
 
     eclipse_timer := 0
-    sleep 150
+    sleep 350
     SendInput {4}
 
     SetTimer, UpdateEclipse, -10
@@ -180,23 +195,45 @@ return
 
 F4::
 ^F4::
-    pp_r_zenith()
-    sleep 3000
+    loop, 5
+    {
+        pp_r_zenith()
+        sleep 14990
+    }
+    ;sleep 3000
 return
 
 *F5::
     energy_drain()
 return
 
-Numpad2::
-NumpadDown::
+; *F7::
+;     while GetKeyState("F7", "P")
+;     {
+;         send_propa()
+;         sleep 20
+;         SendInput {-}
+;         sleep 1
+;         SendInput {-}
+;         sleep 10
+;     }
+; return
+
+*F7::
+    SendInput {f}
+    sleep 316
+    SendInput {f}
+return
+
+Numpad0::
+NumpadIns::
     travel_to_cr()
-    sleep 600
 
     SendInput {f}
-    sleep 30
+    sleep 316
     SendInput {f}
 
+    sleep 284
     rapidFire(80)
 return
 
