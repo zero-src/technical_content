@@ -1,4 +1,4 @@
-### lazy_dps.ahk ui
+### lazy_dps.ahk
 
 ![lazy_dps_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/lazy_dps.png?raw=true)
 
