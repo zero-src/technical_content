@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project FileVersion="2" Name="2" MainFile="2.pas" OutputFileName="2.exe" OutputDirectory="" ProjectType="ConsoleApp" IncludeDebugInfo="True" GenerateXMLDoc="False" CommandLineArguments="" AppIcon="" DeleteEXE="True" DeletePDB="True" Product="" Company="" Trademark="" Copyright="" Title="" Description="" MajorVersion="0" MinorVersion="0" BuildVersion="0" RevisionVersion="0">
-  <Items>
-    <Item Type="SourceFile" Name="2.pas" Path="2.pas" />
-    <Item Type="SourceFile" Name="math.pas" Path="math.pas" />
-    <Item Type="Reference" AssemblyName="System" FullAssemblyName="System.dll" />
-  </Items>
-</Project>

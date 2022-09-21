@@ -1,1 +1,0 @@
-﻿/// R.I.P PascalABC.NET
