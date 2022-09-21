@@ -20,7 +20,7 @@ namespace calc {
         }
     }
 
-    Matrix* idkWhatThisShitDoes(Matrix* const & source, const array_t & free_terms, uint16_t col_id);
+    Matrix* coolFuncName(Matrix* const & source, const array_t & free_terms, uint16_t col_id);
 
     matrix_t getSubMatrix(const matrix_t& matrix, uint16_t n, uint16_t x, uint16_t y);
 
@@ -30,6 +30,7 @@ namespace calc {
 
     float getDeterminant(const matrix_t& matrix, uint16_t size);
 
+    bool identityMatrix(Matrix* src);
 }
 
 #endif //COURSE_CALC_H

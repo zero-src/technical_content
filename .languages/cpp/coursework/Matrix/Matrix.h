@@ -14,7 +14,7 @@ struct Matrix {
     uint16_t n_size = 0, m_size = 0;
     matrix_t matrix {};
 
-    explicit Matrix(uint16_t size_n, uint16_t size_m);
+    explicit Matrix(Matrix* const & src, const float* vec);
     explicit Matrix(uint16_t size);
 
     ~Matrix();

@@ -1,5 +1,7 @@
 #include "calc.h"
 
+#include <cmath>
+
 void calc::manualMatrixInput(matrix_t& mtx, uint16_t size_n, uint16_t size_m)
 {
     for (uint16_t i = 0; i < size_n; i++)
@@ -56,7 +58,7 @@ float calc::getDeterminant(const matrix_t& matrix, uint16_t size)
     return det;
 }
 
-Matrix* calc::idkWhatThisShitDoes(Matrix* const & source, const array_t & free_terms, uint16_t col_id)
+Matrix* calc::coolFuncName(Matrix* const & source, const array_t & free_terms, uint16_t col_id)
 {
     auto copy_to = new Matrix(source->n_size);
     for (uint16_t i = 0; i < source->n_size; i++)
@@ -71,5 +73,61 @@ Matrix* calc::idkWhatThisShitDoes(Matrix* const & source, const array_t & free_t
     }
 
     return copy_to;
+}
+
+bool calc::identityMatrix(Matrix* src)
+{
+    int n1 = src->n_size-1;
+    float c;
+
+    for (int i = 0; i < n1; ++i)
+    {
+        int j = i+1;
+        while (std::fabs(src->matrix[i][i]) < 0.0001 && j < src->n_size)
+        {
+            if (std::fabs(src->matrix[j][i]) >= 0.0001)
+            {
+                for (int k = i; k < src->m_size; ++k)
+                {
+                    float b = src->matrix[j][k];
+                    src->matrix[i][k] = src->matrix[j][k];
+                    src->matrix[j][k] = b;
+                }
+            }
+            j++;
+        }
+
+        c = src->matrix[i][i];
+        if (std::fabs(c) < 0.0001)
+            return false;
+
+        for (int jj = i; jj < src->m_size; ++jj)
+            src->matrix[i][jj] /= c;
+
+        for (int jj = i+1; jj < src->n_size; ++jj)
+        {
+            c = src->matrix[jj][i];
+            if (std::fabs(c) >= 0.0001)
+                for (int k = 0; k < src->m_size; ++k)
+                    src->matrix[jj][k] -= src->matrix[i][k]*c;
+        }
+    }
+
+    c = src->matrix[n1][n1];
+    if (std::fabs(c) < 0.0001)
+        return false;
+
+    for (int j = n1; j < src->m_size; ++j)
+        src->matrix[n1][j] /= c;
+
+    for (int i = n1; i > 0; --i)
+        for (int j = i-1; j >= 0; --j)
+        {
+            c = src->matrix[j][i];
+            if (std::fabs(c) >= 0.0001)
+                for (int k = i; k < src->m_size; ++k)
+                    src->matrix[j][k] -= c * src->matrix[j][k];
+        }
+    return true;
 }
 
