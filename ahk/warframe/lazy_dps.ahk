@@ -30,8 +30,8 @@ WinSet, Transparent, 180
 Gui +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 Gui, Color, 000000
 Gui, Font, s16
-Gui, Add, Text, x14 y5 vShock cYellow, 00
-Gui, Add, Text, x14 y25 vEclipse cWhite, 00
+Gui, Add, Text, x13 y5 vShock cYellow, 00
+Gui, Add, Text, x13 y25 vEclipse cWhite, 00
 WinSet, TransColor, 000000
 Gui, Show, x%g_width% y%g_height% NoActivate
 

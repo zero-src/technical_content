@@ -19,27 +19,28 @@ SetWinDelay -1
 global gr_presets := {JustMeeeee: {offset: 15615, ping: 40}
                 , Agegon: {offset: 15620, ping: 25}
                 , Falco: {offset: 15686, ping: 35}
-                , lady: {offset: 15570, ping: 0}}
+                , lady: {offset: 15570, ping: 0}
+                , desort: {offset: 15690, ping: 105}}
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;              Globals                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-global g_cooldown := gr_presets.Falco.offset
-global g_ping := gr_presets.Falco.ping
+global g_cooldown := gr_presets.desort.offset
+global g_ping := gr_presets.desort.ping
 
 start_pos := [20, A_ScreenHeight - Ceil(A_ScreenHeight / 8)]
 global g_positions := {bg: {w: start_pos[1]+14, h: start_pos[2]+10}
                         , txt: {w: start_pos[1]+1, h: start_pos[2]}
                         , bar: {w: start_pos[1]+14, h: start_pos[2]+34}
-                        , ping: {w: start_pos[1]+10, h: start_pos[2]+45}}
+                        , ping: {w: start_pos[1]+6, h: start_pos[2]+45}}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 GUI                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; desync_bg: indicator background
+; desync_bg: background
 height := g_positions.bg.h
 width := g_positions.bg.w
 
@@ -72,13 +73,13 @@ gui, lc_slider: Color, 141414
 gui, lc_slider: Show, x%width% y%height% NoActivate
 WinSet, TransColor, 141414
 
-; lc_slider: ppr cooldown
+; ping_text: ping
 height := g_positions.ping.h
 width := g_positions.ping.w
 
 gui, ping_text: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 gui, ping_text: Font, s10 DRAFT_QUALITY, Smallest Pixel-7
-gui, ping_text: Add, Text, vping_text cCACACA, _ping_
+gui, ping_text: Add, Text, vping_text cCACACA, _ping__
 gui, ping_text: Color, 141414
 gui, ping_text: Show, x%width% y%height% NoActivate
 WinSet, TransColor, 141414
@@ -131,7 +132,7 @@ clamp(num, min, max)
 }
 
 auto_ppr:
-    delay := 700 - clamp(g_ping, 0, 700)
+    delay := 695 - clamp(g_ping, 0, 695)
     sleep_time := round( delay / 25 )
 
     counter := 100
