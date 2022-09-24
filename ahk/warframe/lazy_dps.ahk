@@ -75,12 +75,13 @@ rapidFire(ms) {
 
 back_to_frame()
 {
+    call_shot()
+    sleep 0
     SendInput {e}
-    sleep 1
+    sleep 10
     SendInput {-}
     sleep 1
     SendInput {-}
-    sleep 1
 
     return
 }
@@ -93,11 +94,21 @@ pp_r_zenith()
     send_propa()
     sleep 1100
 
-    call_shot()
+    SendInput {LButton} ; raplak
+    sleep 0
+    SendInput {e}
+    sleep 10
+    SendInput {-} ; agree emote
     sleep 1
+    SendInput {-} ; agree emote
 
-    back_to_frame()
-    rapidFire(40)
+    SendInput {RButton Down}
+    loop, 30
+    {
+        SendInput {LButton}
+        sleep 10
+    }
+    SendInput {RButton Up}
 
     return
 }
@@ -180,16 +191,14 @@ return
     SetTimer, UpdateEclipse, -10
     SetTimer, UpdateEclipse, 1000
     
-
     sleep 2000
 return
 
-*F3::
 ~LButton & RButton::
-    while GetKeyState("F3", "P") or GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
+    while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
     {
         call_shot()
-        sleep 1
+        sleep 10
     }
 return
 
