@@ -2,15 +2,61 @@ import discord
 from discord.ext.commands import has_permissions
 from datetime import datetime, timedelta
 from discord.ext import commands, tasks
+import cfg.config
 
-BOT_TOKEN = "ODA2NDc2Mzg4NjI1OTQwNTAw.Gm1euU.-953FFWEMMRoUDMyhb6WSgerbebaCvs9K4fkss"
+# Default settings
+cfg = cfg.config.Settings()
+BOT_TOKEN = cfg.bot_token()
 
+
+class Timetable:
+
+    def __init__(self):
+        self.color = cfg.embed_color()
+        self.__timetable_cache = {}
+        self.__timetable_date = datetime.now()
+
+        # Embed default settings
+        self.embed = discord.Embed(
+            color=self.color,
+            title=self.__timetable_date
+        )
+
+    def channel_location(self, channel):
+        self.__timetable_cache["channel"] = channel
+
+    def get_channel(self):
+        return self.__timetable_cache["channel"]
+
+    def message_location(self, message):
+        self.__timetable_cache["message"] = message
+
+    def get_message(self):
+        return self.__timetable_cache["message"]
+
+    def datetime_current(self, *, as_str=True):
+        self.__timetable_date = datetime.now()
+
+        if as_str:
+            return self.__timetable_date.strftime("%d/%m/%Y, %H:%M")
+        else:
+            return self.__timetable_date
+
+    def datetime_manip(self, days, /, *, as_str=True):
+        self.__timetable_date += timedelta(days=days)
+
+        if as_str:
+            return self.__timetable_date.strftime("%d/%m/%Y, %H:%M")
+        else:
+            return self.__timetable_date
+
+
+# heap of shit-code
 intents = discord.Intents.default().all()
 client = commands.Bot(intents=intents, command_prefix="::")
 
 all_active_channels = {}
-cache = {}
-timetable_message = discord.Embed(color=0xEA80FC)
+Timetable = Timetable()
 
 
 @tasks.loop(hours=1)
@@ -40,36 +86,31 @@ async def on_ready():
 @client.tree.command(name="timetable_channel", description="Setup bot in 'X' channel")
 @has_permissions(administrator=True)
 async def timetable_channel(interaction: discord.Interaction, channel: discord.TextChannel):
-    timetable_message.title = str(datetime.now())
+    Timetable.embed.title = Timetable.datetime_current()
 
-    message = await channel.send(embed=timetable_message)
+    message = await channel.send(embed=Timetable.embed)
     all_active_channels[channel.id] = message.id
 
-    cache["channel"] = channel
-    cache["message"] = message
+    Timetable.channel_location(channel)
+    Timetable.message_location(message)
 
     await interaction.response.send_message("falco joined squad", ephemeral=True)
 
 
 @client.tree.command(name="today", description="Timetable for today")
-@has_permissions(administrator=True)
 async def cur_day(interaction: discord.Interaction):
-    timetable_message.title = str(datetime.now())
+    Timetable.embed.title = Timetable.datetime_current()
 
-    message = await cache["channel"].send(embed=timetable_message)
-    all_active_channels[cache["channel"].id] = message.id
-
-    await interaction.response.send_message("updated", ephemeral=True)
+    await Timetable.get_message().edit(embed=Timetable.embed)
+    await interaction.response.send_message("today", ephemeral=True)
 
 
 @client.tree.command(name="next_day", description="Timetable for next day")
-@has_permissions(administrator=True)
 async def next_day(interaction: discord.Interaction):
-    timetable_message.title = str(datetime.now() + timedelta(days=1))
+    Timetable.embed.title = Timetable.datetime_manip(1)
 
-    message = await cache["channel"].send(embed=timetable_message)
-    all_active_channels[cache["channel"].id] = message.id
+    await Timetable.get_message().edit(embed=Timetable.embed)
+    await interaction.response.send_message("next_day", ephemeral=True)
 
-    await interaction.response.send_message("updated", ephemeral=True)
 
 client.run(BOT_TOKEN)
