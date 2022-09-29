@@ -9,20 +9,20 @@ int main()
     std::cout << "Введите количество уравнений в системе (от 2 до 6):";
     calc::safeNumberInputT<uint16_t>(equations_count, 2, 6);
 
-    auto* mtx               = new Matrix(equations_count);
-    auto* free_terms        = new float [equations_count];
-    auto* equation_roots    = new float [equations_count];
+    auto mtx                  = new Matrix(equations_count);
+    auto free_terms            = new float [equations_count];
+    auto equation_roots        = new float [equations_count];
 
-    float inp[] { 1.43, 6.23, 3.20, 1.06, 4.25, 5.55, 7.65, 8.99, 2.30};
-    uint16_t x = 0;
+//    float inp[] { 1.43, 6.23, 3.20, 1.06, 4.25, 5.55, 7.65, 8.99, 2.30};
+//    uint16_t x = 0;
 
     std::cout << "\nВведите матрицу коэффициентов (от -100.0 до 100.0):\n";
-//    calc::manualMatrixInput(mtx->matrix, mtx->n_size, mtx->n_size);
-    for (uint16_t i = 0; i < equations_count; i++)
-        for (uint16_t j = 0; j < equations_count; j++) {
-            mtx->matrix[i][j] = inp[x];
-            x++;
-        }
+    calc::manualMatrixInput(mtx->matrix, mtx->n_size, mtx->n_size);
+//    for (uint16_t i = 0; i < equations_count; i++)
+//        for (uint16_t j = 0; j < equations_count; j++) {
+//            mtx->matrix[i][j] = inp[x];
+//            x++;
+//        }
 
     std::cout << "\nВведите свободные члены (от -100.0 до 100.0):\n";
     calc::manualArrayInput(free_terms, equations_count);
