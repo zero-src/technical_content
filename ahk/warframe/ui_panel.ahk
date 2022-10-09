@@ -132,21 +132,21 @@ clamp(num, min, max)
 }
 
 auto_ppr:
-    delay := 695 - clamp(g_ping, 0, 695)
-    sleep_time := round( delay / 25 )
+    ; delay := 695 - clamp(g_ping, 0, 695)
+    ; sleep_time := round( delay / 25 )
 
-    counter := 100
-    set_slider("lc_slider", counter)
+    ; counter := 100
+    ; set_slider("lc_slider", counter)
 
-    loop, 25 {
-        counter -= 4
-        set_slider("lc_slider", counter)
-        sleep sleep_time 
-    }
+    ; loop, 25 {
+    ;     counter -= 4
+    ;     set_slider("lc_slider", counter)
+    ;     sleep sleep_time 
+    ; }
     
     
     loop, 5 {
-        sleep_time := round( g_cooldown / 25 )
+        ; sleep_time := round( g_cooldown / 25 )
         set_slider("lc_slider", 0)
 
         gosub call_ppr

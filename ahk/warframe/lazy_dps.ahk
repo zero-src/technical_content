@@ -95,7 +95,7 @@ pp_r_zenith()
     sleep 1100
 
     SendInput {LButton} ; raplak
-    sleep 0
+    sleep 10
     SendInput {e}
     sleep 10
     SendInput {-} ; agree emote
@@ -204,12 +204,12 @@ return
 
 F4::
 ^F4::
-    loop, 5
-    {
+    ; loop, 5
+    ; {
         pp_r_zenith()
-        sleep 14990
-    }
-    ;sleep 3000
+    ;     sleep 14990
+    ; }
+    sleep 3000
 return
 
 *F5::

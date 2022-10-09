@@ -23,7 +23,7 @@ zaw_air_heavy_attack()
     SendInput {s down}
         sleep 1
         SendInput {CtrlDown}
-            sleep 1
+            sleep 10
             SendInput {MButton}
         SendInput {CtrlUp}
     SendInput {s up}
