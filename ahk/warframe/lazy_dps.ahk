@@ -14,9 +14,8 @@ SetWinDelay -1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 GUI                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-g_width := A_ScreenWidth / 2 - 1700
-g_height := A_ScreenHeight - 200
+g_width := A_ScreenWidth / 2 - 1800
+g_height := A_ScreenHeight - 300
 
 g_shock_dur := 94
 g_eclipse_dur := 58

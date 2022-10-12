@@ -14,9 +14,11 @@ SetWinDelay -1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 GUI                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+g_width := A_ScreenWidth / 2 - 1800
+g_height := A_ScreenHeight - 300
 
-g_width := A_ScreenWidth / 2 - 1700
-g_height := A_ScreenHeight - 200
+; g_width := A_ScreenWidth / 2 - 1700
+; g_height := A_ScreenHeight - 200
 
 g_speed_dur := 20
 g_eclipse_dur := 42
@@ -63,6 +65,36 @@ call_shot() {
 ;;               Hotkeys               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+*q::
+    SendInput {XButton1}
+    sleep 50
+
+    SendInput {RButton Down}
+    sleep 50
+    SendInput {RButton Up}
+
+    sleep 100
+
+    SendInput {Ctrl Down}
+        sleep 300
+        SendInput {S Down}
+        sleep 50
+
+        ; DllCall("mouse_event", uint, 1, int, 0, int, 500, uint, 0, int, 0)
+        SendInput {Space}
+        ; DllCall("mouse_event", uint, 1, int, 0, int, -500, uint, 0, int, 0)
+
+        sleep 10
+        SendInput {S Up}
+        sleep 10
+    SendInput {Ctrl Up}
+
+    sleep 150
+    SendInput {RButton}
+    sleep 0
+    SendInput {XButton1}
+return
+
 *XButton2::
     SendInput {Space}
     sleep 90
@@ -77,31 +109,32 @@ call_shot() {
 return
 
 ; Phase helper
-~LButton & RButton::
-    while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
-    {
-        sleep 0
+; ~LButton & RButton::
+;     while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
+;     {
+;         sleep 0
 
-        loop % 20
-        {
-            SendInput {LButton}
-            sleep 10
-        }
+;         loop % 20
+;         {
+;             SendInput {LButton}
+;             sleep 10
+;         }
 
-        sleep 20
-        SendInput {f}
+;         sleep 20
+;         SendInput {f}
 
-        SendInput {LButton Down}
-            sleep 650
-        SendInput {LButton Up}
+;         SendInput {LButton Down}
+;             sleep 650
+;         SendInput {LButton Up}
 
-        SendInput {f}
-        sleep 360
-    }
-return
+;         SendInput {f}
+;         sleep 360
+;     }
+; return
 
 ; Anti-Pilon helper
-~RButton & LButton::
+; ~RButton & LButton::
+~LButton & RButton::
     while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
     {
         call_shot()
