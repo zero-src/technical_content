@@ -14,8 +14,11 @@ SetWinDelay -1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 GUI                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-g_width := A_ScreenWidth / 2 - 1800
-g_height := A_ScreenHeight - 300
+; g_width := A_ScreenWidth / 2 - 1800
+; g_height := A_ScreenHeight - 300
+
+g_width := A_ScreenWidth / 2 - 1700
+g_height := A_ScreenHeight - 200
 
 g_shock_dur := 94
 g_eclipse_dur := 58
@@ -85,21 +88,41 @@ back_to_frame()
     return
 }
 
+; pp_r_zenith()
+; {
+;     send_propa()
+;     sleep 1625
+
+;     SendInput {LButton} ; raplak
+;     sleep 20
+
+;     SendInput {e}
+;     sleep 10
+;     SendInput {-} ; agree emote
+;     sleep 1
+;     SendInput {-} ; agree emote
+
+;     SendInput {RButton Down}
+;     loop, 30
+;     {
+;         SendInput {LButton}
+;         sleep 10
+;     }
+;     SendInput {RButton Up}
+
+;     return
+; }
+
 pp_r_zenith()
 {
     send_propa()
-    sleep 525
-
-    send_propa()
-    sleep 1100
+    sleep 1625
 
     SendInput {LButton} ; raplak
     sleep 10
+
     SendInput {e}
-    sleep 10
-    SendInput {-} ; agree emote
-    sleep 1
-    SendInput {-} ; agree emote
+    sleep 40
 
     SendInput {RButton Down}
     loop, 30
