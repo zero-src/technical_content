@@ -88,41 +88,24 @@ back_to_frame()
     return
 }
 
-; pp_r_zenith()
-; {
-;     send_propa()
-;     sleep 1625
-
-;     SendInput {LButton} ; raplak
-;     sleep 20
-
-;     SendInput {e}
-;     sleep 10
-;     SendInput {-} ; agree emote
-;     sleep 1
-;     SendInput {-} ; agree emote
-
-;     SendInput {RButton Down}
-;     loop, 30
-;     {
-;         SendInput {LButton}
-;         sleep 10
-;     }
-;     SendInput {RButton Up}
-
-;     return
-; }
-
 pp_r_zenith()
 {
+    sleep 0
     send_propa()
-    sleep 1625
+    sleep 525
+    send_propa()
+    sleep 550
+    send_propa()
+    sleep 550
 
     SendInput {LButton} ; raplak
-    sleep 10
+    sleep 0
 
-    SendInput {e}
-    sleep 40
+    SendInput {e} ; melee
+    sleep 10
+    SendInput {-} ; agree emote
+    sleep 1
+    SendInput {-} ; agree emote
 
     SendInput {RButton Down}
     loop, 30
@@ -135,12 +118,38 @@ pp_r_zenith()
     return
 }
 
+; pp_r_zenith()
+; {
+;     send_propa()
+;     sleep 1625
+
+;     SendInput {LButton} ; raplak
+;     sleep 10
+
+;     SendInput {e}
+;     sleep 40
+
+;     SendInput {RButton Down}
+;     loop, 30
+;     {
+;         SendInput {LButton}
+;         sleep 10
+;     }
+;     SendInput {RButton Up}
+
+;     return
+; }
+
 console_hack()
 {
-    SendInput {w}
-        sleep 2
-        SendInput {Shift}
-    SendInput {w}
+    SendInput {RButton Down}
+        sleep 10
+        SendInput {w Down}
+            sleep 2
+            SendInput {Shift}
+            sleep 0
+        SendInput {w Up}
+    SendInput {RButton Up}
 
     sleep 65
 
