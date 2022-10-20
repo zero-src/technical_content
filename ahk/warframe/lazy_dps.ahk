@@ -99,19 +99,19 @@ pp_r_zenith()
     sleep 550
 
     SendInput {LButton} ; raplak
-    sleep 0
+    sleep 14
 
     SendInput {e} ; melee
-    sleep 10
+    sleep 14
     SendInput {-} ; agree emote
-    sleep 1
+    sleep 7
     SendInput {-} ; agree emote
 
     SendInput {RButton Down}
-    loop, 30
+    loop, 25
     {
         SendInput {LButton}
-        sleep 10
+        sleep 7
     }
     SendInput {RButton Up}
 
