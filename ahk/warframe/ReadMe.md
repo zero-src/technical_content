@@ -3,11 +3,11 @@
 Press [NumpadDel]() or [NumpadDot]() to activate script. 
 > Output format: **[current _X_ pos]** x **[current _Y_ pos]** | **[_X_ delta]** x **[_Y_ delta]**
 
-![coordinates1_png]()
+![coordinates1_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/coordinates1.png)
 
 Click one more time on [NumpadDel]() or [NumpadDot]() button to record mouse movement.
 
-![coordinates2_png]()
+![coordinates2_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/coordinates2.png)
 ---
 
 Misc buttons
@@ -18,7 +18,7 @@ End -> unload script
 
 ## lazy_dps.ahk
 
-![lazy_dps_png]()
+![lazy_dps_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/lazy_dps.png)
 ---
 
 Misc buttons
@@ -29,7 +29,7 @@ Delete -> unload script
 
 ## lazy_pandero.ahk
 
-![lazy_pandero_png]()
+![lazy_pandero_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/lazy_pandero.png)
 ---
 
 Misc buttons
@@ -40,7 +40,7 @@ End -> unload script
 
 ## lazy_pt.ahk
 
-![lazy_pt_png]()
+![lazy_pt_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/lazy_pt.png)
 ---
 
 Misc buttons
@@ -50,7 +50,7 @@ Delete -> unload script
 ```
 
 ## lazy_vs.ahk
-![lazy_vs_png]()
+![lazy_vs_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/lazy_vs.png)
 ---
 
 Misc buttons
@@ -60,7 +60,7 @@ Delete -> unload script
 ```
 
 ## lazy_vs.ahk
-![lazy_vs_png]()
+![lazy_vs_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/lazy_vs.png)
 ---
 
 Misc buttons
