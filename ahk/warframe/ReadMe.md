@@ -4,6 +4,7 @@ Press [NumpadDel]() or [NumpadDot]() to activate script.
 > Output format: **[current _X_ pos]** x **[current _Y_ pos]** | **[_X_ delta]** x **[_Y_ delta]**
 
 ![coordinates1_png](https://github.com/zero-src/technical_content/blob/master/ahk/warframe/png/coordinates1.png)
+---
 
 Click one more time on [NumpadDel]() or [NumpadDot]() button to record mouse movement.
 
