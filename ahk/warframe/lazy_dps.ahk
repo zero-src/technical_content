@@ -14,11 +14,8 @@ SetWinDelay -1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 GUI                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; g_width := A_ScreenWidth / 2 - 1800
-; g_height := A_ScreenHeight - 300
-
-g_width := A_ScreenWidth / 2 - 1700
-g_height := A_ScreenHeight - 200
+g_width := A_ScreenWidth * 0.008
+g_height := A_ScreenHeight * 0.86
 
 g_shock_dur := 94
 g_eclipse_dur := 58
@@ -31,9 +28,9 @@ WinSet, Transparent, 180
 
 Gui +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 Gui, Color, 000000
-Gui, Font, s16
-Gui, Add, Text, x13 y5 vShock cYellow, 00
-Gui, Add, Text, x13 y25 vEclipse cWhite, 00
+Gui, Font, s14
+Gui, Add, Text, x15 y5 vShock cYellow, 00
+Gui, Add, Text, x15 y25 vEclipse cWhite, 00
 WinSet, TransColor, 000000
 Gui, Show, x%g_width% y%g_height% NoActivate
 
@@ -53,8 +50,13 @@ return
 ; return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;               Hotkeys               ;;
+;;                Funcs                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+call_pandero:
+    SendInput {MButton}
+return
+
 send_propa() 
 {
     SendInput {MButton}
@@ -88,7 +90,7 @@ back_to_frame()
     return
 }
 
-pp_r_zenith()
+ppp_r_zenith()
 {
     sleep 0
     send_propa()
@@ -117,28 +119,6 @@ pp_r_zenith()
 
     return
 }
-
-; pp_r_zenith()
-; {
-;     send_propa()
-;     sleep 1625
-
-;     SendInput {LButton} ; raplak
-;     sleep 10
-
-;     SendInput {e}
-;     sleep 40
-
-;     SendInput {RButton Down}
-;     loop, 30
-;     {
-;         SendInput {LButton}
-;         sleep 10
-;     }
-;     SendInput {RButton Up}
-
-;     return
-; }
 
 console_hack()
 {
@@ -196,10 +176,12 @@ travel_to_cr()
 ;;               Hotkeys               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; Console hack
 *XButton2::
     console_hack()
 return
 
+; Skill spam
 *F1::
     Gui, Show, x%g_width% y%g_height% NoActivate
 
@@ -225,46 +207,32 @@ return
     sleep 2000
 return
 
+; Rapid fire
 ~LButton & RButton::
     while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
     {
         call_shot()
-        sleep 10
+        sleep 1
     }
 return
 
+; PPPRZ
 F4::
 ^F4::
     ; loop, 5
     ; {
-        pp_r_zenith()
+        ppp_r_zenith()
     ;     sleep 14990
     ; }
     sleep 3000
 return
 
+; Energy drain
 *F5::
     energy_drain()
 return
 
-; *F7::
-;     while GetKeyState("F7", "P")
-;     {
-;         send_propa()
-;         sleep 20
-;         SendInput {-}
-;         sleep 1
-;         SendInput {-}
-;         sleep 10
-;     }
-; return
-
-*F7::
-    SendInput {f}
-    sleep 316
-    SendInput {f}
-return
-
+; Travel to 1st spot
 Numpad0::
 NumpadIns::
     travel_to_cr()
@@ -324,8 +292,8 @@ return
 #IfWinActive, Warframe 
 {
     *c::
-        SendInput {5}
-        SendInput {2}
-        SendInput {c}
+        SendInput {5} ; Energy pad
+        SendInput {2} ; 2 Volt skill
+        SendInput {c} ; Arch bind
     return
 }

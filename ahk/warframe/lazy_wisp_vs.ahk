@@ -1,7 +1,7 @@
-﻿#NoEnv
-SetWorkingDir %A_ScriptDir%  
+﻿SetWorkingDir %A_ScriptDir%  
 #SingleInstance Force
 #Persistent
+#NoEnv
 #InstallKeybdHook
 #InstallMouseHook
 SetBatchLines -1
@@ -10,7 +10,6 @@ SetMouseDelay, -1, -1
 SetControlDelay -1
 SetWinDelay -1
 #MaxHotkeysPerInterval 200
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 DB                  ;;
@@ -27,7 +26,7 @@ global gr_presets := {JustMeeeee: {offset: 15615, ping: 40}
 ;;              Globals                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-global g_cooldown := gr_presets.lady.offset
+global g_cooldown := gr_presets.Falco.offset
 ; global g_ping := gr_presets.desort.ping
 
 start_pos := [20, A_ScreenHeight - Ceil(A_ScreenHeight / 8)]
@@ -45,7 +44,6 @@ height := g_positions.bg.h
 width := g_positions.bg.w
 
 gui, desync_bg: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
-; gui, desync_bg: Add, Progress, w29 h47 c839DD5 Background141414 vMyProgress, 0
 gui, desync_bg: Add, Progress, w29 h29 c839DD5 Background141414 vMyProgress, 0
 gui, desync_bg: Color, 141414
 gui, desync_bg: Show, x%width% y%height% NoActivate
@@ -74,21 +72,12 @@ gui, lc_slider: Color, 141414
 gui, lc_slider: Show, x%width% y%height% NoActivate
 WinSet, TransColor, 141414
 
-; ping_text: ping
-; height := g_positions.ping.h
-; width := g_positions.ping.w
-
-; gui, ping_text: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
-; gui, ping_text: Font, s10 DRAFT_QUALITY, Smallest Pixel-7
-; gui, ping_text: Add, Text, vping_text cCACACA, _ping__
-; gui, ping_text: Color, 141414
-; gui, ping_text: Show, x%width% y%height% NoActivate
-; WinSet, TransColor, 141414
-
-; GuiControl, ping_text:, ping_text, %g_ping% ms
 return
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;               Labels                ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 lc_timer:
     loop, 25 {
         inc_slider("lc_slider", 4)
@@ -128,25 +117,7 @@ call_ppr:
     gosub call_raplak
 return
 
-clamp(num, min, max) 
-{
-    return num > 700 ? 700 : num < 0 ? 0 : num
-}
-
 auto_ppr:
-    ; delay := 695 - clamp(g_ping, 0, 695)
-    ; sleep_time := round( delay / 25 )
-
-    ; counter := 100
-    ; set_slider("lc_slider", counter)
-
-    ; loop, 25 {
-    ;     counter -= 4
-    ;     set_slider("lc_slider", counter)
-    ;     sleep sleep_time 
-    ; }
-    
-    
     loop, 5 {
          sleep_time := round( g_cooldown / 25 )
         set_slider("lc_slider", 0)
@@ -175,31 +146,140 @@ energy_drain:
     SendInput {Shift up}
 return
 
+mouse_move(x, y)
+{
+    DllCall("mouse_event", uint, 1, int, x, int, y, uint, 0, int, 0)
+    return
+}
+
+anim_skip()
+{
+    sleep 10
+    SendInput {-}
+    sleep 1
+    SendInput {-}
+
+    return
+}
+
+; 1 spot
+cr_water()
+{
+    mouse_move(198, -127)
+    sleep 70
+
+    SendInput {3}
+    sleep 50
+
+    mouse_move(-1417, 185)
+    sleep 300
+    SendInput {XButton1}
+
+    sleep 200
+    SendInput {1}
+
+    return
+}
+
+; 2 spot
+cl_water()
+{
+    mouse_move(-209, -110)
+    sleep 70
+
+    SendInput {3}
+    sleep 50
+
+    mouse_move(1308, 110)
+    sleep 300
+    SendInput {XButton1}
+
+    sleep 200
+    SendInput {1}
+
+    return
+}
+
+; 3 spot
+md_water()
+{
+    mouse_move(78, -111)
+    sleep 70
+
+    SendInput {3}
+    sleep 50
+
+    mouse_move(-1273, 104)
+    sleep 300
+    SendInput {XButton1}
+
+    sleep 200
+    SendInput {1}
+
+    return
+}
+
+; 4 spot
+lg_water()
+{
+    mouse_move(-111, -146)
+    sleep 70
+
+    SendInput {3}
+    sleep 50
+
+    mouse_move(-1497, 332)
+
+    SendInput {RButton Down}
+    sleep 300
+    SendInput {RButton Up}
+    sleep 50
+
+    SendInput {XButton1}
+
+    sleep 200
+    SendInput {1}
+
+    return
+}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;              Keybinds               ;;
+;;               Hotkeys               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Anti-desync
 *XButton2::
     gosub auto_ppr
 return
 
+; Energy drain
 *F5::
     gosub energy_drain
 return
 
-; *Up::
-;     g_ping += 5
-;     g_ping := clamp(g_ping, 0, 700)
+; 1 spot
+*Numpad1::
+*NumpadEnd::
+    cr_water()
+return
 
-;     GuiControl, ping_text:, ping_text, %g_ping% ms
-; return
+; 2 spot
+*Numpad2::
+*NumpadDown::
+    cl_water()
+return
 
-; *Down::
-;     g_ping -= 5
-;     g_ping := clamp(g_ping, 0, 700)
+; 3 spot
+*Numpad3::
+*NumpadPgdn::
+    md_water()
+return
 
-;     GuiControl, ping_text:, ping_text, %g_ping% ms
-; return
-
+; 4 spot
+*Numpad4::
+*NumpadLeft::
+    lg_water()
+return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                Misc                 ;;

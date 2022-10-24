@@ -14,11 +14,8 @@ SetWinDelay -1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 GUI                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; g_width := A_ScreenWidth / 2 - 1800
-; g_height := A_ScreenHeight - 300
-
-g_width := A_ScreenWidth / 2 - 1700
-g_height := A_ScreenHeight - 200
+g_width := A_ScreenWidth * 0.008
+g_height := A_ScreenHeight * 0.86
 
 g_speed_dur := 20
 g_eclipse_dur := 42
@@ -31,9 +28,9 @@ WinSet, Transparent, 180
 
 Gui +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 Gui, Color, 000000
-Gui, Font, s16
-Gui, Add, Text, x13 y5 vSpeed cYellow, 00
-Gui, Add, Text, x13 y25 vEclipse cWhite, 00
+Gui, Font, s14
+Gui, Add, Text, x15 y5 vSpeed cYellow, 00
+Gui, Add, Text, x15 y25 vEclipse cWhite, 00
 WinSet, TransColor, 000000
 Gui, Show, x%g_width% y%g_height% NoActivate
 
@@ -53,7 +50,7 @@ return
 ; return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;               Hotkeys               ;;
+;;                Funcs                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 call_shot() {
@@ -65,6 +62,7 @@ call_shot() {
 ;;               Hotkeys               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; Vasarin dash
 *q::
     SendInput {XButton1}
     sleep 50
@@ -80,9 +78,7 @@ call_shot() {
         SendInput {S Down}
         sleep 50
 
-        ; DllCall("mouse_event", uint, 1, int, 0, int, 500, uint, 0, int, 0)
         SendInput {Space}
-        ; DllCall("mouse_event", uint, 1, int, 0, int, -500, uint, 0, int, 0)
 
         sleep 10
         SendInput {S Up}
@@ -95,6 +91,7 @@ call_shot() {
     SendInput {XButton1}
 return
 
+; Zaw attack
 *XButton2::
     SendInput {Space}
     sleep 90
@@ -132,8 +129,7 @@ return
 ;     }
 ; return
 
-; Anti-Pilon helper
-; ~RButton & LButton::
+; Rapid fire
 ~LButton & RButton::
     while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
     {
@@ -142,6 +138,7 @@ return
     }
 return
 
+; Skill spam
 *F1::
     Gui, Show, x%g_width% y%g_height% NoActivate
 

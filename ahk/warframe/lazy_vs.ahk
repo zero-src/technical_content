@@ -1,7 +1,7 @@
-﻿SetWorkingDir %A_ScriptDir%  
+﻿#NoEnv
+SetWorkingDir %A_ScriptDir%  
 #SingleInstance Force
 #Persistent
-#NoEnv
 #InstallKeybdHook
 #InstallMouseHook
 SetBatchLines -1
@@ -11,128 +11,159 @@ SetControlDelay -1
 SetWinDelay -1
 #MaxHotkeysPerInterval 200
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 DB                  ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-gr_presets := {JustMeeeee: {offset: 15615, ping: 40}
-                , Agegon: {offset: 15620, ping: 23}
+
+global gr_presets := {JustMeeeee: {offset: 15615, ping: 40}
+                , Agegon: {offset: 15620, ping: 25}
                 , Falco: {offset: 15686, ping: 35}
-                , lady: {offset: 15610, ping: 15}}
+                , lady: {offset: 14998, ping: 0}
+                , desort: {offset: 15690, ping: 105}}
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;              Globals                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-g_offset := gr_presets.Falco.offset
-g_ping := gr_presets.Falco.ping
+
+global g_cooldown := gr_presets.lady.offset
+; global g_ping := gr_presets.desort.ping
+
+start_pos := [20, A_ScreenHeight - Ceil(A_ScreenHeight / 8)]
+global g_positions := {bg: {w: start_pos[1]+14, h: start_pos[2]+10}
+                        , txt: {w: start_pos[1]+1, h: start_pos[2]}
+                        , bar: {w: start_pos[1]+14, h: start_pos[2]+34}
+                        , ping: {w: start_pos[1]+6, h: start_pos[2]+45}}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 GUI                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; A_ScreenWidt
-; A_ScreenHeight
 
-width := A_ScreenWidth / 2 - 100
-height := A_ScreenHeight / 2 + 30
+; desync_bg: background
+height := g_positions.bg.h
+width := g_positions.bg.w
 
-cache := []
-cache_cnt := 0
-history := ""
+gui, desync_bg: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
+; gui, desync_bg: Add, Progress, w29 h47 c839DD5 Background141414 vMyProgress, 0
+gui, desync_bg: Add, Progress, w29 h29 c839DD5 Background141414 vMyProgress, 0
+gui, desync_bg: Color, 141414
+gui, desync_bg: Show, x%width% y%height% NoActivate
+WinSet, Transparent, 180
 
-g_width := 20
-g_height := A_ScreenHeight - Ceil(A_ScreenHeight / 8)
 
-Gui +AlwaysOnTop +LastFound +Toolwindow -Caption
-Gui, Color, 000000
-Gui, Font, s19 bold, Verdana
-Gui, Add, Text, vDesync cGreen, LC 
-WinSet, TransColor, 000000
+; desync: indicator text
+height := g_positions.txt.h
+width := g_positions.txt.w
+
+gui, desync: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
+gui, desync: Font, s17 bold  PROOF_QUALITY, Verdana
+gui, desync: Add, Text, cCACACA, LC
+gui, desync: Color, 141414
+gui, desync: Show, x%width% y%height% NoActivate
+WinSet, TransColor, 141414
+
+
+; lc_slider: ppr cooldown
+height := g_positions.bar.h
+width := g_positions.bar.w
+
+gui, lc_slider: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
+gui, lc_slider: Add, Progress, w29 h7 c839DD5 Background252525 vlc_slider, 0 ; 839DD5-blue EA254E-red
+gui, lc_slider: Color, 141414
+gui, lc_slider: Show, x%width% y%height% NoActivate
+WinSet, TransColor, 141414
+
+; ping_text: ping
+; height := g_positions.ping.h
+; width := g_positions.ping.w
+
+; gui, ping_text: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
+; gui, ping_text: Font, s10 DRAFT_QUALITY, Smallest Pixel-7
+; gui, ping_text: Add, Text, vping_text cCACACA, _ping__
+; gui, ping_text: Color, 141414
+; gui, ping_text: Show, x%width% y%height% NoActivate
+; WinSet, TransColor, 141414
+
+; GuiControl, ping_text:, ping_text, %g_ping% ms
 return
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;      Propa snd Raplak keybinds      ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-send_propa() 
+
+lc_timer:
+    loop, 25 {
+        inc_slider("lc_slider", 4)
+        sleep sleep_time 
+    }
+return
+
+set_slider(name, value)
 {
+    GuiControl, %name%:, %name%, %value%
+    return
+}
+
+inc_slider(name, value)
+{
+    GuiControl, %name%:, %name%, +%value%
+    return
+}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;              Methods                ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+call_raplak:
+    SendInput {LButton}
+return
+
+call_propa:
     SendInput {MButton}
-    return 
-}
+return
 
-send_raplak() 
+call_ppr:
+    sleep 0
+    gosub call_propa
+    sleep 1090
+    gosub call_propa
+    sleep 525
+    gosub call_raplak
+return
+
+clamp(num, min, max) 
 {
-    SendInput {LButton}
-    return 
+    return num > 700 ? 700 : num < 0 ? 0 : num
 }
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;              Main area              ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-call_shot() {
-    SendInput {LButton}
-    sleep 1
-    return
-}
+auto_ppr:
+    ; delay := 695 - clamp(g_ping, 0, 695)
+    ; sleep_time := round( delay / 25 )
 
-call_ppr()
-{
-    send_propa()
-    Sleep 1100
-    send_propa()
-    Sleep 525
-    send_raplak()
+    ; counter := 100
+    ; set_slider("lc_slider", counter)
 
-    return
-}
+    ; loop, 25 {
+    ;     counter -= 4
+    ;     set_slider("lc_slider", counter)
+    ;     sleep sleep_time 
+    ; }
+    
+    
+    loop, 5 {
+        sleep_time := round( g_cooldown / 25 )
+        set_slider("lc_slider", 0)
 
-back_to_frame()
-{
-    SendInput {e}
-    sleep 1
-    SendInput {-}
-    sleep 1
-    SendInput {-}
-    sleep 1
-
-    return
-}
-
-kantik_rapidfire(loops)
-{
-    loop % loops
-    {
-        send_raplak()
-        sleep 20
-        SendInput {-}
-        sleep 1
-        SendInput {-}
-        sleep 10
-    }
-    return
-}
-
-rapid_fire(ms) 
-{
-    loop % ms
-    {
-        SendInput {LButton}
-        sleep 1
-    }
-    return
-}
-
-anti_desync(downtime) 
-{
-    loop, 5
-    {
-        call_ppr()
+        gosub call_ppr
 
         if (A_Index != 5)
-            sleep downtime
-    }
-    return
-}
+        {
+            gosub lc_timer
 
-energy_drain()
-{
+            settimer, lc_timer, %g_cooldown%
+            settimer, lc_timer, Off
+        }
+    }
+return
+
+energy_drain:
     SendInput {2}
     SendInput {Shift down}
     Loop, 15
@@ -142,120 +173,36 @@ energy_drain()
         Sleep 1
     }
     SendInput {Shift up}
-
-    return
-}
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;               Hotkeys               ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-*XButton2::
-    Gui, Show, x%g_width% y%g_height% NoActivate
-    anti_desync(g_offset)
-    Gui, Cancel
 return
 
-~LButton & RButton::
-    while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
-    {
-        call_shot()
-        sleep 1
-    }
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;              Keybinds               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+*XButton2::
+    gosub auto_ppr
 return
 
 *F5::
-    energy_drain()
+    gosub energy_drain
 return
 
-Numpad0::
-NumpadIns::
-    SendInput {Space Down}
-        sleep 200
-    SendInput {Space Up}
+; *Up::
+;     g_ping += 5
+;     g_ping := clamp(g_ping, 0, 700)
 
-    sleep 5
-    DllCall("mouse_event", uint, 1, int, -36, int, 140, uint, 0, int, 0)
+;     GuiControl, ping_text:, ping_text, %g_ping% ms
+; return
 
-    sleep 1000
-return
+; *Down::
+;     g_ping -= 5
+;     g_ping := clamp(g_ping, 0, 700)
 
-; CR SPOT :c
-*Numpad1::
-*NumpadEnd::
-    DllCall("mouse_event", uint, 1, int, 100, int, -202, uint, 0, int, 0)
-    sleep 10
+;     GuiControl, ping_text:, ping_text, %g_ping% ms
+; return
 
-    SendInput {Shift}
-    sleep 8
-
-    SendInput {e}
-    sleep 1
-    SendInput {XButton1}
-    
-    DllCall("mouse_event", uint, 1, int, -1456, int, 92, uint, 0, int, 0)
-    sleep 100
-
-    SendInput {1}
-    SendInput {1}
-    sleep 700
-
-    kantik_rapidfire(5)
-    sleep 180
-
-    back_to_frame()
-    DllCall("mouse_event", uint, 1, int, 10, int, -25, uint, 0, int, 0)
-    rapid_fire(50)
-return
-
-*F7::
-    while GetKeyState("F7", "P")
-    {
-        send_raplak()
-        sleep 20
-        SendInput {-}
-        sleep 1
-        SendInput {-}
-        sleep 10
-    }
-return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                Misc                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 *insert::reload
 *del::exitapp
-
-NumpadDel::
-    cache_cnt := cache_cnt + 1
-
-    MouseGetPos, StartX, StartY
-    cache.insert([StartX, StartY])
-
-    if cache_cnt <= 1 
-        history := StartX "x" StartY "  |  start"
-    else {
-        delta_x := cache[cache_cnt][1] - cache[cache_cnt-1][1]
-        delta_y := cache[cache_cnt][2] - cache[cache_cnt-1][2]
-
-        history := history "`n" cache[cache_cnt][1] "x" cache[cache_cnt][2] "  |  " delta_x " x " delta_y
-    }
-
-    Progress, m b1 fs10 w200 ZH WM x%width% y%height%, %history%
-return
-
-Numpad9::
-NumpadPgup::
-    Progress, off
-    cache := []
-    cache_cnt := 0
-    history := ""
-return
-
-#IfWinActive, Warframe 
-{
-    *c::
-        SendInput {5}
-        SendInput {2}
-        SendInput {c}
-    return
-}

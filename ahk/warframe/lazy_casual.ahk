@@ -12,9 +12,10 @@ SetWinDelay -1
 #MaxHotkeysPerInterval 200
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;              Globals                ;;
+;;                Funcs                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; TODO: fix throw algorithm
 zaw_air_heavy_attack() 
 {
     SendInput {RButton down}
@@ -33,13 +34,28 @@ zaw_air_heavy_attack()
     return
 }
 
+console_hack()
+{
+    SendInput {x}
+    sleep 30
+    SendInput {y}
+
+    return
+}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;               Hotkeys               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; Zaw heavy attack ( IN_AIR )
 XButton2::
 ^XButton2::
     zaw_air_heavy_attack()
+return
+
+; Console hack
+*x::
+    console_hack()
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
