@@ -1,3 +1,9 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;              OUTDATED               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
 SetWorkingDir %A_ScriptDir%  
 #SingleInstance Force
 #Persistent
