@@ -17,15 +17,17 @@ SetWinDelay -1
 g_width := A_ScreenWidth * 0.008
 g_height := A_ScreenHeight * 0.86
 
-g_shock_dur := 94
-g_eclipse_dur := 58
+g_shock_dur := 101
+g_eclipse_dur := 63
 
+; bg
 gui, desync_bg: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 gui, desync_bg: Add, Progress, w30 h60 c839DD5 Background141414 vMyProgress, 0
 gui, desync_bg: Color, 141414
 gui, desync_bg: Show, x%g_width% y%g_height% NoActivate
 WinSet, Transparent, 180
 
+; dur
 Gui +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 Gui, Color, 000000
 Gui, Font, s14
@@ -34,6 +36,7 @@ Gui, Add, Text, x15 y25 vEclipse cWhite, 00
 WinSet, TransColor, 000000
 Gui, Show, x%g_width% y%g_height% NoActivate
 
+; name
 gui, ping_text: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 gui, ping_text: Font, s10 DRAFT_QUALITY, Smallest Pixel-7
 gui, ping_text: Add, Text, x3 y45 vping_text0 cCACACA, ---------
@@ -98,15 +101,14 @@ ppp_r_zenith()
     send_propa()
     sleep 550
     send_propa()
-    sleep 550
+    sleep 545
 
     SendInput {LButton} ; raplak
-    sleep 14
-
+    sleep 0
     SendInput {e} ; melee
-    sleep 14
+    sleep 10
     SendInput {-} ; agree emote
-    sleep 7
+    sleep 1
     SendInput {-} ; agree emote
 
     SendInput {RButton Down}

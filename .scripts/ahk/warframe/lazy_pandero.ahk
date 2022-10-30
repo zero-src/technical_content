@@ -14,7 +14,7 @@ SetWinDelay -1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 DB                  ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-global gr_presets := {Pandero: 17220}
+global gr_presets := {Pandero: 17186}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;              Globals                ;;
@@ -44,13 +44,12 @@ return
 ~RButton & WheelDown::
     GuiControl,, pandero, ✔️
 
-    loop, 5 {
+    loop, 5 
+    {
         SendInput {MButton}
 
         if (A_Index != 5)
-        {
             sleep g_cooldown
-        }
     }
 
     GuiControl,, pandero,

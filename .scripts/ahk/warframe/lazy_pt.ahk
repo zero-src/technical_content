@@ -210,10 +210,8 @@ return
 #IfWinActive, Warframe 
 {
     *c::
-        SendInput {5}
-        sleep 0
-        SendInput {2}
-        sleep 0
-        SendInput {c}
+        SendInput {5} ; Energy pad
+        SendInput {2} ; 2 Volt skill
+        SendInput {c} ; Arch bind
     return
 }
