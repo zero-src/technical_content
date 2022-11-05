@@ -58,6 +58,15 @@ call_shot() {
     return
 }
 
+anim_skip()
+{
+    sleep 10
+    SendInput {-}
+    sleep 1
+    SendInput {-}
+    return
+}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;               Hotkeys               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -105,29 +114,46 @@ return
     SendInput {RButton Up}
 return
 
-; Phase helper
-; ~LButton & RButton::
-;     while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
-;     {
-;         sleep 0
+;Phase helper
+~RButton & LButton::
+    while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
+    {
+        sleep 0
 
-;         loop % 20
-;         {
-;             SendInput {LButton}
-;             sleep 10
-;         }
+        loop % 20 ; wisp?
+        {
+            SendInput {LButton}
+            sleep 1
+        }
 
-;         sleep 20
-;         SendInput {f}
+        sleep 20
+        SendInput {f}
 
-;         SendInput {LButton Down}
-;             sleep 650
-;         SendInput {LButton Up}
+        anim_skip()
 
-;         SendInput {f}
-;         sleep 360
-;     }
-; return
+        SendInput {LButton Down}
+            sleep 450 ; wisp?
+        SendInput {LButton Up}
+
+        SendInput {f}
+
+        anim_skip()
+        sleep 350
+
+        SendInput {Space}
+        sleep 90
+        SendInput {Space}
+        sleep 110
+
+        SendInput {RButton Down}
+        sleep 30
+        SendInput {e}
+        sleep 30
+        SendInput {RButton Up}
+
+        anim_skip()
+    }
+return
 
 ; Rapid fire
 ~LButton & RButton::

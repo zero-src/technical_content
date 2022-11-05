@@ -169,7 +169,7 @@ travel_to_cr()
     SendInput {Shift}
     sleep 10
     
-    DllCall("mouse_event", uint, 1, int, -1501, int, 438, uint, 0, int, 0)
+    DllCall("mouse_event", uint, 1, int, -1501, int, 448, uint, 0, int, 0)
 
     return
 }
@@ -237,6 +237,9 @@ return
 ; Travel to 1st spot
 Numpad0::
 NumpadIns::
+    SendInput {Numpad0}   
+    SendInput {NumpadIns}   
+
     travel_to_cr()
 
     SendInput {f}

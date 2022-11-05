@@ -1,4 +1,10 @@
-﻿SetWorkingDir %A_ScriptDir%  
+﻿;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;              OUTDATED               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+SetWorkingDir %A_ScriptDir%  
 #SingleInstance Force
 #Persistent
 #NoEnv

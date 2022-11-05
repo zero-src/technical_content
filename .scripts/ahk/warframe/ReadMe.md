@@ -59,13 +59,3 @@ Misc buttons
 Insert -> reload script
 Delete -> unload script
 ```
-
-## lazy_vs.ahk
-![lazy_vs_png](https://github.com/zero-src/technical_content/blob/master/.scripts/ahk/warframe/png/lazy_vs.png)
----
-
-Misc buttons
-```
-Insert -> reload script
-Delete -> unload script
-```
