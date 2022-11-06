@@ -106,6 +106,7 @@ VasarinDash:
     SendInput {Blind}{%operatorKey%}
 return
 
+; Zaw air attack
 ThrowMelee:
 	SendInput {Blind}{%jumpKey%}
 	Sleep, %sleepTime%
