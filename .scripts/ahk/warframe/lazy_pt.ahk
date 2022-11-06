@@ -1,15 +1,46 @@
 SetWorkingDir %A_ScriptDir%  
+#MaxHotkeysPerInterval 200
 #SingleInstance Force
 #Persistent
 #NoEnv
 #InstallKeybdHook
 #InstallMouseHook
+ListLines off
 SetBatchLines -1
 SetKeyDelay, -1, -1
 SetMouseDelay, -1, -1
 SetControlDelay -1
 SetWinDelay -1
-#MaxHotkeysPerInterval 200
+SendMode Input
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;               Globals               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Settings
+fps 		= 144 			
+meleeKey 	= e 
+switchKey   = f			
+jumpKey 	= Space
+shootKey    = LButton 		
+aimKey 		= RButton
+crouchKey   = Ctrl
+operatorKey = XButton1
+
+; Macro binds
+ThrowMeleeKey  = XButton2 		
+VasarinDashKey = q
+
+; Do not touch this
+sleepTime := 2000/fps
+#IfWinActive ahk_exe Warframe.x64.exe
+Hotkey, IfWinActive, ahk_exe Warframe.x64.exe
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;               Hotkeys               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Hotkey, *%ThrowMeleeKey%, ThrowMelee
+Hotkey, *%VasarinDashKey%, VasarinDash
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 GUI                 ;;
@@ -42,125 +73,93 @@ gui, ping_text: Color, 141414
 gui, ping_text: Show, x%g_width% y%g_height% NoActivate
 WinSet, TransColor, 141414
 return
-;*F11:: Suspend
-
-; *F12:: 
-; Suspend Off
-; Reload
-; return
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                Funcs                ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-call_shot() {
-    SendInput {LButton}
-    return
-}
-
-anim_skip()
-{
-    sleep 10
-    SendInput {-}
-    sleep 1
-    SendInput {-}
-    return
-}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;               Hotkeys               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Vasarin dash
-*q::
-    SendInput {XButton1}
-    sleep 50
+VasarinDash:
+    voidTime := sleepTime * 15
+    SendInput {Blind}{%operatorKey%}
 
-    SendInput {RButton Down}
-    sleep 50
-    SendInput {RButton Up}
+    SendInput {Blind}{%aimKey%}
+    Sleep %sleepTime%
+    SendInput {Blind}{%aimKey%}
 
-    sleep 100
+    Sleep %voidTime%
 
-    SendInput {Ctrl Down}
-        sleep 300
-        SendInput {S Down}
-        sleep 50
+    SendInput {Blind}{%crouchKey% Down}
+        Sleep %voidTime%
+        SendInput {Blind}{S Down}
+            Sleep %sleepTime%
+            SendInput {Blind}{%jumpKey%}
+            Sleep %sleepTime%
+        SendInput {Blind}{S Up}
+        Sleep %sleepTime%
+    SendInput {Blind}{%crouchKey% Up}
 
-        SendInput {Space}
+    Sleep %sleepTime%
+    SendInput {Blind}{%aimKey%}
+    Sleep %sleepTime%
 
-        sleep 10
-        SendInput {S Up}
-        sleep 10
-    SendInput {Ctrl Up}
-
-    sleep 150
-    SendInput {RButton}
-    sleep 0
-    SendInput {XButton1}
+    SendInput {Blind}{%operatorKey%}
 return
 
-; Zaw attack
-*XButton2::
-    SendInput {Space}
-    sleep 90
-    SendInput {Space}
-    sleep 110
-
-    SendInput {RButton Down}
-    sleep 30
-    SendInput {e}
-    sleep 30
-    SendInput {RButton Up}
+ThrowMelee:
+	SendInput {Blind}{%jumpKey%}
+	Sleep, %sleepTime%
+	SendInput {Blind}{%jumpKey%}
+	Sleep, %sleepTime%
+	SendInput {Blind}{%aimKey% Down}
+	Sleep, %sleepTime%
+	SendInput {Blind}{%meleeKey%}
+	Sleep, %sleepTime%
+	SendInput {Blind}{%aimKey% Up}
+	Sleep, 480
 return
 
-;Phase helper
-~RButton & LButton::
-    while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
-    {
-        sleep 0
+; Broken
+; PhaseHelper:
+; while GetKeyState("XButton2", "P")
+; {
+;     Sleep, %sleepTime%
 
-        loop % 20 ; wisp?
-        {
-            SendInput {LButton}
-            sleep 1
-        }
+;     gosub ThrowMelee
+;     Sleep 316
 
-        sleep 20
-        SendInput {f}
+;     SendInput {Blind}{%shootKey%}
+;     Sleep 250 ; zenith shot delay
+;     SendInput {Blind}{%shootKey%}
+;     Sleep, %sleepTime%
 
-        anim_skip()
+;     SendInput {Blind}{%switchKey%}
+;     Sleep 316
 
-        SendInput {LButton Down}
-            sleep 450 ; wisp?
-        SendInput {LButton Up}
+;     SendInput {Blind}{%shootKey% Down}
+;     Sleep 350
+;     SendInput {Blind}{%shootKey% Up}
+;     Sleep, %sleepTime%
 
-        SendInput {f}
+;     SendInput {Blind}{%switchKey%}
+;     Sleep 316
 
-        anim_skip()
-        sleep 350
+;     Sleep, %sleepTime%
+; }
+; return
 
-        SendInput {Space}
-        sleep 90
-        SendInput {Space}
-        sleep 110
-
-        SendInput {RButton Down}
-        sleep 30
-        SendInput {e}
-        sleep 30
-        SendInput {RButton Up}
-
-        anim_skip()
-    }
+; Archwing
+*c::
+    SendInput {2} ; 2 Volt skill
+    SendInput {c} ; Arch bind
 return
 
 ; Rapid fire
-~LButton & RButton::
-    while GetKeyState("LButton", "P") and GetKeyState("RButton", "P")
+~LButton::
+    while GetKeyState("LButton", "P")
     {
-        call_shot()
-        sleep 10
+        SendInput {Blind}{%shootKey%}
+        sleep 1
     }
 return
 
@@ -168,12 +167,10 @@ return
 *F1::
     Gui, Show, x%g_width% y%g_height% NoActivate
 
-    SendInput {5}
-    ; sleep 1
-    ; SendInput {5}
+    SendInput {Blind}{5}
 
     speed_timer := 0
-    SendInput {2 down}
+    SendInput {Blind}{2 down}
     sleep, 100
 
     SetTimer, UpdateSpeed, -10
@@ -181,7 +178,7 @@ return
 
     eclipse_timer := 0
     sleep 350
-    SendInput {4}
+    SendInput {Blind}{4}
 
     SetTimer, UpdateEclipse, -10
     SetTimer, UpdateEclipse, 1000
@@ -230,14 +227,7 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                Misc                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive
 *insert::reload
+*f11::suspend, toggle
 *del::exitapp
-
-#IfWinActive, Warframe 
-{
-    *c::
-        SendInput {5} ; Energy pad
-        SendInput {2} ; 2 Volt skill
-        SendInput {c} ; Arch bind
-    return
-}

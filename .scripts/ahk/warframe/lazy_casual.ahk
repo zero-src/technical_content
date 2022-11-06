@@ -43,6 +43,19 @@ console_hack()
     return
 }
 
+back_to_frame()
+{
+    SendInput {LButton}
+    sleep 0
+    SendInput {e}
+    sleep 10
+    SendInput {-}
+    sleep 1
+    SendInput {-}
+
+    return
+}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;               Hotkeys               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -56,6 +69,33 @@ return
 ; Console hack
 *x::
     console_hack()
+return
+
+; Madurai + 4 skill
+Numpad0::
+NumpadIns::
+    SendInput {XButton1}
+    sleep 300
+
+    SendInput {CtrlDown}
+        sleep 200
+        SendInput {Space}
+        sleep 100
+        SendInput {Space}
+        sleep 100
+        SendInput {Space}
+        sleep 100
+        SendInput {Space}
+        sleep 300
+    SendInput {CtrlUp}
+
+    SendInput {2}
+    sleep 300
+
+    SendInput {e}
+    sleep 200
+
+    SendInput {4}
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
