@@ -17,13 +17,13 @@ SendMode Input
 ;;               Globals               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; Settings
-fps 		= 144 			
-meleeKey 	= e 
+; Game Settings
+fps         = 144 			
+meleeKey    = e 
 switchKey   = f			
-jumpKey 	= Space
+jumpKey     = Space
 shootKey    = LButton 		
-aimKey 		= RButton
+aimKey      = RButton
 crouchKey   = Ctrl
 operatorKey = XButton1
 
