@@ -18,7 +18,7 @@ SendMode Input
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Game Settings
-fps         = 144 			
+fps         = 300 			
 meleeKey    = e 
 switchKey   = f			
 jumpKey     = Space
@@ -51,20 +51,23 @@ g_height := A_ScreenHeight * 0.86
 g_speed_dur := 20
 g_eclipse_dur := 42
 
+; bg
 gui, desync_bg: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 gui, desync_bg: Add, Progress, w30 h60 c839DD5 Background141414 vMyProgress, 0
-gui, desync_bg: Color, 141414
+gui, desync_bg: Color, 151515
 gui, desync_bg: Show, x%g_width% y%g_height% NoActivate
 WinSet, Transparent, 180
 
+; dur
 Gui +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 Gui, Color, 000000
-Gui, Font, s14
-Gui, Add, Text, x15 y5 vSpeed cYellow, 00
-Gui, Add, Text, x15 y25 vEclipse cWhite, 00
+Gui, Font, s13 DRAFT_QUALITY, JetBrains Mono Medium
+Gui, Add, Text, x15 y5 vShock cYellow, xx
+Gui, Add, Text, x15 y25 vEclipse cWhite, xx
 WinSet, TransColor, 000000
 Gui, Show, x%g_width% y%g_height% NoActivate
 
+; name
 gui, ping_text: +AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
 gui, ping_text: Font, s10 DRAFT_QUALITY, Smallest Pixel-7
 gui, ping_text: Add, Text, x3 y45 vping_text0 cCACACA, ---------
@@ -156,7 +159,7 @@ return
 return
 
 ; Rapid fire
-~LButton::
+*LButton::
     while GetKeyState("LButton", "P")
     {
         SendInput {Blind}{%shootKey%}
@@ -207,28 +210,41 @@ return
 
 UpdateEclipse:
     eclipse_timer++
-    time_display := g_eclipse_dur - eclipse_timer
+    timeDisplay := g_eclipse_dur - eclipse_timer
 
-    if (time_display=0)
+    if (timeDisplay=0)
+    {
         SetTimer, UpdateEclipse, off ; stops the counter
+        GuiControl,, Eclipse, xx
+        return
+    }
 
-    GuiControl,, Eclipse, %time_display%
+    GuiControl,, Eclipse, %timeDisplay%
 return
 
 UpdateSpeed:
     speed_timer++
-    time_display := g_speed_dur - speed_timer
+    timeDisplay := g_speed_dur - speed_timer
 
-    if (time_display=0)
+    if (timeDisplay=0)
+    {
         SetTimer, UpdateSpeed, off ; stops the counter
+        GuiControl,, Speed, xx
+        return
+    }
 
-    GuiControl,, Speed, %time_display%
+    GuiControl,, Speed, %timeDisplay%
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                Misc                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive
-*insert::reload
-*f11::suspend, toggle
-*del::exitapp
+*Insert::reload
+*Del::exitapp
+
+*F11::
+    suspend, toggle
+    state := A_IsSuspended ? "PAUSE" : "_PT_"
+    GuiControl, ping_text:, ping_text1, %state%
+return

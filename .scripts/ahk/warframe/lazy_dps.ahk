@@ -19,7 +19,7 @@ SendMode Input
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Game Settings
-fps             = 200
+fps             = 220
 shootKey        = LButton
 propaKey        = MButton
 aimKey          = RButton		
@@ -40,7 +40,8 @@ CastVoltSkillsKey   = F1
 ConsoleHackKey      = XButton2
 EnergyDrainKey      = F5
 TravelToCrKey       = Numpad0
-PPPRZenithKey       = F4
+PPPRZenithKey       = F3
+PropaZenithKey      = F4
 RapidFireKey        = ~LButton & RButton ; visit 111 line to change bind there
 FasterArchwingKey   = c
 
@@ -57,6 +58,7 @@ Hotkey, IfWinActive, ahk_exe Warframe.x64.exe
 Hotkey, *%CastVoltSkillsKey%, CastVoltSkills
 Hotkey, *%ConsoleHackKey%, ConsoleHack
 Hotkey, *%EnergyDrainKey%, EnergyDrain
+Hotkey, *%PropaZenithKey%, PropaZenith
 Hotkey, *%TravelToCrKey%, TravelToCr
 Hotkey, *%PPPRZenithKey%, PPPRZenith
 Hotkey, %RapidFireKey%, RapidFire 
@@ -163,7 +165,29 @@ PPPRZenith:
     SendInput, {Blind}{%propaKey%}
     Sleep, 550
     SendInput, {Blind}{%propaKey%}
-    Sleep, 545
+    Sleep, 525
+
+    SendInput, {Blind}{%shootKey%} ; raplak
+    Sleep, 0
+
+    SendInput, {Blind}{%meleeKey%} ; melee
+    Sleep, %sleepTime%
+    SendInput, {Blind}{%emoteKey%} ; agree emote
+    Sleep, 1
+    SendInput, {Blind}{%emoteKey%} ; agree emote
+
+    SendInput, {Blind}{%aimKey% Down}
+    loop, 30
+    {
+        SendInput, {Blind}{%shootKey%}
+        Sleep, %safeSleepTime%
+    }
+    SendInput, {Blind}{%aimKey% Up}
+return
+
+PropaZenith:
+    SendInput, {Blind}{%propaKey%}
+    Sleep, 1560
 
     SendInput, {Blind}{%shootKey%} ; raplak
     Sleep, 0
