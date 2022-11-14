@@ -64,8 +64,8 @@ Hotkey, *%PropaZenithKey%, PropaZenith
 Hotkey, *%TravelToCrKey%, TravelToCr
 Hotkey, *%PPPRZenithKey%, PPPRZenith
 Hotkey, %RapidFireKey%, RapidFire 
-Hotkey, %FasterArchwingKey%, FasterArchwing 
-Hotkey, %ShrineTimeManipKey%, ShrineTimeManip 
+Hotkey, *%FasterArchwingKey%, FasterArchwing 
+Hotkey, *%ShrineTimeManipKey%, ShrineTimeManip 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                 GUI                 ;;
@@ -175,32 +175,22 @@ TravelToCr:
     SendInput, {Blind}{%switchKey%}
     Delay(316) ; delay before weapon switch
     SendInput, {Blind}{%switchKey%}
-
     Delay(290)
 
-    ; millis1 := (a_hour*3600 + a_min*60 + a_sec)*1000 + a_msec
-    ; output := ""
 
-    loop % 85
+    loop % 90
     {
         SendInput, {Blind}{%shootKey%}
         Delay(10)
     }
 
-    ; millis2 := (a_hour*3600 + a_min*60 + a_sec)*1000 + a_msec
-    ; millis2_delta := millis2 - millis1
-    ; output := millis2_delta
-    ; Progress, m b1 fs10 w200 ZH WM x1500 y700, %output%
-
     MouseMove(241, -96) ; aim to nothing
-    
     SendInput, {Blind}{d Down}
         Delay(500)
     SendInput, {Blind}{d Up}
-
     MouseMove(-75, 176) ; aim on mid loc-pin
 
-    loop % 85
+    loop % 90
     {
         SendInput, {Blind}{%shootKey%}
         Delay(10)
@@ -214,14 +204,14 @@ ConsoleHack:
         Delay(safeSleepTime)
     SendInput, {Blind}{%aimKey% Up}
 
-    Delay(70) ; blink time
+    Delay(75) ; blink time
 
     loop, 3
     {
         SendInput, {Blind}{%useKey%}
         Delay(safeSleepTime)
         SendInput, {Blind}{%hackKey%}
-        Delay(safeSleepTime)
+        Delay(50)
     }
 return
 
@@ -288,7 +278,7 @@ EnergyDrain:
 return
 
 CastVoltSkills:
-    ; SendInput, {Blind}{%energyPadKey%}
+    SendInput, {Blind}{%energyPadKey%}
     Delay(sleepTime)
 
     shockTimer := 0
@@ -300,7 +290,7 @@ CastVoltSkills:
     SetTimer, UpdateShock, 1000
 
     eclipseTimer := 0
-    Delay(600)
+    Delay(450)
 
     SendInput, {Blind}{4}
 
@@ -325,7 +315,6 @@ ShrineTimeManip:
     SendInput, {Blind}{PgDn} ; custom bind for 15 fps lock
     ShrineTimer := 0
 
-    SetTimer, ShrineManip, -10
     SetTimer, ShrineManip, 1000
 
     Delay(warp_duration * 1000) ; main timer
@@ -392,7 +381,7 @@ return
 
 BeforeShrineManip:
     ShrineTimerf += 0.1
-    timeDisplay := 7.9 - ShrineTimerf
+    timeDisplay := 7.5 - ShrineTimerf
     SetFormat, FloatFast, 0.1
 
     if (timeDisplay <= 0)
