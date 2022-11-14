@@ -1,4 +1,4 @@
-SetWorkingDir %A_ScriptDir%  
+﻿SetWorkingDir %A_ScriptDir%  
 #MaxHotkeysPerInterval 200
 #SingleInstance Force
 #Persistent
@@ -163,7 +163,7 @@ return
     while GetKeyState("LButton", "P")
     {
         SendInput {Blind}{%shootKey%}
-        sleep 1
+        Sleep %sleepTime%
     }
 return
 
