@@ -1,5 +1,5 @@
 ﻿SetWorkingDir %A_ScriptDir%  
-#MaxHotkeysPerInterval 200
+#MaxHotkeysPerInterval 777
 #SingleInstance Force
 #Persistent
 #NoEnv
@@ -9,42 +9,43 @@ SetNumLockState AlwaysOn
 ListLines off
 SetBatchLines -1
 SetKeyDelay, -1, -1
-SetMouseDelay, -1, -1
+SetMouseDelay, -1
 SetControlDelay -1
 SetWinDelay -1
-SendMode Input
-
+ 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;               Globals               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; Game Settings
-fps             = 200
-shootKey        = LButton
-propaKey        = MButton
-aimKey          = RButton
-meleeKey        = e
-switchKey       = f
-jumpKey         = Space
-shiftKey        = Shift
-crouchKey       = Ctrl
-operatorKey     = XButton1
-archwingKey     = c
-energyPadKey    = 5
-useKey          = x
-hackKey         = y
-emoteKey        = -
+; Game Settings (desc: ingame bind names)
+fps             = 200       ; Average ingame fps
+shootKey        = LButton   ; Fire Weapon bind
+propaKey        = MButton   ; Secondary Fire bind
+aimKey          = RButton   ; Aim Weapon bind
+meleeKey        = e         ; Melee Attack
+switchKey       = f         ; Switch Weapon
+jumpKey         = Space     ; Jump
+shiftKey        = Shift     ; Sprint / Roll
+crouchKey       = Ctrl      ; Hold to Crouch
+operatorKey     = XButton1  ; Focus and Transference
+useKey          = x         ; Use
 
-; Macro binds
-CastVoltSkillsKey   = F1
-ConsoleHackKey      = XButton2
-EnergyDrainKey      = F5
-TravelToCrKey       = Numpad0
-PPPRZenithKey       = F3
-PropaZenithKey      = F4
-RapidFireKey        = ~LButton & RButton ; visit 111 line to change bind there
-FasterArchwingKey   = c
-ShrineTimeManipKey  = NumpadAdd
+; Gear Hotkeys
+archwingKey     = c         ; Archwing Launcher
+energyPadKey    = 5         ; Squad Energy Restore
+hackKey         = y         ; Default ingame bind
+emoteKey        = -         ; Agree
+
+; Macro Hotkeys
+CastVoltSkillsKey   = F1 ; Places energy pad + casts volt skills [1 & 4]
+ConsoleHackKey      = XButton2 ; Blink + lure hack
+EnergyDrainKey      = F5 ; Drains operator's energy
+TravelToCrKey       = Numpad0 ; 
+PPPRZenithKey       = F3 ; 3x propa + raplak + zenith
+PropaZenithKey      = F4 ; 1x propa + raplak + zenith
+RapidFireKey        = ~LButton & RButton ; visit 158 line to change bind there
+FasterArchwingKey   = c ; Energy pad -> 2 volt skill -> archwing
+ShrineTimeManipKey  = NumpadAdd ; Who knows
 
 
 ; Do not touch this
@@ -167,13 +168,13 @@ TravelToCr:
     SendInput, {Blind}{%jumpKey% Up}
 
     Delay(110) ; stagger delay
-    SendInput, {Blind}{%shiftKey%}
+        SendInput, {Blind}{%shiftKey%}
     Delay(15) ; stagger delay
     
     MouseMove(-1496, 475) ; aim on CR loc-pin
 
     SendInput, {Blind}{%switchKey%}
-    Delay(316) ; delay before weapon switch
+        Delay(316) ; delay before weapon switch
     SendInput, {Blind}{%switchKey%}
     Delay(290)
 
@@ -188,7 +189,7 @@ TravelToCr:
     SendInput, {Blind}{d Down}
         Delay(500)
     SendInput, {Blind}{d Up}
-    MouseMove(-75, 176) ; aim on mid loc-pin
+    MouseMove(-75, 190) ; aim on mid loc-pin
 
     loop % 90
     {
@@ -224,7 +225,7 @@ PPPRZenith:
     Delay(550)
 
     SendInput, {Blind}{%shootKey%} ; raplak
-    Delay(10)
+    Delay(5)
 
     SendInput, {Blind}{%meleeKey%} ; melee
     Delay(12 + sleepTime)
@@ -283,14 +284,14 @@ CastVoltSkills:
 
     shockTimer := 0
     SendInput, {Blind}{1 Down}
-        Delay(350) ; cast delay (+37.5% cast speed)
+        Delay(400) ; cast delay (+37.5% cast speed)
     SendInput, {Blind}{1 Up}
 
     SetTimer, UpdateShock, -10
     SetTimer, UpdateShock, 1000
 
     eclipseTimer := 0
-    Delay(450)
+    Delay(410)
 
     SendInput, {Blind}{4}
 
@@ -313,8 +314,8 @@ ShrineTimeManip:
     Delay(7900) ; afret last limb timer  
 
     SendInput, {Blind}{PgDn} ; custom bind for 15 fps lock
-    ShrineTimer := 0
 
+    ShrineTimer := 0
     SetTimer, ShrineManip, 1000
 
     Delay(warp_duration * 1000) ; main timer
@@ -416,7 +417,7 @@ return
 *Del::exitapp
 
 *F11::
-    suspend, toggle
+    Suspend, toggle
     state := A_IsSuspended ? "PAUSE" : "_DPS_"
     GuiControl, ping_text:, ping_text1, %state%
 return
