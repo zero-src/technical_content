@@ -51,7 +51,7 @@ EnergyDrainKey      = F5 ; Drains operator's energy
 TravelToCrKey       = Numpad0 ; Who knows
 PPPRZenithKey       = F3 ; 3x propa + raplak + zenith
 PropaZenithKey      = F4 ; 1x propa + raplak + zenith
-RapidFireKey        = ~LButton & RButton ; visit 161 line to change bind there
+RapidFireKey        = ~LButton & RButton ; visit 165 line to change bind there
 FasterArchwingKey   = c ; Energy pad -> 2 volt skill -> archwing
 ShrineTimeManipKey  = NumpadAdd ; Who knows
 
