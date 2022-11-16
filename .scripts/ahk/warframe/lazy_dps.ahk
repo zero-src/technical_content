@@ -12,16 +12,16 @@ SetKeyDelay, -1, -1
 SetMouseDelay, -1
 SetControlDelay -1
 SetWinDelay -1
- 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;               Globals               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Game Settings (desc: ingame bind names)
 fps             = 200       ; Average ingame fps
-shootKey        = LButton   ; Fire Weapon bind
-propaKey        = MButton   ; Secondary Fire bind
-aimKey          = RButton   ; Aim Weapon bind
+shootKey        = LButton   ; Fire Weapon
+propaKey        = MButton   ; Secondary Fire
+aimKey          = RButton   ; Aim Weapon
 meleeKey        = e         ; Melee Attack
 switchKey       = f         ; Switch Weapon
 jumpKey         = Space     ; Jump
@@ -30,30 +30,40 @@ crouchKey       = Ctrl      ; Hold to Crouch
 operatorKey     = XButton1  ; Focus and Transference
 useKey          = x         ; Use
 
+; Duration of skills
+shockDuration   := 101      ; Shock Trooper duration
+eclipseDuration := 63       ; Eclipse duration
+
 ; Gear Hotkeys
 archwingKey     = c         ; Archwing Launcher
 energyPadKey    = 5         ; Squad Energy Restore
 hackKey         = y         ; Default ingame bind
-emoteKey        = -         ; Agree
+emoteKey        = -         ; Agree emote
+
+; RTSS binds for FPS
+fpsLockKey      = PgDn
+fpsUncapKey     = Up
 
 ; Macro Hotkeys
 CastVoltSkillsKey   = F1 ; Places energy pad + casts volt skills [1 & 4]
 ConsoleHackKey      = XButton2 ; Blink + lure hack
 EnergyDrainKey      = F5 ; Drains operator's energy
-TravelToCrKey       = Numpad0 ; 
+TravelToCrKey       = Numpad0 ; Who knows
 PPPRZenithKey       = F3 ; 3x propa + raplak + zenith
 PropaZenithKey      = F4 ; 1x propa + raplak + zenith
-RapidFireKey        = ~LButton & RButton ; visit 158 line to change bind there
+RapidFireKey        = ~LButton & RButton ; visit 161 line to change bind there
 FasterArchwingKey   = c ; Energy pad -> 2 volt skill -> archwing
 ShrineTimeManipKey  = NumpadAdd ; Who knows
 
-
-; Do not touch this
+; Do not touch things below
+;
 sleepTime := 2000/fps
 safeSleepTime := 1000/fps
 
 #IfWinActive ahk_exe Warframe.x64.exe
 Hotkey, IfWinActive, ahk_exe Warframe.x64.exe
+;
+; Do not touch things above
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;               Hotkeys               ;;
@@ -74,9 +84,6 @@ Hotkey, *%ShrineTimeManipKey%, ShrineTimeManip
 global g_pos_x := A_ScreenWidth * 0.008
 global g_pos_y := A_ScreenHeight * 0.86
 global g_width := 50
-
-g_shock_dur := 100
-g_eclipse_dur := 62
 
 ; GUI background
 Gui, desync_bg:+AlwaysOnTop -Caption +LastFound -SysMenu +ToolWindow -DPIScale +E0x20
@@ -179,7 +186,7 @@ TravelToCr:
     Delay(290)
 
 
-    loop % 90
+    loop % 85
     {
         SendInput, {Blind}{%shootKey%}
         Delay(10)
@@ -212,7 +219,7 @@ ConsoleHack:
         SendInput, {Blind}{%useKey%}
         Delay(safeSleepTime)
         SendInput, {Blind}{%hackKey%}
-        Delay(50)
+        Delay(40)
     }
 return
 
@@ -291,7 +298,7 @@ CastVoltSkills:
     SetTimer, UpdateShock, 1000
 
     eclipseTimer := 0
-    Delay(410)
+    Delay(420)
 
     SendInput, {Blind}{4}
 
@@ -311,19 +318,19 @@ ShrineTimeManip:
     Gui, shrine_manip:Show, x%g_pos_x% y%shrine_manip_y% w%g_width% NoActivate
 
     SetTimer, BeforeShrineManip, 100
-    Delay(7900) ; afret last limb timer  
+    Delay(7900) ; time afret last limb  
 
-    SendInput, {Blind}{PgDn} ; custom bind for 15 fps lock
+    SendInput, {Blind}{%fpsLockKey%} ; custom bind for 15 fps lock
 
     ShrineTimer := 0
     SetTimer, ShrineManip, 1000
 
-    Delay(warp_duration * 1000) ; main timer
+    Delay(warp_duration * 1000) ; warp timer
 
     Gui, shrine_manip:Hide
     Gui, desync_bg:Show, x%g_pos_x% y%g_pos_y% h72 NoActivate
 
-    SendInput, {Blind}{Up} ; custom bind for fps uncap Background
+    SendInput, {Blind}{%fpsUncapKey%} ; custom bind for fps uncap
     Delay(500)
 return
 
@@ -354,7 +361,7 @@ return
 
 UpdateEclipse:
     eclipseTimer++
-    timeDisplay := g_eclipse_dur - eclipseTimer
+    timeDisplay := eclipseDuration- eclipseTimer
 
     if (timeDisplay <= 0)
     {
@@ -368,7 +375,7 @@ return
 
 UpdateShock:
     shockTimer++
-    timeDisplay := g_shock_dur - shockTimer
+    timeDisplay := shockDuration- shockTimer
 
     if (timeDisplay <= 0)
     {
