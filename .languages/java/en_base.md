@@ -72,6 +72,8 @@ double notAtEnd = 1000.00_; // DOES NOT COMPILE
 double notByDecimal = 1000_.00; // DOES NOT COMPILE
 ```
 
+---
+
 ## Reserved words
 |  | | | | |
 |  --- | --- | --- | --- | --- |
@@ -93,3 +95,25 @@ in case Java wants to use them one day.
 
 `**` true/false/null are not actually reserved words, but `literal values`. Since they cannot be
 used as identifier names, we include them in this table.
+
+---
+
+## Local variables
+
+```java
+public void eatMore(boolean hungry, int amountOfFood) {
+  int roomInBelly = 5;
+  
+  if (hungry) {
+    var timeToEat = true;
+    
+    while (amountOfFood > 0) {
+      int amountEaten = 2;
+      roomInBelly = roomInBelly - amountEaten;
+      amountOfFood = amountOfFood - amountEaten;
+    }
+  }
+  
+  System.out.println(amountOfFood);
+}
+```
