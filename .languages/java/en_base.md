@@ -8,6 +8,9 @@
 - [Exam](#%EF%B8%8F-exam)
   - [Exam Questions](#exam-questions)
 - [Java](#-java-)
+  - [Literals and the Underscore Character](#literals-and-the-underscore-character)
+  - [Reserved words](#reserved-words)
+  - [Destroying Objects](#destroying-objects)
 
 # 🖊️ Exam
 
@@ -98,22 +101,5 @@ used as identifier names, we include them in this table.
 
 ---
 
-## Local variables
+## Destroying Objects
 
-```java
-public void eatMore(boolean hungry, int amountOfFood) {
-  int roomInBelly = 5;
-  
-  if (hungry) {
-    var timeToEat = true;
-    
-    while (amountOfFood > 0) {
-      int amountEaten = 2;
-      roomInBelly = roomInBelly - amountEaten;
-      amountOfFood = amountOfFood - amountEaten;
-    }
-  }
-  
-  System.out.println(amountOfFood);
-}
-```
