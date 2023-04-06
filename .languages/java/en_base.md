@@ -103,3 +103,17 @@ used as identifier names, we include them in this table.
 
 ## Destroying Objects
 
+## Checking for Unperformed Side Effects
+Be wary of short-circuit behavior on the exam, as questions are known
+to alter a variable on the right side of the expression that may never be
+reached. This is referred to as an unperformed side ef ect. For
+example, what is the output of the following code?
+
+```java
+int rabbit = 6;
+boolean bunny = (rabbit >= 6) || (++rabbit <= 7);
+System.out.println(rabbit); // 6
+```
+
+Because rabbit >= 6 is true, the increment operator on the right side
+of the expression is never evaluated, so the output is 6.
