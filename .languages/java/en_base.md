@@ -57,6 +57,38 @@ conflict, class name imports take precedence.
 declaration in that order. Fields and methods are also `optional` and are
 allowed in any order within the class declaration
 
+### 6. Understand if and else decision control statements. 
+The if and else statements come up frequently throughout the exam in
+questions unrelated to decision control, so make sure you fully
+understand these basic building blocks of Java.
+
+### 7. Understand switch statements and their proper usage. 
+You should be able to spot a poorly formed switch statement on the exam.
+The switch value and data type should be compatible with the case
+statements, and the values for the case statements must evaluate to
+compile-time constants. Finally, at runtime a switch statement
+branches to the first matching case, or default if there is no match, or
+exits entirely if there is no match and no default branch. The process
+then continues into any proceeding case or default statements until a
+break or return statement is reached.
+
+### 8. Understand `while` loops. 
+Know the syntactical structure of all while
+and do/while loops. In particular, know when to use one versus the
+other.
+
+### 9. Be able to use `for` loops. 
+You should be familiar with for and foreach loops and know how to write and evaluate them. Each loop has
+its own special properties and structures. You should know how to use
+for-each loops to iterate over lists and arrays.
+
+### 10. Understand how `break`, `continue`, and `return` can change flow control.
+Know how to change the flow control within a statement by
+applying a break, continue, or return statement. Also know which
+control statements can accept break statements and which can accept
+continue statements. Finally, you should understand how these
+statements work inside embedded loops or switch statements.
+
 ---
 
 # 🐾 Java 🐾
