@@ -11,6 +11,7 @@
   - [Literals and the Underscore Character](#literals-and-the-underscore-character)
   - [Reserved words](#reserved-words)
   - [Destroying Objects](#destroying-objects)
+  - [Interfaces](#interfaces)
 
 # 🖊️ Exam
 
@@ -149,3 +150,7 @@ System.out.println(rabbit); // 6
 
 Because rabbit >= 6 is true, the increment operator on the right side
 of the expression is never evaluated, so the output is 6.
+
+## Interfaces
+
+Predicate, Consumer, Supplier, and Comparator.
